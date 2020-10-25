@@ -316,7 +316,7 @@ h1, h2, h3, h4, h5, h6 {
   content: "\f107";
   position: absolute;
   right: 8px;
-  font-family: FontAwesome;
+  font-family: "Font Awesome";
   font-style: normal;
   font-weight: normal;
 }
@@ -1247,7 +1247,7 @@ section {
   font-size: 15px;
 }
 
-#contact .php-email-form input::focus, #contact .php-email-form textarea::focus {
+#contact .php-email-form input:focus, #contact .php-email-form textarea:focus {
   background-color: #50d8af;
 }
 
