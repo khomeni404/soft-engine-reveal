@@ -1123,6 +1123,59 @@ section {
   margin: 0 2px;
 }
 
+/* Management Section
+--------------------------------*/
+#mgt {
+  background: #fff;
+  padding: 30px 0 0 0;
+}
+
+#mgt .member {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#mgt .member .pic {
+  overflow: hidden;
+  text-align: center;
+}
+
+#mgt .member .pic img {
+  max-width: 100%;
+}
+
+#mgt .member .details {
+  background: #50d8af;
+  color: #fff;
+  padding: 15px;
+  border-radius: 0 0 3px 3px;
+}
+
+#mgt .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+
+#mgt .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+#mgt .member .social {
+  margin-top: 5px;
+}
+
+#mgt .member .social a {
+  color: #fff;
+}
+
+#mgt .member .social i {
+  font-size: 16px;
+  margin: 0 2px;
+}
+
 /* Contact Section
 --------------------------------*/
 #contact {

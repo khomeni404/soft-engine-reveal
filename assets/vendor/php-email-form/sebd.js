@@ -17,7 +17,7 @@ function postMessage(e) {
         'message': $('#message').val()
     };
 
-    axios.post('http://bell.sebd.co/api/web/postMessage.se', formData)
+    axios.post('http://bell3.sebd.co/api/web/postMessage.se', formData)
         .then(res => {
             //console.log(res)
             var data = res.data;
