@@ -96,7 +96,7 @@
             <ul class="nav-menu">
                 <li class="menu-active"><a href="index.html">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Products</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#mgt">Management</a></li>
                 <li><a href="#team">Team</a></li>
@@ -344,7 +344,7 @@
     <section id="services">
         <div class="container">
             <div class="section-header">
-                <h2>Services</h2>
+                <h2>Products & Services</h2>
                 <p class="text-justify">Day by day the range of enterprise is getting wide. Simultaneously it is
                     becoming more complex to maintain such business.
                     Here we are to make you familiar with the technologies that can simplify the whole enterprise
@@ -363,8 +363,9 @@
                     <div class="box wow fadeInRight" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-address-book"></i></div>
                         <h4 class="title"><a href="">School Management</a></h4>
-                        <p class="description">Student, Class, Exam, Result, Fees, Salary. etc. are the key features for
+                        <p align="justify" class="description">Student, Class, Exam, Result, Fees, Salary. etc. are the key features for
                             a school. We provide solutions and many more things along with key features.</p>
+                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
                     </div>
                 </div>
 
@@ -372,8 +373,9 @@
                     <div class="box wow fadeInLeft">
                         <div class="icon"><i class="fa fa-balance-scale"></i></div>
                         <h4 class="title"><a href="">Enterprise Resources Planning</a></h4>
-                        <p class="description">We develop customized Enterprise Resources Planning.
+                        <p align="justify" class="description">We develop customized Enterprise Resources Planning.
                             For any kind of Corporate Business or Industry.</p>
+                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
                     </div>
                 </div>
 
@@ -381,8 +383,9 @@
                     <div class="box wow fadeInRight">
                         <div class="icon"><i class="fa fa-money"></i></div>
                         <h4 class="title"><a href="">Real Estate Business Solution</a></h4>
-                        <p class="description">To manage Customer Information, Information of Flat, Plot Building etc.
+                        <p align="justify" class="description">To manage Customer Information, Information of Flat, Plot Building etc.
                             Notification of Customer Payments/Installments.</p>
+                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
                     </div>
                 </div>
 
@@ -390,8 +393,9 @@
                     <div class="box wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-sticky-note"></i></div>
                         <h4 class="title"><a href="">Attendance Maintanance</a></h4>
-                        <p class="description">Garments, Hospitals etc. have complex employee duty management, like 3
+                        <p align="justify" class="description">Garments, Hospitals etc. have complex employee duty management, like 3
                             schedules duty. We also provide solutions for this type of complexity.</p>
+                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
                     </div>
                 </div>
 
@@ -400,9 +404,10 @@
                     <div class="box wow fadeInRight" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-shield"></i></div>
                         <h4 class="title"><a href="">Admin & Procurement</a></h4>
-                        <p class="description">In a business, goods and services are often obtained on a regular basis.
+                        <p align="justify" class="description">In a business, goods and services are often obtained on a regular basis.
                             It can easily become a headache to keep account of all kinds of procurement. We provide
                             softwares that can take care of the heavy bookkeeping and save resources.</p>
+                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
                     </div>
                 </div>
 
@@ -410,9 +415,10 @@
                     <div class="box wow fadeInRight" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-male"></i></div>
                         <h4 class="title"><a href="">Human Resource Management</a></h4>
-                        <p class="description">Human Resource (HR) is one of the main workforces of an organization.
+                        <p align="justify" class="description">Human Resource (HR) is one of the main workforces of an organization.
                             Often it costs more resources like time, money or more human resource to manage the HR. We
                             provide solutions that can handle HRM in an efficient way.</p>
+                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
                     </div>
                 </div>
 
@@ -949,12 +955,6 @@
 
 </main><!-- End #main -->
 
-<section id="policies" class="wow fadeInUp">
-    <div class="container">
-
-    </div>
-</section>
-
 <section id="pay_partner" class="wow fadeInUp">
     <div class="container">
         <div class="section-header">
@@ -1018,88 +1018,7 @@
 <script src="assets/js/main.js"></script>
 
 
-<div class="modal fade" id="refundModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="refundModalLabel"><b>Refund & Cancellation Policy</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align: justify">
-                Soft Engine Ltd. will refund the money exactly the way it was received through any purchase or as any service bill. The Refund process will be the same as per the Payment modality. However, claiming refunds for any purchases made through MFS (Mobile Financial Services) e.g. Bkash, Nagad, Rocket etc. will incur a service/cash-out charge which has to be borne by the customer. The charge amount will vary according to the MFS availed during the purchase. Customers of Soft Engine Ltd. can request Refund by contacting us via Call, Email & Web. The refund may take up to 4-6 weeks from the date of applying. Refund will be applicable only on refundable services.
-                <br><br>
-                Soft Engine Ltd. provides various types of Software services with package & customized software sales. This includes Enterprise Resources Planning (ERP), Education Management System (EMS), Research Projects, Accounting Software, Real-estate Management etc. By purchasing software or services you are eligible to follow/accept the following terms and conditions.
-
-                <ul>
-                    <li>There are two types of software provide by Soft Engine Ltd. (i) Package Software & (ii) Customized Software.</li>
-                    <li>Soft Engine sales software as well as provide SAS  (software as service).</li>
-                    <li>As per written agreement, clients of Soft Engine will pay ONLY ‘Software Service Bill’ through payment gateway. No Online payment is applicable for Software sales.</li>
-                    <li>Cancellation of any order abide by the term and condition specified on the written agreement.</li>
-                    <li>For any refund/cancellation/date change related queries kindly email us at <a target="_blank" href="mailto:softengineltd@gmail.com">softengineltd@gmail.com</a>, we will take proper initiative to cancel and refund as per term and condition specified on the written agreement.</li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align: justify">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="termsModalLabel">Terms & Conditions</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align: justify">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="paySecModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="paySecModalLabel">Payment Security</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align: justify">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+<?php include("modals.php") ?>
 
 </body>
 
