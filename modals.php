@@ -30,7 +30,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+                <h5 class="modal-title" id="privacyModalLabel"><b>Privacy Policy</b></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -48,7 +48,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="termsModalLabel">Terms & Conditions</h5>
+                <h5 class="modal-title" id="termsModalLabel"><b>Terms & Conditions</b></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -64,7 +64,7 @@
                 <br><br>
                 Services offered to you through our website or any of our representatives, are only applicable for personal and non-commercial use. You are not allowed to sell, resell, copy, or reproduce any software/services obtained by us unless you have a B2B partnership with us.
                 <br><br><br>
-                You are also agreeing not to:
+                <b>You are also agreeing not to:</b>
                 <br>
                 <ul>
                     <li>Use the contents of this website anywhere else.</li>
@@ -73,11 +73,11 @@
                 </ul>
                 If Soft Engine finds any suspicious, or fraudulent purchasing, purchased under a false name, we reserve the right to cancel the purchasing immediately and block the email, phone number that is associated with that particular account from our website. Soft Engine reserves the right to take legal action if needed, in case of any fraudulent activity. If you think your account has been blocked by any mistake, we request you to contact our customer service with proper verifiable documents.
                 <br><br>
-                Modification of these Terms and Conditions:
+                <b>Modification of these Terms and Conditions:</b>
                 <br>
                 Soft Engine reserves the right to change the terms and conditions, at any time without prior notice. The user will respond to regularly checking the terms and conditions from this page.
                 <br><br>
-                User Agreement:
+                <b>User Agreement:</b>
                 <br>
                 By booking any service from website you acknowledge and agree to have read, understood, and agreed to the terms and conditions (including the privacy statement). Disagreement to any of the terms and conditions stated above will not be considered after purchasing any software/service from Soft Engine.
 
@@ -92,7 +92,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="paySecModalLabel">Payment Security</h5>
+                <h5 class="modal-title" id="paySecModalLabel"><b>Payment Security</b></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
