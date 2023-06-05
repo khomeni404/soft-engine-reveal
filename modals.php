@@ -36,7 +36,37 @@
                 </button>
             </div>
             <div class="modal-body" style="text-align: justify">
-                ...
+                Soft Engine honours your privacy. Please check our current Privacy Policy to understand how we use and process your personal data.
+                <br><br>
+                <b>How do we collect your data?</b><br>
+                Your data will be collected by inquiring you personally or having you filling up a data form. No data is collected without your permission.
+                <br><br>
+                <b>What do we use your data for?</b><br>
+                The data that we collect from you are used to provide customised software service based on your information and for billing process for the service you choose to get.
+                <br><br>
+                <b>What rights do you have regarding your data?</b><br>
+                You have full rights over your data. You have the right to obtain free information about the origin, recipient and purpose of your stored personal data at any time. You also have the right to request the correction, blocking or deletion of this data.
+                <br><br>
+                <b>Data Protection</b><br>
+                The operators of our software services take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the relevant data protection laws and this Privacy Policy.
+                If you use any of our software products or services, various personal data may need to be collected but it will be collected by asking you. Personal information is information that makes it possible to personally identify you. This Privacy Policy explains which information we collect and we use it for. It also explains how and for what this data is collected.
+                We do not share your data with any third party under any circumstances.
+                <br><br>
+                <b>Withdrawing your Consent to Data Processing</b><br>
+                Many data processing operations are only possible with your express consent. You can revoke your consent at any time. To do this, an informal message sent to us via email is sufficient. The legality of the data processing carried out until the time of consent withdrawal remains unaffected by the withdrawal.
+                <br><br>
+                <b>SSL or TLS Encryption</b><br>
+                For security reasons and to protect the transmission of confidential information, such as orders or requests which you send to us as the site operator, this site uses SSL or TLS encryption. You can detect an encrypted connection by examining the address line of the browser: when encrypted the “http://” changes to “https://” and the lock symbol appears in the browser line.
+                If SSL or TLS encryption is enabled, the data you submit to us cannot be seen by third parties.
+                <br><br>
+                <b>Encrypted Payments on our Software Products/Services</b><br>
+                If, after the conclusion of a fee-based contract, there is an obligation to provide us with your payment details (for example, the account number for direct debit authorization), this data will be required for payment processing.
+                Payment transactions via the common means of payment (Visa / MasterCard, direct debit) are made exclusively via an encrypted SSL or TLS connection. You can detect an encrypted connection by examining the address line of the browser: when encrypted the “http://” changes to “https://” and the lock symbol appears in the browser line.
+                When SSL or TLS encryption is enabled, the payment details that you submit to us cannot be seen by third parties.
+                <br><br>
+                <b>Contact Form</b><br>
+                When you send us inquiries via the contact form, the information you provided in the form, including the contact details you indicated there, will be stored in order to process the request and in case of follow-up questions. We will not share this information without your consent.
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -98,7 +128,8 @@
                 </button>
             </div>
             <div class="modal-body" style="text-align: justify">
-                ...
+                Payment transactions via the common means of payment (Visa / MasterCard, direct debit) are made exclusively via an encrypted SSL or TLS connection. You can detect an encrypted connection by examining the address line of the browser: when encrypted the “http://” changes to “https://” and the lock symbol appears in the browser line.
+                <br>When SSL or TLS encryption is enabled, the payment details that you submit to us cannot be seen by third parties.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
