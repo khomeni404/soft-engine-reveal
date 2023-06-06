@@ -25,6 +25,7 @@
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -36,23 +37,23 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-        .float{
-            position:fixed;
-            width:50px;
-            height:50px;
-            bottom:70px;
-            right:10px;
-            background-color:#25d366;
-            color:#FFF;
-            border-radius:50px;
-            text-align:center;
-            font-size:30px;
+        .float {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 70px;
+            right: 10px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
             box-shadow: 2px 2px 3px #999;
-            z-index:100;
+            z-index: 100;
         }
 
-        .my-float{
-            margin-top:11px;
+        .my-float {
+            margin-top: 11px;
         }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -88,7 +89,7 @@
         <div id="logo" class="pull-left">
             <!--<h1><a href="index.html">Soft<span>Engine</span> Ltd.</a></h1>-->
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="index.html"><img src="assets/img/logos/Soft%20Engine%20Logo.PNG" width="400" height="55"
+            <a href="https://www.sebd.co"><img src="assets/img/logos/Soft%20Engine%20Logo.PNG" width="400" height="55"
                                       alt=""></a>
         </div>
 
@@ -363,9 +364,20 @@
                     <div class="box wow fadeInRight" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-address-book"></i></div>
                         <h4 class="title"><a href="">School Management</a></h4>
-                        <p align="justify" class="description">Student, Class, Exam, Result, Fees, Salary. etc. are the key features for
+                        <p align="justify" class="description">Student, Class, Exam, Result, Fees, Salary. etc. are the
+                            key features for
                             a school. We provide solutions and many more things along with key features.</p>
-                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="pull-right btn btn-success"
+                                        onclick="window.open('forms/checkout.php', '_blank')">Checkout
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -375,7 +387,17 @@
                         <h4 class="title"><a href="">Enterprise Resources Planning</a></h4>
                         <p align="justify" class="description">We develop customized Enterprise Resources Planning.
                             For any kind of Corporate Business or Industry.</p>
-                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--<button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>-->
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="pull-right btn btn-dark"
+                                        onclick="outOfStock()">Checkout
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -383,9 +405,20 @@
                     <div class="box wow fadeInRight">
                         <div class="icon"><i class="fa fa-money"></i></div>
                         <h4 class="title"><a href="">Real Estate Business Solution</a></h4>
-                        <p align="justify" class="description">To manage Customer Information, Information of Flat, Plot Building etc.
+                        <p align="justify" class="description">To manage Customer Information, Information of Flat, Plot
+                            Building etc.
                             Notification of Customer Payments/Installments.</p>
-                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--<button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>-->
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="pull-right btn btn-dark"
+                                        onclick="outOfStock()">Checkout
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -393,9 +426,20 @@
                     <div class="box wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-sticky-note"></i></div>
                         <h4 class="title"><a href="">Attendance Maintanance</a></h4>
-                        <p align="justify" class="description">Garments, Hospitals etc. have complex employee duty management, like 3
+                        <p align="justify" class="description">Garments, Hospitals etc. have complex employee duty
+                            management, like 3
                             schedules duty. We also provide solutions for this type of complexity.</p>
-                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--<button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>-->
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="pull-right btn btn-dark"
+                                        onclick="outOfStock()">Checkout
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -404,10 +448,21 @@
                     <div class="box wow fadeInRight" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-shield"></i></div>
                         <h4 class="title"><a href="">Admin & Procurement</a></h4>
-                        <p align="justify" class="description">In a business, goods and services are often obtained on a regular basis.
+                        <p align="justify" class="description">In a business, goods and services are often obtained on a
+                            regular basis.
                             It can easily become a headache to keep account of all kinds of procurement. We provide
                             softwares that can take care of the heavy bookkeeping and save resources.</p>
-                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                               <!-- <button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>-->
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="pull-right btn btn-dark"
+                                        onclick="outOfStock()">Checkout
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -415,10 +470,21 @@
                     <div class="box wow fadeInRight" data-wow-delay="0.2s">
                         <div class="icon"><i class="fa fa-male"></i></div>
                         <h4 class="title"><a href="">Human Resource Management</a></h4>
-                        <p align="justify" class="description">Human Resource (HR) is one of the main workforces of an organization.
+                        <p align="justify" class="description">Human Resource (HR) is one of the main workforces of an
+                            organization.
                             Often it costs more resources like time, money or more human resource to manage the HR. We
                             provide solutions that can handle HRM in an efficient way.</p>
-                        <button type="button" class="m-2 pull-right btn btn-success" onclick="window.open('forms/checkout.php', '_blank')">Checkout</button>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!--<button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>-->
+                            </div>
+                            <div class="col-md-6">
+                                <button type="button" class="pull-right btn btn-dark"
+                                        onclick="outOfStock()">Checkout
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -540,6 +606,18 @@
                         <h4>Len-Den</h4>
                         <p>Financial Management</p>
                         <a href="assets/img/portfolio/lenden.jpg" data-gall="portfolioGallery"
+                           class="venobox preview-link" title="Preview"><i class="bx bx-zoom-in"></i></a>
+                        <!--<a href="portfolio-details.html" class="details-link" title="More Details"><i
+                                class="bx bx-link"></i></a>-->
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <img src="assets/img/portfolio/sbell.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Smart Bell</h4>
+                        <p>Utility</p>
+                        <a href="assets/img/portfolio/sbell.jpg" data-gall="portfolioGallery"
                            class="venobox preview-link" title="Preview"><i class="bx bx-zoom-in"></i></a>
                         <!--<a href="portfolio-details.html" class="details-link" title="More Details"><i
                                 class="bx bx-link"></i></a>-->
@@ -788,9 +866,9 @@
                             <div class="social">
                                 <a href="https://github.com/shabab239" target="_blank"><i class="fa fa-github"></i></a>
                                 <a href="https://linkedin.com/in/shabab239" target="_blank"><i
-                                        class="fa fa-linkedin"></i></a>
+                                            class="fa fa-linkedin"></i></a>
                                 <a href="https://www.facebook.com/itizwhatitizzZ" target="_blank"><i
-                                        class="fa fa-facebook"></i></a>
+                                            class="fa fa-facebook"></i></a>
                                 <!--<a href=""><i class="fa fa-twitter"></i></a>
                                 <a href=""><i class="fa fa-google-plus"></i></a>
                                 <a href=""><i class="fa fa-linkedin"></i></a>-->
@@ -964,7 +1042,8 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#refundModal">Refund & Cancellation Policy</a></div>
+            <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#refundModal">Refund & Cancellation
+                    Policy</a></div>
             <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a></div>
             <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#termsModal">Terms & Conditions</a></div>
             <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#paySecModal">Payment Security</a></div>
@@ -1013,11 +1092,27 @@
 <script src="assets/vendor/superfish/superfish.min.js"></script>
 <script src="assets/vendor/hoverIntent/hoverIntent.js"></script>
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 
+<script>
+    function outOfStock() {
+        $.alert('Sorry, this product is currently out of stock.');
 
+    }
+</script>
+<?php if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $message = $_GET["message"];
+    if (strlen($message) > 0) {
+        ?>
+        <script>
+            $.alert('<?php echo $message ?>');
+        </script>
+<?php
+    }
+} ?>
 <?php include("modals.php") ?>
 
 </body>

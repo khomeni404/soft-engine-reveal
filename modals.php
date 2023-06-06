@@ -7,7 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="text-align: justify">
+            <div class="modal-body" style="text-align: justify; font-size: smaller">
                 Soft Engine Ltd. will refund the money exactly the way it was received through any purchase or as any service bill. The Refund process will be the same as per the Payment modality. However, claiming refunds for any purchases made through MFS (Mobile Financial Services) e.g. Bkash, Nagad, Rocket etc. will incur a service/cash-out charge which has to be borne by the customer. The charge amount will vary according to the MFS availed during the purchase. Customers of Soft Engine Ltd. can request Refund by contacting us via Call, Email & Web. The refund may take up to 4-6 weeks from the date of applying. Refund will be applicable only on refundable services.
                 <br><br>
                 Soft Engine Ltd. provides various types of Software services with package & customized software sales. This includes Enterprise Resources Planning (ERP), Education Management System (EMS), Research Projects, Accounting Software, Real-estate Management etc. By purchasing software or services you are eligible to follow/accept the following terms and conditions.
@@ -35,7 +35,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="text-align: justify">
+            <div class="modal-body" style="text-align: justify; font-size: smaller">
                 Soft Engine honours your privacy. Please check our current Privacy Policy to understand how we use and process your personal data.
                 <br><br>
                 <b>How do we collect your data?</b><br>
@@ -83,7 +83,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="text-align: justify">
+            <div class="modal-body" style="text-align: justify; font-size: smaller">
                 This software/service purchase is not for life long. It will serve for 3 (three) consecutive month from the purchase date. So, this is considered as test-version purchase. During the trial period, Soft Engine will strongly assist in configuring the software and enabling the software to run or in other words installation.
                 <br><br>
                 To cancel this order, you have to contract through our business email softengineltd@gmail.com from your email address that provided on purchasing. The refund may take up to 4-6 weeks from the date of applying. Refund will be applicable only on refundable services.
@@ -127,7 +127,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="text-align: justify">
+            <div class="modal-body" style="text-align: justify; font-size: smaller">
                 Payment transactions via the common means of payment (Visa / MasterCard, direct debit) are made exclusively via an encrypted SSL or TLS connection. You can detect an encrypted connection by examining the address line of the browser: when encrypted the “http://” changes to “https://” and the lock symbol appears in the browser line.
                 <br>When SSL or TLS encryption is enabled, the payment details that you submit to us cannot be seen by third parties.
             </div>
