@@ -36,23 +36,23 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-        .float{
-            position:fixed;
-            width:50px;
-            height:50px;
-            bottom:70px;
-            right:10px;
-            background-color:#25d366;
-            color:#FFF;
-            border-radius:50px;
-            text-align:center;
-            font-size:30px;
+        .float {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 70px;
+            right: 10px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
             box-shadow: 2px 2px 3px #999;
-            z-index:100;
+            z-index: 100;
         }
 
-        .my-float{
-            margin-top:11px;
+        .my-float {
+            margin-top: 11px;
         }
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -60,6 +60,81 @@
         <i class="fa fa-whatsapp my-float"></i>
     </a>
 </head>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $instituteName = $_POST['instituteName'];
+    $numberOfStudent = $_POST['numberOfStudent'];
+    $address = $_POST['address'];
+    $director = $_POST['director'];
+    $cellPhone = $_POST['cellPhone'];
+    $email = $_POST['email'];
+    $regFee = $_POST['regFee'];
+
+    $errors = array();
+
+    if (is_null($instituteName) || strlen($instituteName) < 5 || strlen($instituteName) > 150) {
+        $errors['instituteName'] = 'Institute Name should be between 5-150 characters.';
+    }
+
+    if (is_null($numberOfStudent) || strlen($numberOfStudent) > 20 || !ctype_digit($numberOfStudent)) {
+        $errors['numberOfStudent'] = 'Number of Students should be a maximum of 20 digits.';
+    }
+
+    if (is_null($address) || strlen($address) > 100) {
+        $errors['address'] = 'Address should not exceed 100 characters.';
+    }
+
+    if (is_null($director) || strlen($director) > 100) {
+        $errors['director'] = 'Director name should not exceed 100 characters.';
+    }
+
+    if (is_null($cellPhone) || strlen($cellPhone) !== 11 || !ctype_digit($cellPhone)) {
+        $errors['cellPhone'] = 'Cell Phone should be exactly 11 digits.';
+    }
+
+    if (is_null($regFee) || !ctype_digit($regFee)) {
+        $errors['regFee'] = 'Registration Fee should contain numbers only.';
+    }
+
+    if (empty($errors)) {
+        $formData = array(
+            'instituteName' => $instituteName,
+            'numberOfStudent' => $numberOfStudent,
+            'address' => $address,
+            'director' => $director,
+            'cellPhone' => $cellPhone,
+            'email' => $email,
+            'regFee' => $regFee
+        );
+
+        $jsonData = json_encode($formData);
+        ?>
+
+        <script>
+            var form = document.createElement('form');
+            form.style.display = 'none';
+            form.method = 'POST';
+            form.action = 'https://bell.sebd.co/home/onlineRegistrationCheckout.se';
+
+            <?php
+            foreach ($formData as $name => $value) {
+                echo 'var input = document.createElement("input");';
+                echo 'input.type = "hidden";';
+                echo 'input.name = "' . $name . '";';
+                echo 'input.value = ' . json_encode($value) . ';';
+                echo 'form.appendChild(input);';
+            }
+            ?>
+
+            document.body.appendChild(form);
+            form.submit();
+        </script>
+
+        <?php
+        exit();
+    }
+}
+?>
 
 <body>
 
@@ -83,8 +158,9 @@
     <div class="container">
 
         <div id="logo" class="pull-left">
-            <a href="index.html"><img src="../assets/img/logos/Soft%20Engine%20Logo.PNG" width="400" height="55"
-                                      alt=""></a>
+            <a href="https://www.sebd.co"><img src="../assets/img/logos/Soft%20Engine%20Logo.PNG" width="400"
+                                               height="55"
+                                               alt=""></a>
         </div>
 
         <nav id="nav-menu-container">
@@ -102,43 +178,84 @@
                 <h2>Checkout</h2>
             </div>
             <div class="form">
-                <form onsubmit="return postMessage(event)" method="post" role="form" id="msg-form" name="msg-form"
+                <form action="checkout.php" method="POST" role="form"
+                      id="msg-form" name="msg-form"
                       class="php-email-form">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-9">
+                            <input type="text" id="instituteName" name="instituteName" maxlength="100"
+                                   required class="form-control"
+                                   placeholder="Institute Name (5-100 Characters)">
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="number" id="numberOfStudent" name="numberOfStudent" maxlength="20" required
+                                   class="form-control"
+                                   placeholder="Number of Students">
+                            <div class="validate"></div>
+                        </div>
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <input type="text" required name="name" class="form-control" id="name"
-                                   placeholder="Full Name"
-                                   data-rule="minlen:3" data-msg="Please enter at least 4 characters"/>
+                            <textarea id="address" name="address" maxlength="100" required class="form-control"
+                                      placeholder="Address (Max 100 Characters)"></textarea>
                             <div class="validate"></div>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="email" required class="form-control" name="email" id="email"
-                                   placeholder="Email Address"
-                                   data-rule="email" data-msg="Please enter a valid email"/>
+                            <input type="text" id="director" name="director" maxlength="100" required
+                                   class="form-control"
+                                   placeholder="Director (Max 100 Characters)">
                             <div class="validate"></div>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" required class="form-control" name="subject" id="subject"
-                                   placeholder="Phone No."
-                                   data-rule="minlen:11" data-msg="Please provide a valid Mobile Number"/>
+                            <input type="number" id="cellPhone" name="cellPhone" maxlength="11" minlength="11" required
+                                   class="form-control"
+                                   placeholder="Cell Phone (11 Digits)">
                             <div class="validate"></div>
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your order has been received. Thank you.</div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="email" id="email" name="email" required maxlength="100" class="form-control"
+                                   placeholder="Email (Max 100 Characters)">
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="number" id="regFee" name="regFee" required class="form-control"
+                                   placeholder="Registration Fee (TAKA)">
+                            <div class="validate"></div>
+                        </div>
                     </div>
+                    <?php
+                    if (!empty($errors)) {
+                        echo '<div class="mb-3">';
+                        echo '<div class="error-message" style="display: block !important;">';
+                        echo '<ul>';
+                        foreach ($errors as $field => $error) {
+                            echo '<li>' . $error . '</li>';
+                        }
+                        echo '</div></div>';
+                    }
+                    ?>
 
                     <div style="text-align: justify">
-                        <input type="checkbox">
-                        By clicking this checkbox, you agree to the <a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a>, <a href="#" data-toggle="modal" data-target="#termsModal">Terms and Conditions</a> and <a href="#" data-toggle="modal" data-target="#refundModal">Refund and Cancellation Policy</a> of software/service purchasing from Soft Engine. You also agree to this purchase, collecting your name, email address and phone number and also agree to be contacted either by email address or phone number provided.
+                        <input type="checkbox" required>
+                        By clicking this checkbox, you agree to the <a href="#" data-toggle="modal"
+                                                                       data-target="#privacyModal">Privacy Policy</a>,
+                        <a href="#" data-toggle="modal" data-target="#termsModal">Terms and Conditions</a> and <a
+                                href="#" data-toggle="modal" data-target="#refundModal">Refund and Cancellation
+                            Policy</a> of software/service purchasing from Soft Engine. You also agree to this purchase,
+                        collecting your name, email address and phone number and also agree to be contacted either by
+                        email address or phone number provided.
                     </div>
                     <hr>
+
                     <div class="text-center">
                         <button type="submit">Order</button>
                     </div>
@@ -158,7 +275,8 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#refundModal">Refund & Cancellation Policy</a></div>
+            <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#refundModal">Refund & Cancellation
+                    Policy</a></div>
             <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#privacyModal">Privacy Policy</a></div>
             <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#termsModal">Terms & Conditions</a></div>
             <div class="col-md-3"><a href="#" data-toggle="modal" data-target="#paySecModal">Payment Security</a></div>
