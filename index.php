@@ -374,7 +374,7 @@
                             </div>
                             <div class="col-md-6">
                                 <button type="button" class="pull-right btn btn-success"
-                                        onclick="window.open('forms/checkout.php', '_blank')">Checkout
+                                        onclick="window.location = 'https://bell.sebd.co/home/onlineRegistrationCheckout.se'">Checkout
                                 </button>
                             </div>
                         </div>
