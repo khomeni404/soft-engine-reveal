@@ -86,10 +86,16 @@
 <header id="header">
     <div class="container">
 
-        <div id="logo" class="pull-left">
+        <div id="logo" class="pull-left d-none d-sm-block">
             <!--<h1><a href="index.html">Soft<span>Engine</span> Ltd.</a></h1>-->
             <!-- Uncomment below if you prefer to use an image logo -->
             <a href="https://www.sebd.co"><img src="assets/img/logos/Soft%20Engine%20Logo.PNG" width="400" height="55"
+                                      alt=""></a>
+        </div>
+        <div id="logo" class="pull-left d-md-none d-xl-none d-lg-none">
+            <!--<h1><a href="index.html">Soft<span>Engine</span> Ltd.</a></h1>-->
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="https://www.sebd.co"><img src="assets/img/logos/Soft%20Engine%20Logo.PNG" width="250" height="55"
                                       alt=""></a>
         </div>
 
@@ -1099,8 +1105,16 @@
 
 <script>
     function outOfStock() {
-        $.alert('Sorry, this product is currently out of stock.');
-
+        $.confirm({
+            title: 'Attention !!',
+            content: 'Sorry, this product is currently out of stock.',
+            type: 'red',
+            typeAnimated: true,
+            buttons: {
+                close: function () {
+                }
+            }
+        });
     }
 </script>
 <?php if ($_SERVER['REQUEST_METHOD'] === 'GET') {
@@ -1108,7 +1122,22 @@
     if (strlen($message) > 0) {
         ?>
         <script>
-            $.alert('<?php echo $message ?>');
+            $.confirm({
+                title: '<?php echo explode("~",$message)[0] ?>',
+                content: '<?php echo explode("~",$message)[1] ?>',
+                type: 'red',
+                typeAnimated: true,
+                buttons: {
+                    agree: {
+                        text: 'OK',
+                        btnClass: 'btn-success',
+                        action: function(){
+                        }
+                    },
+                    close: function () {
+                    }
+                }
+            });
         </script>
 <?php
     }

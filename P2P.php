@@ -2,6 +2,8 @@
     $type = $_GET["type"];
     $trId = $_GET["trId"];
 
+    $message = "";
+
     if ($type == "S") {
         $message = "Successfully Completed";
     } else if ($type == "F") {
@@ -20,19 +22,26 @@
 } ?>
 
 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $type = $_POST["type"];
-    $trId = $_POST["trId"];
+    $type = $_GET["type"];
+    $trId = $_GET["trId"];
+
+    if (is_null($type) || strlen($type) < 1) {
+        $type = $_POST["type"];
+    }
+    if (is_null($trId) || strlen($trId) < 1) {
+        $trId = $_POST["trId"];
+    }
+
+    $message = "";
 
     if ($type == "S") {
-        $message = "Successfully Completed";
+        $message = "Successfully Completed~Your transaction id is $trId. Please write it down for further reference.";
     } else if ($type == "F") {
-        $message = "Failed to Purchase";
+        $message = "Failed to Purchase~The purchase has failed. Please try again or contact us directly.";
     } else if ($type == "C") {
-        $message = "Purchase Cancelled";
+        $message = "Purchase Cancelled~The purchase has been cancelled.";
     }
-    if (strlen($trId) > 0) {
-        $message = $message . ". Transaction ID: " . $trId;
-    }
+
     $url = "https://www.sebd.co?message=".$message;
     $url = str_replace(PHP_EOL, '', $url);
     header("Location: " . $url);
