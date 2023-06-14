@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Soft Engine Ltd.</title>
-    <meta content="" name="descriptison">
+    <meta name="description" content="Soft Engine Ltd. offers advanced Enterprise Management Software Solutions designed to streamline operations and optimize business processes. Our robust software suite empowers organizations with comprehensive tools for finance, human resources, inventory management, and more. Explore our innovative solutions today.">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
@@ -107,14 +107,6 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#mgt">Management</a></li>
                 <li><a href="#team">Team</a></li>
-                <!--<li class="menu-has-children"><a href="">Drop Down</a>
-                  <ul>
-                    <li><a href="#">Drop Down 1</a></li>
-                    <li><a href="#">Drop Down 3</a></li>
-                    <li><a href="#">Drop Down 4</a></li>
-                    <li><a href="#">Drop Down 5</a></li>
-                  </ul>
-                </li>-->
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav><!-- #nav-menu-container -->
