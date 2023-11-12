@@ -6,7 +6,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Soft Engine Ltd.</title>
-    <meta name="description" content="Soft Engine Ltd. offers advanced Enterprise Management Software Solutions designed to streamline operations and optimize business processes. Our robust software suite empowers organizations with comprehensive tools for finance, human resources, inventory management, and more. Explore our innovative solutions today.">
+    <meta name="description"
+          content="Soft Engine Ltd. offers advanced Enterprise Management Software Solutions designed to streamline operations and optimize business processes. Our robust software suite empowers organizations with comprehensive tools for finance, human resources, inventory management, and more. Explore our innovative solutions today.">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
@@ -90,13 +91,13 @@
             <!--<h1><a href="index.html">Soft<span>Engine</span> Ltd.</a></h1>-->
             <!-- Uncomment below if you prefer to use an image logo -->
             <a href="https://www.sebd.co"><img src="assets/img/logos/Soft%20Engine%20Logo.PNG" width="400" height="55"
-                                      alt=""></a>
+                                               alt=""></a>
         </div>
         <div id="logo" class="pull-left d-md-none d-xl-none d-lg-none">
             <!--<h1><a href="index.html">Soft<span>Engine</span> Ltd.</a></h1>-->
             <!-- Uncomment below if you prefer to use an image logo -->
             <a href="https://www.sebd.co"><img src="assets/img/logos/Soft%20Engine%20Logo.PNG" width="250" height="55"
-                                      alt=""></a>
+                                               alt=""></a>
         </div>
 
         <nav id="nav-menu-container">
@@ -372,7 +373,8 @@
                             </div>
                             <div class="col-md-6">
                                 <button type="button" class="pull-right btn btn-success"
-                                        onclick="window.location = 'https://bell.sebd.co/home/onlineRegistrationCheckout.se'">Checkout
+                                        onclick="window.location = 'https://bell.sebd.co/home/onlineRegistrationCheckout.se'">
+                                    Checkout
                                 </button>
                             </div>
                         </div>
@@ -453,7 +455,7 @@
                         <br>
                         <div class="row">
                             <div class="col-md-6">
-                               <!-- <button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>-->
+                                <!-- <button class="pull-left btn btn-light"><i class="fa fa-money"></i> BDT 500/QTR</button>-->
                             </div>
                             <div class="col-md-6">
                                 <button type="button" class="pull-right btn btn-dark"
@@ -737,52 +739,18 @@
                 <h2>Tech Team</h2>
             </div>
 
-            <!--<div class="col-lg-3 col-md-6">
-              <div class="member">
-                <div class="pic"><img src="assets/img/teams/khomeni.jpg" alt=""></div>
-                <div class="details">
-                  <h4>Ayatullah Khomeni</h4>
-                  <span>Cheif Executive Officer</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>-->
-
-
             <div class="row">
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
-                        <div class="pic"><img src="assets/img/teams/tause.jpg" width="230" height="270"></div>
+                        <div class="pic"><img src="assets/img/teams/shabab.jpg" height="270" width="230"></div>
                         <div class="details">
-                            <h4>Tause Ali Sikder</h4>
-                            <span>Sr. Software Engineer</span>
+                            <h4>Shabab Ahmed</h4>
+                            <span>Lead Software Engineer</span>
                             <div class="social">
-                                <!--<a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="assets/img/teams/paran.png" height="270" width="230"></div>
-                        <div class="details">
-                            <h4>Engr. Shah Paran</h4>
-                            <span>Sr. Server Engineer (Linux)</span>
-                            <div class="social">
-                                <!--<a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>-->
+                                <a href="https://github.com/shabab239" target="_blank"><i class="fa fa-github"></i></a>
+                                <a href="https://linkedin.com/in/shabab239" target="_blank"><i
+                                            class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -819,9 +787,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
@@ -839,6 +804,10 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row">
+
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
                         <div class="pic"><img src="assets/img/teams/eleas.jpg" height="270" width="230"></div>
@@ -855,62 +824,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic"><img src="assets/img/teams/shabab.jpg" height="270" width="230"></div>
-                        <div class="details">
-                            <h4>Shabab Ahmed</h4>
-                            <span>Jr. Software Developer</span>
-                            <div class="social">
-                                <a href="https://github.com/shabab239" target="_blank"><i class="fa fa-github"></i></a>
-                                <a href="https://linkedin.com/in/shabab239" target="_blank"><i
-                                            class="fa fa-linkedin"></i></a>
-                                <a href="https://www.facebook.com/itizwhatitizzZ" target="_blank"><i
-                                            class="fa fa-facebook"></i></a>
-                                <!--<a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--<div class="col-lg-3 col-md-6">
-                <div class="member">
-                    <div class="pic"><img src="assets/img/teams/moumita.jpg" height="270" width="230"></div>
-                    <div class="details">
-                        <h4>Moumita Bhuiyan</h4>
-                        <span>Jr. Software Engineer</span>
-                        <div class="social">
-                            &lt;!&ndash;<a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>&ndash;&gt;
-                        </div>
-                    </div>
-                </div>-->
             </div>
 
 
         </div>
-
-        <!--<div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="member">
-                    <div class="pic"><img src="assets/img/teams/sium.jpg" height="270" width="230"></div>
-                    <div class="details">
-                        <h4>Sadat Ahmed Sadi</h4>
-                        <span>Jr. Server Engineer</span>
-                        <div class="social">
-                            &lt;!&ndash;<a href=""><i class="fa fa-twitter"></i></a>
-                            <a href=""><i class="fa fa-facebook"></i></a>
-                            <a href=""><i class="fa fa-google-plus"></i></a>
-                            <a href=""><i class="fa fa-linkedin"></i></a>&ndash;&gt;
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
 
     </section><!-- End Team Section -->
 
@@ -1115,15 +1032,15 @@
         ?>
         <script>
             $.confirm({
-                title: '<?php echo explode("~",$message)[0] ?>',
-                content: '<?php echo explode("~",$message)[1] ?>',
+                title: '<?php echo explode("~", $message)[0] ?>',
+                content: '<?php echo explode("~", $message)[1] ?>',
                 type: 'red',
                 typeAnimated: true,
                 buttons: {
                     agree: {
                         text: 'OK',
                         btnClass: 'btn-success',
-                        action: function(){
+                        action: function () {
                         }
                     },
                     close: function () {
@@ -1131,7 +1048,7 @@
                 }
             });
         </script>
-<?php
+        <?php
     }
 } ?>
 <?php include("modals.php") ?>
