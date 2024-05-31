@@ -758,6 +758,21 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="member">
+                        <div class="pic"><img src="assets/img/teams/sakib.jpg" height="270" width="230"></div>
+                        <div class="details">
+                            <h4>Nazmus Sakib</h4>
+                            <span>Software Developer</span>
+                            <div class="social">
+                                <a href="https://github.com/sm-nazmus-sakib" target="_blank"><i class="fa fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/smnazmussakib" target="_blank"><i
+                                            class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="member">
                         <div class="pic"><img src="assets/img/teams/alfaz.jpg" alt=""></div>
                         <div class="details">
                             <h4>Alfaz Hossain</h4>
