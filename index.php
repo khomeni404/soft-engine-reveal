@@ -69,7 +69,7 @@
 <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
         <div class="contact-info float-left">
-            <i class="fa fa-envelope-o"></i> <a href="mailto:softengineltd@gmail.com" target="_blank">softengineltd@gmail.com</a>
+            <i class="fa fa-envelope-o"></i> <a href="mailto:info@sebd.co" target="_blank">info@sebd.co</a>
             <i class="fa fa-phone"></i> <a href="tel:+8801717659287" target="_blank">+88 01717-659287</a>
             <i class="fa fa-whatsapp"></i> <a href="https://wa.me/+8801717659287" target="_blank">+88 01717-659287</a>
         </div>
@@ -897,8 +897,8 @@
                     <div class="contact-email">
                         <i class="ion-ios-email-outline"></i>
                         <h3>Email</h3>
-                        <p><a href="mailto:softengineltd@gmail.com" target="_blank">softengineltd@gmail.com</a></p>
-                        <p><a href="mailto:khomeni404@gmail.com" target="_blank">khomeni404@gmail.com</a></p>
+                        <p><a href="mailto:info@sebd.co" target="_blank">info@sebd.co</a></p>
+                        <p><a href="mailto:job@sebd.co" target="_blank">job@sebd.co</a></p>
                     </div>
                 </div>
 
