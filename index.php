@@ -158,8 +158,6 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
 
         <div class="container">
             <div class="hero__content">
-                <p class="pill hero__pill"><span class="pill__dot" aria-hidden="true"></span><?= t('A free Software Provider.', 'একটি ফ্রি সফটওয়্যার প্রদানকারী প্রতিষ্ঠান') ?></p>
-
                 <h1 class="hero__title">
                     <span class="logo-lockup">
                         <span class="line"><span class="line__inner logo-lockup__name">Soft Engine Ltd.</span></span>
@@ -256,9 +254,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                     <div class="terminal" data-reveal>
                         <div class="terminal__bar"><i></i><i></i><i></i><span>sebd.co</span></div>
                         <div class="terminal__body">
-                            <p class="terminal__line terminal__line--main"><span class="terminal__prompt" aria-hidden="true">&gt;</span><span data-l="en" data-type>A free Software Provider.</span><span data-l="bn" lang="bn" data-type>একটি ফ্রি সফটওয়্যার প্রদানকারী।</span><span class="type-caret" aria-hidden="true"></span></p>
+                            <p class="terminal__line terminal__line--main"><span class="terminal__prompt" aria-hidden="true">&gt;</span><span data-type>Think Twice Code Once</span><span class="type-caret" aria-hidden="true"></span></p>
                             <p class="terminal__line terminal__comment"><?= t('// Vision &middot; Creativity &middot; Passion &middot; Great Solutions', '// লক্ষ্য &middot; সৃজনশীলতা &middot; প্যাশন &middot; সেরা সমাধান') ?></p>
-                            <p class="terminal__line"><span class="terminal__string">"Think Twice Code Once"</span></p>
                         </div>
                     </div>
 
@@ -383,15 +380,6 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                         <span class="product__icon icon-chip"><svg class="ic"><use href="#<?= $pc[0] ?>"/></svg></span>
                         <h3 class="product__title"><?= t($products[$i][0], $products[$i][1]) ?></h3>
                         <?= tb('p', 'product__desc', $pc[1], $pc[2]) ?>
-                        <div class="product__foot">
-                            <?php if ($featured): ?>
-                                <span class="price"><svg class="ic"><use href="#i-money"/></svg><?= t('BDT 500/QTR', '৫০০ টাকা/ত্রৈমাসিক') ?></span>
-                                <a class="btn btn--primary btn--sm" href="https://bell.sebd.co/home/onlineRegistrationCheckout.se"
-                                   data-magnetic><?= t('Checkout', 'চেকআউট') ?> <svg class="ic"><use href="#i-arrow"/></svg></a>
-                            <?php else: ?>
-                                <button type="button" class="btn btn--ghost btn--sm" data-out-of-stock><?= t('Checkout', 'চেকআউট') ?></button>
-                            <?php endif; ?>
-                        </div>
                     </article>
                 <?php endforeach; ?>
             </div>
@@ -554,7 +542,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
             </div>
             <div class="people">
                 <?php se_render_people(array(
-                    array('assets/img/teams/shabab.jpg', 'Shabab Ahmed', 'Lead Software Engineer', 'লিড সফটওয়্যার ইঞ্জিনিয়ার', 'https://github.com/shabab239', 'https://linkedin.com/in/shabab239'),
+                    array('assets/img/teams/shabab-ahmed.jpg', 'Shabab Ahmed', 'Lead Software Engineer', 'লিড সফটওয়্যার ইঞ্জিনিয়ার', 'https://github.com/shabab239', 'https://linkedin.com/in/shabab239'),
                     array('assets/img/teams/sakib.jpg', 'Nazmus Sakib', 'Software Developer', 'সফটওয়্যার ডেভেলপার', 'https://github.com/sm-nazmus-sakib'),
                     array('assets/img/teams/alfaz.jpg', 'Alfaz Hossain', 'Analyst Programmer', 'অ্যানালিস্ট প্রোগ্রামার'),
                     array('assets/img/teams/harun.jpg', 'Harunor Roshid', 'Network Administrator', 'নেটওয়ার্ক অ্যাডমিনিস্ট্রেটর'),

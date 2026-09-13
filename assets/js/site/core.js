@@ -22,8 +22,8 @@
 
   /* ---------- language ---------- */
   var I18N = {
-    en: { attention: 'Attention !!', outOfStock: 'Sorry, this product is currently out of stock.', close: 'Close', ok: 'OK' },
-    bn: { attention: 'মনোযোগ দিন !!', outOfStock: 'দুঃখিত, এই পণ্যটি বর্তমানে স্টকে নেই।', close: 'বন্ধ করুন', ok: 'ঠিক আছে' }
+    en: { ok: 'OK' },
+    bn: { ok: 'ঠিক আছে' }
   };
   var I18N_ATTRS = ['aria-label', 'placeholder', 'title', 'alt'];
 
@@ -240,12 +240,6 @@
     openDialog(d);
   };
 
-  doc.addEventListener('click', function (e) {
-    if (e.target.closest && e.target.closest('[data-out-of-stock]')) {
-      SE.alert(tr('attention'), tr('outOfStock'), tr('close'));
-    }
-  });
-
   // P2P.php sends fixed English strings; show them in Bangla when Bangla is active.
   function paymentText(title, content) {
     if (lang() !== 'bn') return [title, content];
@@ -358,7 +352,7 @@
     });
   }
 
-  /* ---------- typewriter: "A free Software Provider." in both languages ---------- */
+  /* ---------- typewriter for [data-type] lines (the About terminal) ---------- */
   var typeEls = $$('[data-type]');
   if (typeEls.length && !reduced && 'IntersectionObserver' in win) {
     var texts = typeEls.map(function (el) {

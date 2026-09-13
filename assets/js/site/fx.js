@@ -254,8 +254,7 @@
 
     tl.from('.hero__title .line__inner', { yPercent: 118, rotate: 3, duration: 1.4 }, shown ? '-=0.55' : 0)
       .from('.hero__title .logo-lockup__tag', { opacity: 0, x: 40, duration: 1.2 }, '<0.35')
-      .from('.hero__pill', { y: 18, opacity: 0, duration: 1 }, '<-0.2')
-      .from('.rotator', { y: 22, opacity: 0, duration: 1 }, '<0.1')
+      .from('.rotator', { y: 22, opacity: 0, duration: 1 }, '<-0.1')
       .from('.hero__desc', { y: 22, opacity: 0, duration: 1 }, '<0.1')
       .from('.hero__cta > *', { y: 22, opacity: 0, duration: 1, stagger: 0.08 }, '<0.1')
       .from('.hero__scroll', { opacity: 0, duration: 1.2 }, '<0.2')
