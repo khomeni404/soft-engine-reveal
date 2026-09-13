@@ -1,0 +1,319 @@
+/* ==========================================================================
+   Soft Engine Ltd. - dialogs, lightbox, checkout form, motion preferences
+   ========================================================================== */
+
+/* headings rise out of this mask (wrapped by fx.js) */
+.mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: .1em;
+  margin-bottom: -.1em;
+}
+.mask__inner { display: block; }
+
+/* ---------- dialogs (light) ---------- */
+.dialog {
+  width: min(780px, calc(100vw - 32px));
+  max-height: min(86vh, 900px);
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  overflow: visible;
+  background: transparent;
+  color: var(--text);
+}
+.dialog::backdrop {
+  background: rgba(11, 21, 48, .55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.dialog[open] { animation: dialog-in .5s var(--ease-out); }
+.dialog[open]::backdrop { animation: fade-in .4s ease; }
+
+.dialog__panel {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 40px 120px -30px rgba(11, 21, 48, .6);
+}
+.dialog__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(115deg, rgba(0, 112, 192, .06), rgba(109, 191, 89, .06));
+}
+.dialog__title {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin: 0;
+  font-size: 1.15rem;
+}
+.dialog__x {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--muted);
+  transition: color .3s, border-color .3s, transform .45s var(--ease-out);
+}
+.dialog__x:hover { color: var(--brand-blue); border-color: var(--brand-blue); transform: rotate(90deg); }
+.dialog__body {
+  padding: 22px 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-size: .96rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.dialog__body b { color: var(--text); }
+.dialog__body ul { margin: .8rem 0; padding-left: 1.25rem; }
+.dialog__body li { margin-bottom: .45rem; }
+.dialog__body a { color: var(--brand-blue); text-decoration: underline; text-underline-offset: 3px; }
+.dialog__foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: .6rem;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--line);
+}
+
+.dialog--alert { width: min(460px, calc(100vw - 32px)); }
+.dialog--alert .dialog__title::before {
+  content: "";
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--brand-orange);
+  box-shadow: 0 0 12px var(--brand-orange);
+}
+.dialog--alert .dialog__body { font-size: 1.02rem; color: var(--text); }
+
+/* ---------- lightbox (always dark) ---------- */
+.lightbox {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(8, 15, 34, .94);
+  color: #eef3ff;
+}
+.lightbox::backdrop { background: transparent; }
+.lightbox[open] {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  animation: fade-in .35s ease;
+}
+.lightbox__figure {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  margin: 0;
+  padding: 76px 90px 18px;
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 30px 100px -20px rgba(0, 0, 0, .95);
+}
+.lightbox__cap {
+  padding: 0 20px 30px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.lightbox__cap small {
+  display: block;
+  margin-top: .35rem;
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #5bb8f0;
+}
+.lightbox__btn {
+  position: fixed;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  border-radius: 50%;
+  color: #eef3ff;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(170, 195, 240, .3);
+  transition: border-color .3s, background-color .3s;
+}
+.lightbox__btn:hover { border-color: #5bb8f0; background: rgba(16, 141, 196, .25); }
+.lightbox__btn svg { width: 20px; height: 20px; }
+.lightbox__prev { left: 18px; }
+.lightbox__next { right: 18px; }
+.lightbox__close { top: 18px; right: 18px; margin-top: 0; font-size: 1.5rem; }
+
+@media (max-width: 640px) {
+  .lightbox__figure { padding: 76px 12px 12px; }
+  .lightbox__prev,
+  .lightbox__next { top: auto; bottom: 16px; margin-top: 0; }
+  .lightbox__cap { padding-bottom: 84px; }
+}
+
+/* ---------- sub-pages (checkout, policy page) ---------- */
+.subpage {
+  position: relative;
+  padding: calc(var(--header-h) + 70px) 0 90px;
+  background:
+    radial-gradient(800px 500px at 0% 0%, rgba(16, 141, 196, .12), transparent 60%),
+    radial-gradient(700px 500px at 100% 100%, rgba(109, 191, 89, .12), transparent 60%),
+    var(--bg);
+}
+.form-card {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 44px);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+.field { grid-column: span 12; }
+.field--9 { grid-column: span 9; }
+.field--6 { grid-column: span 6; }
+.field--3 { grid-column: span 3; }
+.input {
+  width: 100%;
+  height: 54px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid var(--line-2);
+  background: #f7f9fd;
+  color: var(--text);
+  font: inherit;
+  transition: border-color .3s, box-shadow .3s, background-color .3s;
+}
+textarea.input {
+  height: auto;
+  min-height: 110px;
+  padding: 14px 18px;
+  resize: vertical;
+}
+.input::placeholder { color: var(--dim); }
+.input:focus {
+  outline: none;
+  border-color: var(--brand-sky);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(16, 141, 196, .16);
+}
+.input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+.form-errors {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  color: #a1261a;
+  background: #fff1ef;
+  border: 1px solid #f5c2bb;
+}
+.form-errors ul { margin: 0; padding-left: 1.1rem; }
+
+.agree {
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  margin-top: 24px;
+  font-size: .94rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.agree input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: .22rem;
+  accent-color: var(--brand-blue);
+}
+.agree a {
+  color: var(--brand-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.policy-card {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.policy-card h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); margin-bottom: 1.4rem; }
+.policy-card .policy-body { color: var(--muted); line-height: 1.85; }
+.policy-card b { color: var(--text); }
+.policy-card a { color: var(--brand-blue); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 720px) {
+  .field--9,
+  .field--6,
+  .field--3 { grid-column: span 12; }
+}
+
+/* ---------- motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+.reduced .ticker__track,
+.reduced .logo-row__track {
+  flex-wrap: wrap;
+  justify-content: center;
+  width: auto;
+  animation: none;
+}
+.reduced [data-clone] { display: none; }
+.reduced .preloader { display: none; }
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(24px) scale(.97); }
+}
