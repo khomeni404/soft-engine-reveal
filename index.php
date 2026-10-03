@@ -461,7 +461,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
             <div class="works">
                 <?php
                 $works = array(
-                    array('web', 'assets/img/portfolio/schoolbell.svg', 'assets/img/portfolio/schoolbell-stacked.svg', 'SchoolBell', 'School Management', 'স্কুল ম্যানেজমেন্ট', true),
+                    array('web', 'assets/img/portfolio/schoolbell.svg', 'assets/img/portfolio/schoolbell-stacked.svg', 'SchoolBell', 'School Management', 'স্কুল ম্যানেজমেন্ট', true, 'https://sebd.co/bell'),
                     array('web', 'assets/img/portfolio/eg-accounts.jpg', 'assets/img/portfolio/details/eg-accounts.png', 'egAccounts', 'Accounting Solution', 'অ্যাকাউন্টিং সল্যুশন'),
                     array('web', 'assets/img/portfolio/soft_prism.png', 'assets/img/portfolio/soft_prism.png', 'Prism', 'Customized Accounting Software', 'কাস্টমাইজড অ্যাকাউন্টিং সফটওয়্যার'),
                     array('web', 'assets/img/portfolio/e-vision.jpg', 'assets/img/portfolio/e-vision.jpg', 'eVision', 'Organizational Management', 'প্রাতিষ্ঠানিক ব্যবস্থাপনা'),
@@ -486,7 +486,12 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                                 <h3><?= $title ?></h3>
                                 <?= tb('p', '', htmlspecialchars($w[4]), $w[5]) ?>
                             </div>
-                            <span class="work__tag<?= $isApp ? ' work__tag--app' : '' ?>"><?= $isApp ? t('Android', 'অ্যান্ড্রয়েড') : t('Web', 'ওয়েব') ?></span>
+                            <div class="work__side">
+                                <span class="work__tag<?= $isApp ? ' work__tag--app' : '' ?>"><?= $isApp ? t('Android', 'অ্যান্ড্রয়েড') : t('Web', 'ওয়েব') ?></span>
+                                <?php if (!empty($w[7])): ?>
+                                    <a class="btn btn--primary btn--sm work__cta" href="<?= htmlspecialchars($w[7]) ?>"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </article>
                 <?php endforeach; ?>

@@ -503,6 +503,13 @@
   border: 1px solid rgba(91, 184, 240, .35);
 }
 .work__tag--app { color: var(--brand-green); border-color: rgba(109, 191, 89, .4); }
+.work__side {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: .6rem;
+}
+.work__cta { height: 36px; padding: 0 16px; }
 
 /* ---------- people: management + team (light) ---------- */
 .people {
