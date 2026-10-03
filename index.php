@@ -468,7 +468,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                     array('web', 'assets/img/portfolio/e-vision.jpg', 'assets/img/portfolio/e-vision.jpg', 'eVision', 'Organizational Management', 'প্রাতিষ্ঠানিক ব্যবস্থাপনা'),
                     array('web', 'assets/img/portfolio/mirror2.jpg', 'assets/img/portfolio/mirror2.jpg', 'Mirror2', 'HR & Financial Managemnet', 'এইচআর ও আর্থিক ব্যবস্থাপনা'),
                     array('app', 'assets/img/portfolio/lenden.jpg', 'assets/img/portfolio/lenden.jpg', 'Len-Den', 'Financial Management', 'আর্থিক ব্যবস্থাপনা'),
-                    array('app', 'assets/img/portfolio/sbell.jpg', 'assets/img/portfolio/sbell.jpg', 'Smart Bell', 'Utility', 'ইউটিলিটি'),
+                    array('app', 'assets/img/portfolio/smartbell.jpg', 'assets/img/portfolio/details/smartbell.jpg', 'Smart Bell', 'Utility', 'ইউটিলিটি'),
                 );
                 foreach ($works as $w):
                     $isApp = $w[0] === 'app';
