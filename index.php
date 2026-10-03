@@ -382,7 +382,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                         <h3 class="product__title"><?= t($products[$i][0], $products[$i][1]) ?></h3>
                         <?= tb('p', 'product__desc', $pc[1], $pc[2]) ?>
                         <?php if (!empty($pc[3])): ?>
-                            <a class="btn btn--primary btn--sm product__cta" href="<?= htmlspecialchars($pc[3]) ?>"><?= t('View Details', 'বিস্তারিত দেখুন') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                            <a class="btn btn--primary btn--sm product__cta" href="<?= htmlspecialchars($pc[3]) ?>" target="_blank" rel="noopener"><?= t('View Details', 'বিস্তারিত দেখুন') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
                         <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
@@ -489,7 +489,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                             <div class="work__side">
                                 <span class="work__tag<?= $isApp ? ' work__tag--app' : '' ?>"><?= $isApp ? t('Android', 'অ্যান্ড্রয়েড') : t('Web', 'ওয়েব') ?></span>
                                 <?php if (!empty($w[7])): ?>
-                                    <a class="btn btn--primary btn--sm work__cta" href="<?= htmlspecialchars($w[7]) ?>"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                                    <a class="btn btn--primary btn--sm work__cta" href="<?= htmlspecialchars($w[7]) ?>" target="_blank" rel="noopener"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
                                 <?php endif; ?>
                             </div>
                         </div>
