@@ -332,6 +332,10 @@
   color: var(--muted);
   font-size: .98rem;
 }
+.product__cta {
+  align-self: flex-start;
+  margin-top: 1.4rem;
+}
 /* ---------- clients (light) ---------- */
 .clients__rows {
   display: grid;

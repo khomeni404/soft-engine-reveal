@@ -356,7 +356,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                 $productCards = array(
                     array('i-school',
                         'Student, Class, Exam, Result, Fees, Salary. etc. are the key features for a school. We provide solutions and many more things along with key features.',
-                        'শিক্ষার্থী, ক্লাস, পরীক্ষা, ফলাফল, ফি, বেতন ইত্যাদি একটি স্কুলের মূল বিষয়। আমরা এসব মূল ফিচারের পাশাপাশি আরও অনেক সুবিধাসহ সমাধান দিয়ে থাকি।'),
+                        'শিক্ষার্থী, ক্লাস, পরীক্ষা, ফলাফল, ফি, বেতন ইত্যাদি একটি স্কুলের মূল বিষয়। আমরা এসব মূল ফিচারের পাশাপাশি আরও অনেক সুবিধাসহ সমাধান দিয়ে থাকি।',
+                        'https://sebd.co/bell'),
                     array('i-layers',
                         'We develop customized Enterprise Resources Planning. For any kind of Corporate Business or Industry.',
                         'আমরা যেকোনো ধরনের কর্পোরেট ব্যবসা বা শিল্পপ্রতিষ্ঠানের জন্য কাস্টমাইজড এন্টারপ্রাইজ রিসোর্স প্ল্যানিং তৈরি করি।'),
@@ -380,6 +381,9 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                         <span class="product__icon icon-chip"><svg class="ic"><use href="#<?= $pc[0] ?>"/></svg></span>
                         <h3 class="product__title"><?= t($products[$i][0], $products[$i][1]) ?></h3>
                         <?= tb('p', 'product__desc', $pc[1], $pc[2]) ?>
+                        <?php if (!empty($pc[3])): ?>
+                            <a class="btn btn--primary btn--sm product__cta" href="<?= htmlspecialchars($pc[3]) ?>"><?= t('View Details', 'বিস্তারিত দেখুন') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                        <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
             </div>
