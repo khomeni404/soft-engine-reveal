@@ -107,7 +107,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                     <ul class="nav__list">
                         <li><a class="nav__link" href="#home"><?= t('Home', 'হোম') ?></a></li>
                         <li><a class="nav__link" href="#about"><?= t('About Us', 'আমাদের সম্পর্কে') ?></a></li>
-                        <li><a class="nav__link" href="#services"><?= t('Products', 'পণ্যসমূহ') ?></a></li>
+                        <li><a class="nav__link" href="#services"><?= t('Services', 'সার্ভিস') ?></a></li>
                         <li><a class="nav__link" href="#portfolio"><?= t('Portfolio', 'পোর্টফোলিও') ?></a></li>
                         <li><a class="nav__link" href="#mgt"><?= t('Management', 'ব্যবস্থাপনা') ?></a></li>
                         <li><a class="nav__link" href="#team"><?= t('Team', 'টিম') ?></a></li>
@@ -133,7 +133,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
     <ul class="mobile-menu__list">
         <li><a class="mobile-menu__link" style="--i:0" href="#home"><small>01</small><?= t('Home', 'হোম') ?></a></li>
         <li><a class="mobile-menu__link" style="--i:1" href="#about"><small>02</small><?= t('About Us', 'আমাদের সম্পর্কে') ?></a></li>
-        <li><a class="mobile-menu__link" style="--i:2" href="#services"><small>03</small><?= t('Products', 'পণ্যসমূহ') ?></a></li>
+        <li><a class="mobile-menu__link" style="--i:2" href="#services"><small>03</small><?= t('Services', 'সার্ভিস') ?></a></li>
         <li><a class="mobile-menu__link" style="--i:3" href="#portfolio"><small>04</small><?= t('Portfolio', 'পোর্টফোলিও') ?></a></li>
         <li><a class="mobile-menu__link" style="--i:4" href="#mgt"><small>05</small><?= t('Management', 'ব্যবস্থাপনা') ?></a></li>
         <li><a class="mobile-menu__link" style="--i:5" href="#team"><small>06</small><?= t('Team', 'টিম') ?></a></li>
@@ -166,7 +166,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                 </h1>
 
                 <div class="rotator">
-                    <span class="rotator__label"><?= t('Products &amp; Services', 'পণ্য ও সেবা') ?></span>
+                    <span class="rotator__label"><?= t('Services', 'সার্ভিস') ?></span>
                     <span class="rotator__words">
                         <?php foreach ($products as $i => $p): ?>
                             <span data-l="en"<?= $i ? '' : ' class="is-first"' ?>><?= $p[0] ?></span>
@@ -181,11 +181,11 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
 
                 <div class="hero__cta">
                     <a class="btn btn--primary" href="#about" data-magnetic><?= t('Get Started', 'শুরু করুন') ?> <svg class="ic"><use href="#i-arrow"/></svg></a>
-                    <a class="btn btn--ghost" href="#portfolio" data-magnetic><?= t('Our Projects', 'আমাদের প্রজেক্টসমূহ') ?></a>
+                    <a class="btn btn--ghost" href="#portfolio" data-magnetic><?= t('Our Services', 'আমাদের সার্ভিস') ?></a>
                 </div>
 
                 <div class="flagships">
-                    <span class="flagships__label"><?= t('Flagship Products', 'প্রধান পণ্য') ?></span>
+                    <span class="flagships__label"><?= t('Flagship Services', 'প্রধান সার্ভিস') ?></span>
                     <div class="flagships__row">
                         <a class="flagship" href="https://sebd.co/bell" target="_blank" rel="noopener">
                             <img class="flagship__logo" src="assets/img/portfolio/schoolbell.svg" alt="SchoolBell" width="160" height="39">
@@ -197,8 +197,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                             <?= tb('span', 'flagship__sub', 'ERP for Any Business', 'যেকোনো ব্যবসার ইআরপি') ?>
                             <svg class="ic flagship__go"><use href="#i-arrow-up-right"/></svg>
                         </a>
-                        <a class="flagship flagship--all" href="#products">
-                            <?= t('All Products', 'সব পণ্য') ?> <svg class="ic"><use href="#i-arrow"/></svg>
+                        <a class="flagship flagship--all" href="#services">
+                            <?= t('All Services', 'সব সার্ভিস') ?> <svg class="ic"><use href="#i-arrow"/></svg>
                         </a>
                     </div>
                 </div>
@@ -346,8 +346,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
     <section class="section is-dark products" id="services">
         <div class="container">
             <div class="section-head">
-                <p class="eyebrow" data-reveal><span class="eyebrow__num">02</span> <?= t('Products', 'পণ্যসমূহ') ?></p>
-                <h2 class="section-title" data-split><?= t('Products &amp; Services', 'পণ্য ও সেবাসমূহ') ?></h2>
+                <p class="eyebrow" data-reveal><span class="eyebrow__num">02</span> <?= t('Services', 'সার্ভিস') ?></p>
+                <h2 class="section-title" data-split><?= t('Our Services', 'আমাদের সার্ভিস') ?></h2>
             </div>
 
             <div class="products__intro" data-scrub>
@@ -685,7 +685,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
             <div class="copyright"><?= t('&copy; Copyright <strong>Soft-Engine</strong>. All Rights Reserved', '&copy; কপিরাইট <strong>সফট-ইঞ্জিন</strong>। সর্বস্বত্ব সংরক্ষিত।') ?></div>
             <nav class="footer__nav" <?= ta('aria-label', 'Footer', 'ফুটার মেনু') ?>>
                 <a href="#about"><?= t('About Us', 'আমাদের সম্পর্কে') ?></a>
-                <a href="#services"><?= t('Products', 'পণ্যসমূহ') ?></a>
+                <a href="#services"><?= t('Services', 'সার্ভিস') ?></a>
                 <a href="#portfolio"><?= t('Portfolio', 'পোর্টফোলিও') ?></a>
                 <a href="#mgt"><?= t('Management', 'ব্যবস্থাপনা') ?></a>
                 <a href="#team"><?= t('Team', 'টিম') ?></a>
