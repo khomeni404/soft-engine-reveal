@@ -183,6 +183,25 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                     <a class="btn btn--primary" href="#about" data-magnetic><?= t('Get Started', 'শুরু করুন') ?> <svg class="ic"><use href="#i-arrow"/></svg></a>
                     <a class="btn btn--ghost" href="#portfolio" data-magnetic><?= t('Our Projects', 'আমাদের প্রজেক্টসমূহ') ?></a>
                 </div>
+
+                <div class="flagships">
+                    <span class="flagships__label"><?= t('Flagship Products', 'প্রধান পণ্য') ?></span>
+                    <div class="flagships__row">
+                        <a class="flagship" href="https://sebd.co/bell" target="_blank" rel="noopener">
+                            <img class="flagship__logo" src="assets/img/portfolio/schoolbell.svg" alt="SchoolBell" width="160" height="39">
+                            <?= tb('span', 'flagship__sub', 'School Management', 'স্কুল ম্যানেজমেন্ট') ?>
+                            <svg class="ic flagship__go"><use href="#i-arrow-up-right"/></svg>
+                        </a>
+                        <a class="flagship" href="https://bell.sebd.co/360/auth/login.se" target="_blank" rel="noopener">
+                            <span class="flagship__bh" role="img" aria-label="BizHub360"><svg class="ic"><use href="#i-briefcase"/></svg><b>BizHub</b><b>360</b></span>
+                            <?= tb('span', 'flagship__sub', 'ERP for Any Business', 'যেকোনো ব্যবসার ইআরপি') ?>
+                            <svg class="ic flagship__go"><use href="#i-arrow-up-right"/></svg>
+                        </a>
+                        <a class="flagship flagship--all" href="#products">
+                            <?= t('All Products', 'সব পণ্য') ?> <svg class="ic"><use href="#i-arrow"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
