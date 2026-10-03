@@ -29,9 +29,9 @@
 
     <!-- Styles -->
     <link href="assets/vendor/lenis/lenis.css" rel="stylesheet">
-    <link href="assets/css/site/base.css?v=2" rel="stylesheet">
-    <link href="assets/css/site/sections.css?v=2" rel="stylesheet">
-    <link href="assets/css/site/ui.css?v=2" rel="stylesheet">
+    <link href="assets/css/site/base.css?v=3" rel="stylesheet">
+    <link href="assets/css/site/sections.css?v=3" rel="stylesheet">
+    <link href="assets/css/site/ui.css?v=3" rel="stylesheet">
 
     <script>
         (function (d) {
@@ -747,8 +747,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && strlen($seMessage) > 0) {
     echo '<script>window.SE_ALERT = ' . json_encode($seAlert, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) . ';</script>' . "\n";
 }
 ?>
-<script src="assets/js/site/core.js?v=2"></script>
-<script src="assets/js/site/fx.js?v=2"></script>
+<script src="assets/js/site/core.js?v=3"></script>
+<script src="assets/js/site/fx.js?v=3"></script>
 
 </body>
 
