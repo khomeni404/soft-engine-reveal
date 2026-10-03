@@ -332,10 +332,28 @@
   color: var(--muted);
   font-size: .98rem;
 }
-.product__cta {
-  align-self: flex-start;
+.product__actions {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
   margin-top: 1.4rem;
 }
+.fb-btn {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #fff;
+  background: #1877f2;
+  box-shadow: 0 10px 24px -12px rgba(24, 119, 242, .9);
+  transition: transform .3s var(--ease-out), background-color .3s;
+}
+.fb-btn svg { width: 20px; height: 20px; }
+.fb-btn:hover { background: #3b8cf5; transform: translateY(-2px); }
+.work__side .fb-btn { width: 36px; height: 36px; }
+.work__side .fb-btn svg { width: 18px; height: 18px; }
 /* ---------- clients (light) ---------- */
 .clients__rows {
   display: grid;
@@ -503,13 +521,14 @@
   border: 1px solid rgba(91, 184, 240, .35);
 }
 .work__tag--app { color: var(--brand-green); border-color: rgba(109, 191, 89, .4); }
+.work__info > div:first-child { min-width: 0; }
 .work__side {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  gap: .6rem;
+  gap: .45rem;
 }
-.work__cta { height: 36px; padding: 0 16px; }
+.work__cta { height: 36px; padding: 0 14px; gap: .4rem; }
 
 /* ---------- people: management + team (light) ---------- */
 .people {

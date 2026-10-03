@@ -357,7 +357,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                     array('i-school',
                         'Student, Class, Exam, Result, Fees, Salary. etc. are the key features for a school. We provide solutions and many more things along with key features.',
                         'শিক্ষার্থী, ক্লাস, পরীক্ষা, ফলাফল, ফি, বেতন ইত্যাদি একটি স্কুলের মূল বিষয়। আমরা এসব মূল ফিচারের পাশাপাশি আরও অনেক সুবিধাসহ সমাধান দিয়ে থাকি।',
-                        'https://sebd.co/bell'),
+                        'https://sebd.co/bell', 'https://www.facebook.com/SchoolBellOfficial'),
                     array('i-layers',
                         'We develop customized Enterprise Resources Planning. For any kind of Corporate Business or Industry.',
                         'আমরা যেকোনো ধরনের কর্পোরেট ব্যবসা বা শিল্পপ্রতিষ্ঠানের জন্য কাস্টমাইজড এন্টারপ্রাইজ রিসোর্স প্ল্যানিং তৈরি করি।'),
@@ -382,7 +382,12 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                         <h3 class="product__title"><?= t($products[$i][0], $products[$i][1]) ?></h3>
                         <?= tb('p', 'product__desc', $pc[1], $pc[2]) ?>
                         <?php if (!empty($pc[3])): ?>
-                            <a class="btn btn--primary btn--sm product__cta" href="<?= htmlspecialchars($pc[3]) ?>" target="_blank" rel="noopener"><?= t('View Details', 'বিস্তারিত দেখুন') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                            <div class="product__actions">
+                                <a class="btn btn--primary btn--sm" href="<?= htmlspecialchars($pc[3]) ?>" target="_blank" rel="noopener"><?= t('View Details', 'বিস্তারিত দেখুন') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                                <?php if (!empty($pc[4])): ?>
+                                    <a class="fb-btn" href="<?= htmlspecialchars($pc[4]) ?>" target="_blank" rel="noopener" <?= ta('aria-label', 'SchoolBell on Facebook', 'ফেসবুকে স্কুলবেল') ?>><svg class="ic"><use href="#i-facebook"/></svg></a>
+                                <?php endif; ?>
+                            </div>
                         <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
@@ -461,7 +466,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
             <div class="works">
                 <?php
                 $works = array(
-                    array('web', 'assets/img/portfolio/schoolbell.svg', 'assets/img/portfolio/schoolbell-stacked.svg', 'SchoolBell', 'School Management', 'স্কুল ম্যানেজমেন্ট', true, 'https://sebd.co/bell'),
+                    array('web', 'assets/img/portfolio/schoolbell.svg', 'assets/img/portfolio/schoolbell-stacked.svg', 'SchoolBell', 'School Management', 'স্কুল ম্যানেজমেন্ট', true, 'https://sebd.co/bell', 'https://www.facebook.com/SchoolBellOfficial'),
                     array('web', 'assets/img/portfolio/bizhub360.jpg', 'assets/img/portfolio/details/bizhub360.jpg', 'BizHub360', 'ERP Solution for Any Business', 'যেকোনো ব্যবসার জন্য ইআরপি সল্যুশন'),
                     array('web', 'assets/img/portfolio/eg-accounts.jpg', 'assets/img/portfolio/details/eg-accounts.png', 'egAccounts', 'Accounting Solution', 'অ্যাকাউন্টিং সল্যুশন'),
                     array('web', 'assets/img/portfolio/soft_prism.png', 'assets/img/portfolio/soft_prism.png', 'Prism', 'Customized Accounting Software', 'কাস্টমাইজড অ্যাকাউন্টিং সফটওয়্যার'),
@@ -491,6 +496,9 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                                 <span class="work__tag<?= $isApp ? ' work__tag--app' : '' ?>"><?= $isApp ? t('Android', 'অ্যান্ড্রয়েড') : t('Web', 'ওয়েব') ?></span>
                                 <?php if (!empty($w[7])): ?>
                                     <a class="btn btn--primary btn--sm work__cta" href="<?= htmlspecialchars($w[7]) ?>" target="_blank" rel="noopener"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                                <?php endif; ?>
+                                <?php if (!empty($w[8])): ?>
+                                    <a class="fb-btn" href="<?= htmlspecialchars($w[8]) ?>" target="_blank" rel="noopener" <?= ta('aria-label', $w[3] . ' on Facebook', 'ফেসবুকে ' . $w[3]) ?>><svg class="ic"><use href="#i-facebook"/></svg></a>
                                 <?php endif; ?>
                             </div>
                         </div>
