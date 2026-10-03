@@ -60,7 +60,7 @@ $products = array(
     array('Real Estate Business Solution', 'রিয়েল এস্টেট বিজনেস সল্যুশন'),
     array('Attendance Maintanance', 'উপস্থিতি ব্যবস্থাপনা'),
     array('Admin &amp; Procurement', 'অ্যাডমিন ও প্রকিউরমেন্ট'),
-    array('Human Resource Management', 'মানব সম্পদ ব্যবস্থাপনা'),
+    array('Human Resource Management', 'হিউম্যান রিসোর্স ম্যানেজমেন্ট'),
 );
 $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span class="logo-lockup__tag">Soft Style Everywhere</span>';
 ?>
