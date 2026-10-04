@@ -27,7 +27,7 @@
   };
   var I18N_ATTRS = ['aria-label', 'placeholder', 'title', 'alt'];
 
-  function lang() { return root.getAttribute('data-lang') === 'en' ? 'en' : 'bn'; }
+  function lang() { return root.getAttribute('data-lang') === 'bn' ? 'bn' : 'en'; }
   function tr(key) { return I18N[lang()][key]; }
   SE.lang = lang;
 
@@ -40,7 +40,7 @@
   function setLang(l, initial) {
     root.setAttribute('data-lang', l);
     root.setAttribute('lang', l);
-    try { localStorage.setItem('se-lang', l); } catch (e) {}
+    try { localStorage.setItem('se-lang-v2', l); } catch (e) {}
     $$('[data-set-lang]').forEach(function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === l ? 'true' : 'false');
     });
@@ -107,7 +107,7 @@
   var progress = $('.progress');
   var toTop = $('.to-top');
   var ring = toTop && toTop.querySelector('circle');
-  var navLinks = $$('.nav__link');
+  var navLinks = $$('.nav__link').filter(function (a) { return a.getAttribute('href').charAt(0) === '#'; });
   var indicator = $('.nav__indicator');
   var sections = navLinks.map(function (a) { return doc.getElementById(a.getAttribute('href').slice(1)); });
   var lastY = win.pageYOffset;

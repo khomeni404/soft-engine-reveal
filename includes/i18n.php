@@ -1,7 +1,8 @@
 <?php
 // Bangla + English: every text is printed in both languages and CSS shows the
-// active one (html[data-lang]). Bangla is the default; the choice is remembered in
-// localStorage by assets/js/site/core.js.
+// active one (html[data-lang]). English is the default; the choice is remembered in
+// localStorage key `se-lang-v2` by assets/js/site/core.js (renamed from `se-lang`
+// so visitors who had Bangla saved under the old Bangla default start in English).
 if (!function_exists('t')) {
     /** Inline text in both languages. */
     function t($en, $bn)
@@ -17,10 +18,10 @@ if (!function_exists('t')) {
             . '<' . $tag . $c . ' data-l="bn" lang="bn">' . $bn . '</' . $tag . '>';
     }
 
-    /** An attribute in both languages; rendered in Bangla (the default) and swapped by JS. */
+    /** An attribute in both languages; rendered in English (the default) and swapped by JS. */
     function ta($attr, $en, $bn)
     {
-        return $attr . '="' . htmlspecialchars($bn) . '" data-en-' . $attr . '="' . htmlspecialchars($en)
+        return $attr . '="' . htmlspecialchars($en) . '" data-en-' . $attr . '="' . htmlspecialchars($en)
             . '" data-bn-' . $attr . '="' . htmlspecialchars($bn) . '"';
     }
 }

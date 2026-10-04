@@ -36,7 +36,7 @@
     var N = small ? 420 : 860;
     var LEVELS = 6;
     // brand blue, sky, green, orange
-    var COLORS = ['0,112,192', '16,141,196', '82,175,71', '227,108,10'];
+    var COLORS = ['18,34,157', '43,68,224', '18,150,190', '227,108,10'];
 
     var px = new Float32Array(N), py = new Float32Array(N), pz = new Float32Array(N);
     var pr = new Float32Array(N), ph = new Float32Array(N), pc = new Uint8Array(N);
@@ -56,8 +56,8 @@
 
     var rings = [
       { k: 1.45, ax: 1.15, az: 0.35, speed: 0.35, sats: 2, color: '227,108,10' },
-      { k: 1.74, ax: 1.35, az: -0.55, speed: -0.22, sats: 1, color: '16,141,196' },
-      { k: 1.24, ax: 0.35, az: 0.95, speed: 0.5, sats: 1, color: '82,175,71' }
+      { k: 1.74, ax: 1.35, az: -0.55, speed: -0.22, sats: 1, color: '43,68,224' },
+      { k: 1.24, ax: 0.35, az: 0.95, speed: 0.5, sats: 1, color: '18,150,190' }
     ];
 
     var bx = [], by = [], bs = [], bn = [];
@@ -127,8 +127,8 @@
       if (fade <= 0.002) return;
 
       var glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, Rr * 1.6);
-      glow.addColorStop(0, 'rgba(16,141,196,' + (0.16 * fade).toFixed(3) + ')');
-      glow.addColorStop(0.5, 'rgba(109,191,89,' + (0.05 * fade).toFixed(3) + ')');
+      glow.addColorStop(0, 'rgba(43,68,224,' + (0.16 * fade).toFixed(3) + ')');
+      glow.addColorStop(0.5, 'rgba(24,180,216,' + (0.05 * fade).toFixed(3) + ')');
       glow.addColorStop(1, 'rgba(244,247,252,0)');
       ctx.fillStyle = glow;
       ctx.fillRect(cx - Rr * 1.6, cy - Rr * 1.6, Rr * 3.2, Rr * 3.2);

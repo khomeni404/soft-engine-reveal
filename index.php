@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/includes/i18n.php'; ?>
 <!DOCTYPE html>
-<html lang="bn" data-lang="bn">
+<html lang="en" data-lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <meta name="description"
           content="Soft Engine Ltd. offers advanced Enterprise Management Software Solutions designed to streamline operations and optimize business processes. Our robust software suite empowers organizations with comprehensive tools for finance, human resources, inventory management, and more. Explore our innovative solutions today.">
     <meta content="" name="keywords">
-    <meta name="theme-color" content="#0070c0">
+    <meta name="theme-color" content="#12229d">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.sebd.co/">
     <meta property="og:title" content="Soft Engine Ltd.">
@@ -18,26 +18,26 @@
           content="Soft Engine Ltd. offers advanced Enterprise Management Software Solutions designed to streamline operations and optimize business processes.">
 
     <!-- Favicons -->
-    <link href="assets/img/log-pointer.ico" rel="icon">
-    <link href="assets/img/log-pointer.ico" rel="apple-touch-icon">
+    <link href="assets/img/favicon-2026.ico" rel="icon">
+    <link href="assets/img/logos/se-mark-2026-180.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Caprasimo&family=JetBrains+Mono:wght@400;500&family=Kalam:wght@300&family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Caprasimo&family=JetBrains+Mono:wght@400;500&family=Kalam:wght@300;400&family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
           rel="stylesheet">
 
     <!-- Styles -->
     <link href="assets/vendor/lenis/lenis.css" rel="stylesheet">
-    <link href="assets/css/site/base.css?v=3" rel="stylesheet">
-    <link href="assets/css/site/sections.css?v=3" rel="stylesheet">
-    <link href="assets/css/site/ui.css?v=3" rel="stylesheet">
+    <link href="assets/css/site/base.css?v=4" rel="stylesheet">
+    <link href="assets/css/site/sections.css?v=4" rel="stylesheet">
+    <link href="assets/css/site/ui.css?v=4" rel="stylesheet">
 
     <script>
         (function (d) {
-            var c = d.documentElement, lang = 'bn';
+            var c = d.documentElement, lang = 'en';
             try {
-                var saved = localStorage.getItem('se-lang');
+                var saved = localStorage.getItem('se-lang-v2');
                 if (saved === 'en' || saved === 'bn') lang = saved;
             } catch (e) {}
             c.setAttribute('data-lang', lang);
@@ -70,7 +70,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
 <!-- ======= Preloader / cursor / progress ======= -->
 <div class="preloader" aria-hidden="true">
     <div class="preloader__inner">
-        <img class="preloader__mark" src="assets/img/logos/se-mark@2x.png" alt="">
+        <img class="preloader__mark" src="assets/img/logos/se-mark-2026.svg" alt="">
         <div class="preloader__word"><span class="logo-lockup"><?= $logoLockup ?></span></div>
         <div class="preloader__bar"><i></i></div>
     </div>
@@ -97,8 +97,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
     <div class="navbar">
         <div class="container navbar__inner">
             <a class="brand" href="https://www.sebd.co" aria-label="Soft Engine Ltd.">
-                <img class="brand__mark" src="assets/img/logos/se-mark.png"
-                     srcset="assets/img/logos/se-mark.png 1x, assets/img/logos/se-mark@2x.png 2x" alt="" width="46" height="46">
+                <img class="brand__mark" src="assets/img/logos/se-mark-2026.svg" alt="" width="46" height="38">
                 <span class="logo-lockup"><?= $logoLockup ?></span>
             </a>
 
@@ -112,13 +111,14 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                         <li><a class="nav__link" href="#mgt"><?= t('Management', 'ব্যবস্থাপনা') ?></a></li>
                         <li><a class="nav__link" href="#team"><?= t('Team', 'টিম') ?></a></li>
                         <li><a class="nav__link" href="#contact"><?= t('Contact', 'যোগাযোগ') ?></a></li>
+                        <li><a class="nav__link nav__link--ext" href="https://sebd.co/career/" target="_blank" rel="noopener"><?= t('Career', 'ক্যারিয়ার') ?></a></li>
                         <li class="nav__indicator" aria-hidden="true"></li>
                     </ul>
                 </nav>
 
                 <div class="lang-switch" role="group" aria-label="ভাষা / Language">
-                    <button type="button" class="lang-switch__btn" data-set-lang="bn" lang="bn" aria-pressed="true">বাং</button>
-                    <button type="button" class="lang-switch__btn" data-set-lang="en" lang="en" aria-pressed="false">EN</button>
+                    <button type="button" class="lang-switch__btn" data-set-lang="bn" lang="bn" aria-pressed="false">বাং</button>
+                    <button type="button" class="lang-switch__btn" data-set-lang="en" lang="en" aria-pressed="true">EN</button>
                 </div>
 
                 <button class="nav-toggle" type="button" <?= ta('aria-label', 'Menu', 'মেনু') ?> aria-expanded="false" aria-controls="mobile-menu">
@@ -138,6 +138,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         <li><a class="mobile-menu__link" style="--i:4" href="#mgt"><small>05</small><?= t('Management', 'ব্যবস্থাপনা') ?></a></li>
         <li><a class="mobile-menu__link" style="--i:5" href="#team"><small>06</small><?= t('Team', 'টিম') ?></a></li>
         <li><a class="mobile-menu__link" style="--i:6" href="#contact"><small>07</small><?= t('Contact', 'যোগাযোগ') ?></a></li>
+        <li><a class="mobile-menu__link" style="--i:7" href="https://sebd.co/career/" target="_blank" rel="noopener"><small>08</small><?= t('Career', 'ক্যারিয়ার') ?></a></li>
     </ul>
     <div class="mobile-menu__contact">
         <a href="mailto:info@sebd.co">info@sebd.co</a>
@@ -154,7 +155,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         <div class="hero__aurora" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="hero__grid" aria-hidden="true"></div>
         <canvas class="hero__canvas" aria-hidden="true"></canvas>
-        <img class="hero__mark" src="assets/img/logos/se-mark@2x.png" alt="" aria-hidden="true">
+        <img class="hero__mark" src="assets/img/logos/se-mark-2026.svg" alt="" aria-hidden="true">
 
         <div class="container">
             <div class="hero__content">
@@ -187,15 +188,21 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                 <div class="flagships">
                     <span class="flagships__label"><?= t('Flagship Services', 'প্রধান সার্ভিস') ?></span>
                     <div class="flagships__row">
-                        <a class="flagship" href="https://sebd.co/bell" target="_blank" rel="noopener">
+                        <a class="flagship hot" href="https://sebd.co/bell" target="_blank" rel="noopener">
+                            <span class="hot-badge"><svg class="ic"><use href="#i-flame"/></svg><?= t('Hot', 'হট') ?></span>
                             <img class="flagship__logo" src="assets/img/portfolio/schoolbell.svg" alt="SchoolBell" width="160" height="39">
-                            <?= tb('span', 'flagship__sub', 'School Management', 'স্কুল ম্যানেজমেন্ট') ?>
-                            <svg class="ic flagship__go"><use href="#i-arrow-up-right"/></svg>
+                            <span class="flagship__foot">
+                                <?= tb('span', 'flagship__sub', 'School Management', 'স্কুল ম্যানেজমেন্ট') ?>
+                                <span class="details-chip"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></span>
+                            </span>
                         </a>
-                        <a class="flagship" href="https://bell.sebd.co/360/auth/login.se" target="_blank" rel="noopener">
+                        <a class="flagship hot" href="https://sebd.co/360/" target="_blank" rel="noopener">
+                            <span class="hot-badge"><svg class="ic"><use href="#i-flame"/></svg><?= t('Hot', 'হট') ?></span>
                             <span class="flagship__bh" role="img" aria-label="BizHub360"><svg class="ic"><use href="#i-briefcase"/></svg><b>BizHub</b><b>360</b></span>
-                            <?= tb('span', 'flagship__sub', 'ERP for Any Business', 'যেকোনো ব্যবসার ইআরপি') ?>
-                            <svg class="ic flagship__go"><use href="#i-arrow-up-right"/></svg>
+                            <span class="flagship__foot">
+                                <?= tb('span', 'flagship__sub', 'Real Estate &amp; Construction ERP', 'রিয়েল এস্টেট ও কনস্ট্রাকশন ইআরপি') ?>
+                                <span class="details-chip"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></span>
+                            </span>
                         </a>
                         <a class="flagship flagship--all" href="#services">
                             <?= t('All Services', 'সব সার্ভিস') ?> <svg class="ic"><use href="#i-arrow"/></svg>
@@ -208,7 +215,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         <a class="hero__scroll" href="#about" <?= ta('aria-label', 'About Us', 'আমাদের সম্পর্কে') ?>></a>
     </section><!-- End Hero -->
 
-    <!-- ======= Product ticker ======= -->
+    <!-- ======= Service ticker: fixed bottom bar ======= -->
     <div class="ticker" aria-hidden="true">
         <div class="ticker__track">
             <?php for ($copy = 0; $copy < 2; $copy++): ?>
@@ -221,8 +228,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         </div>
     </div>
 
-    <!-- ======= About Section (light) ======= -->
-    <section class="section is-white about" id="about">
+    <!-- ======= About Section ======= -->
+    <section class="section section--aurora about" id="about">
         <div class="container">
             <div class="section-head">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">01</span> <?= t('About Us', 'আমাদের সম্পর্কে') ?></p>
@@ -270,11 +277,28 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                 </article>
 
                 <aside class="about__side">
-                    <div class="terminal" data-reveal>
-                        <div class="terminal__bar"><i></i><i></i><i></i><span>sebd.co</span></div>
-                        <div class="terminal__body">
-                            <p class="terminal__line terminal__line--main"><span class="terminal__prompt" aria-hidden="true">&gt;</span><span data-type>Think Twice Code Once</span><span class="type-caret" aria-hidden="true"></span></p>
-                            <p class="terminal__line terminal__comment"><?= t('// Vision &middot; Creativity &middot; Passion &middot; Great Solutions', '// লক্ষ্য &middot; সৃজনশীলতা &middot; প্যাশন &middot; সেরা সমাধান') ?></p>
+                    <?php
+                    // Event photos from our client schools' public websites (isCool), served as
+                    //   https://<school-site>/doc/<instituteId>/Website/EventImages/<file>
+                    //   e.g. https://bafsj.edu.bd/doc/111/Website/EventImages/160926232130002.jpeg
+                    // Placeholders for now: replace each path with a real URL (any broken URL
+                    // falls back to the placeholder automatically).
+                    $eventPhotos = array(
+                        'assets/img/events/placeholder-1.svg',
+                        'assets/img/events/placeholder-2.svg',
+                        'assets/img/events/placeholder-3.svg',
+                        'assets/img/events/placeholder-4.svg',
+                    );
+                    ?>
+                    <div class="photos" data-reveal>
+                        <p class="photos__label"><?= t('From our client institutions', 'আমাদের ক্লায়েন্ট প্রতিষ্ঠান থেকে') ?></p>
+                        <div class="photos__grid">
+                            <?php foreach ($eventPhotos as $k => $src): ?>
+                                <figure class="photo-card">
+                                    <img src="<?= htmlspecialchars($src) ?>" alt="" loading="lazy" width="400" height="300"
+                                         onerror="this.onerror=null;this.src='assets/img/events/placeholder-<?= $k % 4 + 1 ?>.svg'">
+                                </figure>
+                            <?php endforeach; ?>
                         </div>
                     </div>
 
@@ -282,7 +306,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                         <span class="engine-art__ring"></span>
                         <span class="engine-art__ring"></span>
                         <span class="engine-art__ring"></span>
-                        <img class="engine-art__core" src="assets/img/logos/se-mark@2x.png" alt="">
+                        <img class="engine-art__core" src="assets/img/logos/se-mark-2026.svg" alt="">
                     </div>
                 </aside>
             </div>
@@ -342,8 +366,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Services Section (dark) ======= -->
-    <section class="section is-dark products" id="services">
+    <!-- ======= Services Section ======= -->
+    <section class="section section--aurora-alt section--grid products" id="services">
         <div class="container">
             <div class="section-head">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">02</span> <?= t('Services', 'সার্ভিস') ?></p>
@@ -376,29 +400,32 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                     array('i-school',
                         'Student, Class, Exam, Result, Fees, Salary. etc. are the key features for a school. We provide solutions and many more things along with key features.',
                         'শিক্ষার্থী, ক্লাস, পরীক্ষা, ফলাফল, ফি, বেতন ইত্যাদি একটি স্কুলের মূল বিষয়। আমরা এসব মূল ফিচারের পাশাপাশি আরও অনেক সুবিধাসহ সমাধান দিয়ে থাকি।',
-                        'https://sebd.co/bell', 'https://www.facebook.com/SchoolBellOfficial'),
-                    array('i-layers',
-                        'We develop customized Enterprise Resources Planning. For any kind of Corporate Business or Industry.',
-                        'আমরা যেকোনো ধরনের কর্পোরেট ব্যবসা বা শিল্পপ্রতিষ্ঠানের জন্য কাস্টমাইজড এন্টারপ্রাইজ রিসোর্স প্ল্যানিং তৈরি করি।'),
+                        'https://sebd.co/bell', 'https://www.facebook.com/SchoolBellOfficial', 0),
                     array('i-building',
                         'To manage Customer Information, Information of Flat, Plot Building etc. Notification of Customer Payments/Installments.',
-                        'গ্রাহকের তথ্য এবং ফ্ল্যাট, প্লট, বিল্ডিং ইত্যাদির তথ্য ব্যবস্থাপনা। গ্রাহকের পেমেন্ট/কিস্তির নোটিফিকেশন।'),
+                        'গ্রাহকের তথ্য এবং ফ্ল্যাট, প্লট, বিল্ডিং ইত্যাদির তথ্য ব্যবস্থাপনা। গ্রাহকের পেমেন্ট/কিস্তির নোটিফিকেশন।',
+                        'https://sebd.co/360/', '', 2),
+                    array('i-layers',
+                        'We develop customized Enterprise Resources Planning. For any kind of Corporate Business or Industry.',
+                        'আমরা যেকোনো ধরনের কর্পোরেট ব্যবসা বা শিল্পপ্রতিষ্ঠানের জন্য কাস্টমাইজড এন্টারপ্রাইজ রিসোর্স প্ল্যানিং তৈরি করি।', '', '', 1),
                     array('i-clock',
                         'Garments, Hospitals etc. have complex employee duty management, like 3 schedules duty. We also provide solutions for this type of complexity.',
-                        'গার্মেন্টস, হাসপাতাল ইত্যাদি প্রতিষ্ঠানে কর্মীদের ডিউটি ব্যবস্থাপনা বেশ জটিল, যেমন ৩ শিফটের ডিউটি। এ ধরনের জটিলতার জন্যও আমরা সমাধান দিয়ে থাকি।'),
+                        'গার্মেন্টস, হাসপাতাল ইত্যাদি প্রতিষ্ঠানে কর্মীদের ডিউটি ব্যবস্থাপনা বেশ জটিল, যেমন ৩ শিফটের ডিউটি। এ ধরনের জটিলতার জন্যও আমরা সমাধান দিয়ে থাকি।', '', '', 3),
                     array('i-shield',
                         'In a business, goods and services are often obtained on a regular basis. It can easily become a headache to keep account of all kinds of procurement. We provide softwares that can take care of the heavy bookkeeping and save resources.',
-                        'ব্যবসায় নিয়মিতভাবেই বিভিন্ন পণ্য ও সেবা সংগ্রহ করতে হয়। সব ধরনের ক্রয়ের হিসাব রাখা সহজেই মাথাব্যথার কারণ হয়ে উঠতে পারে। আমরা এমন সফটওয়্যার দিই যা ভারী হিসাবরক্ষণের কাজ সামলে নেয় এবং সম্পদ সাশ্রয় করে।'),
+                        'ব্যবসায় নিয়মিতভাবেই বিভিন্ন পণ্য ও সেবা সংগ্রহ করতে হয়। সব ধরনের ক্রয়ের হিসাব রাখা সহজেই মাথাব্যথার কারণ হয়ে উঠতে পারে। আমরা এমন সফটওয়্যার দিই যা ভারী হিসাবরক্ষণের কাজ সামলে নেয় এবং সম্পদ সাশ্রয় করে।', '', '', 4),
                     array('i-users',
                         'Human Resource (HR) is one of the main workforces of an organization. Often it costs more resources like time, money or more human resource to manage the HR. We provide solutions that can handle HRM in an efficient way.',
-                        'মানব সম্পদ (এইচআর) একটি প্রতিষ্ঠানের অন্যতম প্রধান কর্মশক্তি। প্রায়ই এইচআর ব্যবস্থাপনায় সময়, অর্থ বা আরও জনবলের মতো বাড়তি সম্পদ খরচ হয়। আমরা এমন সমাধান দিই যা দক্ষতার সাথে এইচআরএম পরিচালনা করতে পারে।'),
+                        'মানব সম্পদ (এইচআর) একটি প্রতিষ্ঠানের অন্যতম প্রধান কর্মশক্তি। প্রায়ই এইচআর ব্যবস্থাপনায় সময়, অর্থ বা আরও জনবলের মতো বাড়তি সম্পদ খরচ হয়। আমরা এমন সমাধান দিই যা দক্ষতার সাথে এইচআরএম পরিচালনা করতে পারে।', '', '', 5),
                 );
+                // array(icon, desc EN, desc BN, details URL, Facebook URL, index into $products)
                 foreach ($productCards as $i => $pc):
-                    $featured = $i === 0; ?>
-                    <article class="product card spot<?= $featured ? ' product--featured' : '' ?>" data-reveal>
+                    $featured = !empty($pc[3]); ?>
+                    <article class="product card spot<?= $featured ? ' product--featured hot' : '' ?>" data-reveal>
+                        <?php if ($featured): ?><span class="hot-badge"><svg class="ic"><use href="#i-flame"/></svg><?= t('Hot', 'হট') ?></span><?php endif; ?>
                         <span class="product__index"><?= sprintf('%02d', $i + 1) ?></span>
                         <span class="product__icon icon-chip"><svg class="ic"><use href="#<?= $pc[0] ?>"/></svg></span>
-                        <h3 class="product__title"><?= t($products[$i][0], $products[$i][1]) ?></h3>
+                        <h3 class="product__title"><?= t($products[$pc[5]][0], $products[$pc[5]][1]) ?></h3>
                         <?= tb('p', 'product__desc', $pc[1], $pc[2]) ?>
                         <?php if (!empty($pc[3])): ?>
                             <div class="product__actions">
@@ -414,8 +441,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         </div>
     </section><!-- End Services Section -->
 
-    <!-- ======= Clients Section (light) ======= -->
-    <section class="section clients" id="clients">
+    <!-- ======= Clients Section ======= -->
+    <section class="section section--aurora-mid clients" id="clients">
         <div class="container">
             <div class="section-head section-head--center">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">03</span></p>
@@ -464,8 +491,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         </div>
     </section><!-- End Clients Section -->
 
-    <!-- ======= Portfolio Section (dark) ======= -->
-    <section class="section is-dark portfolio" id="portfolio">
+    <!-- ======= Portfolio Section ======= -->
+    <section class="section section--aurora section--grid portfolio" id="portfolio">
         <div class="container">
             <div class="section-head">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">04</span> <?= t('Portfolio', 'পোর্টফোলিও') ?></p>
@@ -486,35 +513,40 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                 <?php
                 $works = array(
                     array('web', 'assets/img/portfolio/schoolbell.svg', 'assets/img/portfolio/schoolbell-stacked.svg', 'SchoolBell', 'School Management', 'স্কুল ম্যানেজমেন্ট', true, 'https://sebd.co/bell', 'https://www.facebook.com/SchoolBellOfficial'),
-                    array('web', 'assets/img/portfolio/bizhub360.jpg', 'assets/img/portfolio/details/bizhub360.jpg', 'BizHub360', 'ERP Solution for Any Business', 'যেকোনো ব্যবসার জন্য ইআরপি সল্যুশন'),
+                    array('web', 'assets/img/portfolio/bizhub360.jpg', 'assets/img/portfolio/details/bizhub360.jpg', 'BizHub360', 'Real Estate & Construction ERP', 'রিয়েল এস্টেট ও কনস্ট্রাকশন ইআরপি', false, 'https://sebd.co/360/'),
                     array('web', 'assets/img/portfolio/eg-accounts.jpg', 'assets/img/portfolio/details/eg-accounts.png', 'egAccounts', 'Accounting Solution', 'অ্যাকাউন্টিং সল্যুশন'),
                     array('web', 'assets/img/portfolio/soft_prism.png', 'assets/img/portfolio/soft_prism.png', 'Prism', 'Customized Accounting Software', 'কাস্টমাইজড অ্যাকাউন্টিং সফটওয়্যার'),
                     array('web', 'assets/img/portfolio/e-vision.jpg', 'assets/img/portfolio/e-vision.jpg', 'eVision', 'Organizational Management', 'প্রাতিষ্ঠানিক ব্যবস্থাপনা'),
                     array('web', 'assets/img/portfolio/mirror2.jpg', 'assets/img/portfolio/mirror2.jpg', 'Mirror2', 'HR & Financial Managemnet', 'এইচআর ও আর্থিক ব্যবস্থাপনা'),
                     array('app', 'assets/img/portfolio/lenden.jpg', 'assets/img/portfolio/lenden.jpg', 'Len-Den', 'Financial Management', 'আর্থিক ব্যবস্থাপনা'),
                     array('app', 'assets/img/portfolio/smartbell.jpg', 'assets/img/portfolio/details/smartbell.jpg', 'Smart Bell', 'Utility', 'ইউটিলিটি'),
+                    array('web', 'assets/img/portfolio/bafsj-site.jpg', 'assets/img/portfolio/details/bafsj-site.jpg', 'School Website', 'BAF Shaheen College Jashore &mdash; bafsj.edu.bd', 'বিএএফ শাহীন কলেজ যশোর &mdash; bafsj.edu.bd', false, 'https://bafsj.edu.bd/'),
                 );
+                // array(cat, thumb, lightbox image, title, sub EN, sub BN, logo-thumb?, details URL, Facebook URL)
                 foreach ($works as $w):
                     $isApp = $w[0] === 'app';
                     $isLogo = !empty($w[6]);
+                    $isHot = in_array($w[3], array('SchoolBell', 'BizHub360'), true);
                     $title = htmlspecialchars($w[3]); ?>
-                    <article class="work" data-cat="<?= $w[0] ?>" data-reveal>
+                    <article class="work<?= $isHot ? ' hot' : '' ?>" data-cat="<?= $w[0] ?>" data-reveal>
+                        <?php if ($isHot): ?><span class="hot-badge"><svg class="ic"><use href="#i-flame"/></svg><?= t('Hot', 'হট') ?></span><?php endif; ?>
                         <button class="work__media<?= $isLogo ? ' work__media--logo' : '' ?>" type="button"
                                 data-lightbox="<?= $w[2] ?>" data-title="<?= $title ?>"
-                                data-sub-en="<?= htmlspecialchars($w[4]) ?>" data-sub-bn="<?= htmlspecialchars($w[5]) ?>"
+                                data-sub-en="<?= htmlspecialchars(html_entity_decode($w[4])) ?>" data-sub-bn="<?= htmlspecialchars(html_entity_decode($w[5])) ?>"
                                 <?= ta('aria-label', 'Preview ' . $w[3], $w[3] . ' প্রিভিউ') ?>>
-                            <img src="<?= $w[1] ?>" alt="<?= $title . ' &mdash; ' . htmlspecialchars($w[4]) ?>" loading="lazy" width="843" height="403">
+                            <img src="<?= $w[1] ?>" alt="<?= $title . ' &mdash; ' . htmlspecialchars(html_entity_decode($w[4])) ?>" loading="lazy" width="843" height="403">
                             <span class="work__zoom" aria-hidden="true"><svg class="ic"><use href="#i-zoom"/></svg></span>
                         </button>
                         <div class="work__info">
                             <div>
                                 <h3><?= $title ?></h3>
-                                <?= tb('p', '', htmlspecialchars($w[4]), $w[5]) ?>
+                                <?= tb('p', '', $w[4], $w[5]) ?>
                             </div>
                             <div class="work__side">
-                                <span class="work__tag<?= $isApp ? ' work__tag--app' : '' ?>"><?= $isApp ? t('Android', 'অ্যান্ড্রয়েড') : t('Web', 'ওয়েব') ?></span>
                                 <?php if (!empty($w[7])): ?>
-                                    <a class="btn btn--primary btn--sm work__cta" href="<?= htmlspecialchars($w[7]) ?>" target="_blank" rel="noopener"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                                    <a class="details-chip work__cta" href="<?= htmlspecialchars($w[7]) ?>" target="_blank" rel="noopener"><?= t('Details', 'বিস্তারিত') ?> <svg class="ic"><use href="#i-arrow-up-right"/></svg></a>
+                                <?php else: ?>
+                                    <span class="work__tag<?= $isApp ? ' work__tag--app' : '' ?>"><?= $isApp ? t('Android', 'অ্যান্ড্রয়েড') : t('Web', 'ওয়েব') ?></span>
                                 <?php endif; ?>
                                 <?php if (!empty($w[8])): ?>
                                     <a class="fb-btn" href="<?= htmlspecialchars($w[8]) ?>" target="_blank" rel="noopener" <?= ta('aria-label', $w[3] . ' on Facebook', 'ফেসবুকে ' . $w[3]) ?>><svg class="ic"><use href="#i-facebook"/></svg></a>
@@ -550,8 +582,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
     }
     ?>
 
-    <!-- ======= Management Section (light) ======= -->
-    <section class="section is-white" id="mgt">
+    <!-- ======= Management Section ======= -->
+    <section class="section section--aurora-alt" id="mgt">
         <div class="container">
             <div class="section-head section-head--center">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">05</span></p>
@@ -570,8 +602,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         </div>
     </section><!-- End Management Section -->
 
-    <!-- ======= Team Section (light) ======= -->
-    <section class="section is-white section--tight-top" id="team">
+    <!-- ======= Team Section ======= -->
+    <section class="section section--aurora-mid section--tight-top" id="team">
         <div class="container">
             <div class="section-head section-head--center">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">06</span> <?= t('Team', 'টিম') ?></p>
@@ -590,8 +622,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         </div>
     </section><!-- End Team Section -->
 
-    <!-- ======= Contact Section (dark) ======= -->
-    <section class="section is-dark contact" id="contact">
+    <!-- ======= Contact Section ======= -->
+    <section class="section section--aurora section--grid contact" id="contact">
         <div class="container">
             <div class="section-head">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">07</span> <?= t('Contact', 'যোগাযোগ') ?></p>
@@ -649,8 +681,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
         </div>
     </section><!-- End Contact Section -->
 
-    <!-- ======= Payment & Policies (light) ======= -->
-    <section class="section" id="pay_partner">
+    <!-- ======= Payment & Policies ======= -->
+    <section class="section section--aurora-alt" id="pay_partner">
         <div class="container">
             <div class="section-head">
                 <p class="eyebrow" data-reveal><span class="eyebrow__num">08</span></p>
@@ -672,8 +704,8 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
 
 </main><!-- End #main -->
 
-<!-- ======= Footer (dark) ======= -->
-<footer class="site-footer is-dark" id="footer">
+<!-- ======= Footer ======= -->
+<footer class="site-footer section--aurora-mid" id="footer">
     <div class="container">
         <div class="footer__brand" aria-hidden="true">
             <span class="footer__logo">
@@ -747,8 +779,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && strlen($seMessage) > 0) {
     echo '<script>window.SE_ALERT = ' . json_encode($seAlert, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) . ';</script>' . "\n";
 }
 ?>
-<script src="assets/js/site/core.js?v=3"></script>
-<script src="assets/js/site/fx.js?v=3"></script>
+<script src="assets/js/site/core.js?v=4"></script>
+<script src="assets/js/site/fx.js?v=4"></script>
 
 </body>
 

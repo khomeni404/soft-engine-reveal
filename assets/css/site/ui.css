@@ -47,7 +47,7 @@
   gap: 1rem;
   padding: 20px 24px;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(115deg, rgba(0, 112, 192, .06), rgba(109, 191, 89, .06));
+  background: linear-gradient(115deg, rgba(18, 34, 157, .06), rgba(24, 180, 216, .06));
 }
 .dialog__title {
   display: flex;
@@ -153,7 +153,7 @@
   font-size: .76rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #5bb8f0;
+  color: #6a84f5;
 }
 .lightbox__btn {
   position: fixed;
@@ -169,7 +169,7 @@
   border: 1px solid rgba(170, 195, 240, .3);
   transition: border-color .3s, background-color .3s;
 }
-.lightbox__btn:hover { border-color: #5bb8f0; background: rgba(16, 141, 196, .25); }
+.lightbox__btn:hover { border-color: #6a84f5; background: rgba(43, 68, 224, .25); }
 .lightbox__btn svg { width: 20px; height: 20px; }
 .lightbox__prev { left: 18px; }
 .lightbox__next { right: 18px; }
@@ -187,8 +187,8 @@
   position: relative;
   padding: calc(var(--header-h) + 70px) 0 90px;
   background:
-    radial-gradient(800px 500px at 0% 0%, rgba(16, 141, 196, .12), transparent 60%),
-    radial-gradient(700px 500px at 100% 100%, rgba(109, 191, 89, .12), transparent 60%),
+    radial-gradient(800px 500px at 0% 0%, rgba(43, 68, 224, .12), transparent 60%),
+    radial-gradient(700px 500px at 100% 100%, rgba(24, 180, 216, .12), transparent 60%),
     var(--bg);
 }
 .form-card {
@@ -231,7 +231,7 @@ textarea.input {
   outline: none;
   border-color: var(--brand-sky);
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(16, 141, 196, .16);
+  box-shadow: 0 0 0 4px rgba(43, 68, 224, .16);
 }
 .input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
 .input[type="number"]::-webkit-inner-spin-button,
@@ -314,6 +314,7 @@ textarea.input {
   animation: none;
 }
 .reduced [data-clone] { display: none; }
+.reduced .ticker__track { flex-wrap: nowrap; justify-content: flex-start; padding-left: var(--gutter); }
 .reduced .preloader { display: none; }
 
 @keyframes dialog-in {
