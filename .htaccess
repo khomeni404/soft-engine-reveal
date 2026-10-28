@@ -1,0 +1,4 @@
+Header set Content-Security-Policy "upgrade-insecure-requests" env=HTTPS
+# 2026-10-28: the Android app is on Google Play now; old APK links (isCool login page, SMS short links) go there
+Redirect 301 /assets/apk/Ting-Tong.apk https://play.google.com/store/apps/details?id=co.sebd.tingtong
+Redirect 301 /assets/apk/SmartBell.apk https://play.google.com/store/apps/details?id=co.sebd.tingtong

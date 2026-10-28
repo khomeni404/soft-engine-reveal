@@ -520,7 +520,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                     array('web', 'assets/img/portfolio/mirror2.jpg', 'assets/img/portfolio/mirror2.jpg', 'Mirror2', 'HR & Financial Managemnet', 'এইচআর ও আর্থিক ব্যবস্থাপনা'),
                     array('app', 'assets/img/portfolio/lenden.jpg', 'assets/img/portfolio/lenden.jpg', 'Len-Den', 'Financial Management', 'আর্থিক ব্যবস্থাপনা'),
                     array('app', 'assets/img/portfolio/smartbell.jpg', 'assets/img/portfolio/details/smartbell.jpg', 'Smart Bell', 'Utility', 'ইউটিলিটি'),
-                    array('web', 'assets/img/portfolio/bafsj-site.jpg', 'assets/img/portfolio/details/bafsj-site.jpg', 'School Website', 'BAF Shaheen College Jashore &mdash; bafsj.edu.bd', 'বিএএফ শাহীন কলেজ যশোর &mdash; bafsj.edu.bd', false, 'https://bafsj.edu.bd/'),
+                    array('web', 'assets/img/portfolio/bafsj-site.jpg', 'assets/img/portfolio/details/bafsj-site.jpg', 'School Website', 'BAF Shaheen College Jashore - bafsj.edu.bd', 'বিএএফ শাহীন কলেজ যশোর - bafsj.edu.bd', false, 'https://bafsj.edu.bd/'),
                 );
                 // array(cat, thumb, lightbox image, title, sub EN, sub BN, logo-thumb?, details URL, Facebook URL)
                 foreach ($works as $w):
@@ -534,7 +534,7 @@ $logoLockup = '<span class="logo-lockup__name">Soft Engine Ltd.</span><span clas
                                 data-lightbox="<?= $w[2] ?>" data-title="<?= $title ?>"
                                 data-sub-en="<?= htmlspecialchars(html_entity_decode($w[4])) ?>" data-sub-bn="<?= htmlspecialchars(html_entity_decode($w[5])) ?>"
                                 <?= ta('aria-label', 'Preview ' . $w[3], $w[3] . ' প্রিভিউ') ?>>
-                            <img src="<?= $w[1] ?>" alt="<?= $title . ' &mdash; ' . htmlspecialchars(html_entity_decode($w[4])) ?>" loading="lazy" width="843" height="403">
+                            <img src="<?= $w[1] ?>" alt="<?= $title . ' - ' . htmlspecialchars(html_entity_decode($w[4])) ?>" loading="lazy" width="843" height="403">
                             <span class="work__zoom" aria-hidden="true"><svg class="ic"><use href="#i-zoom"/></svg></span>
                         </button>
                         <div class="work__info">

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School-Bell - ৪৫s Promo (9:16)</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Baloo+Da+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{
+  --primary:#6B21A8; --primary-light:#7C3AED; --accent:#F59E0B;
+  --green:#10B981; --blue:#3B82F6; --pink:#EC4899;
+  --ink:#1E1B2E;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;background:#0b0b12;font-family:'Hind Siliguri',sans-serif;overflow:hidden;}
+body{display:flex;align-items:center;justify-content:center;}
+
+/* ---------- 9:16 STAGE ---------- */
+.stage{
+  position:relative;
+  width:min(100vw, calc(100vh * 9 / 16));
+  height:min(100vh, calc(100vw * 16 / 9));
+  background:linear-gradient(160deg,#2b0f4d 0%,#4c1d95 40%,#6B21A8 70%,#7C3AED 100%);
+  overflow:hidden;
+  box-shadow:0 0 60px rgba(0,0,0,.6);
+  --u: calc(min(100vw, calc(100vh * 9 / 16)) / 100); /* 1% width unit for scalable sizing */
+}
+/* decorative blobs */
+.blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.5;}
+.blob.b1{width:60%;height:34%;left:-20%;top:-8%;background:radial-gradient(circle,#F59E0B,transparent 70%);opacity:.35;}
+.blob.b2{width:70%;height:40%;right:-25%;bottom:-6%;background:radial-gradient(circle,#10B981,transparent 70%);opacity:.3;}
+.blob.b3{width:50%;height:30%;left:20%;top:35%;background:radial-gradient(circle,#3B82F6,transparent 70%);opacity:.25;}
+
+/* ---------- TOP BAR ---------- */
+.topbar{position:absolute;top:calc(var(--u)*3.5);left:calc(var(--u)*5);right:calc(var(--u)*5);
+  display:flex;align-items:center;justify-content:space-between;z-index:40;}
+.brand{display:flex;align-items:center;gap:calc(var(--u)*1.6);color:#fff;font-family:'Baloo Da 2',cursive;font-weight:800;
+  font-size:calc(var(--u)*4);letter-spacing:.3px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));}
+.brand img{height:calc(var(--u)*8);width:auto;}
+.brand .b-is{color:#fff;} .brand .b-bell{color:#FCD34D;}
+.progress{position:absolute;bottom:calc(var(--u)*2.2);left:calc(var(--u)*5);right:calc(var(--u)*5);height:calc(var(--u)*0.8);
+  background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden;z-index:40;}
+.progress > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#FCD34D,#F59E0B);border-radius:99px;}
+
+/* ---------- SCENE SYSTEM ---------- */
+.scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .5s ease;}
+.scene.active{opacity:1;visibility:visible;}
+
+/* headline block (upper) */
+.headline{position:absolute;top:calc(var(--u)*11);left:calc(var(--u)*6);right:calc(var(--u)*6);text-align:center;z-index:30;}
+.kicker{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
+  color:#fff;font-weight:600;font-size:calc(var(--u)*2.9);padding:calc(var(--u)*1) calc(var(--u)*3);border-radius:99px;
+  margin-bottom:calc(var(--u)*2.4);backdrop-filter:blur(4px);}
+.title{color:#fff;font-family:'Baloo Da 2',cursive;font-weight:800;line-height:1.12;
+  font-size:calc(var(--u)*7.6);text-shadow:0 4px 18px rgba(0,0,0,.35);}
+.title .hl{color:#FCD34D;}
+
+/* screenshot cards zone (middle) */
+.cards{position:absolute;top:calc(var(--u)*24);left:0;right:0;height:calc(var(--u)*72);z-index:20;}
+.shot{position:absolute;background:#fff;border-radius:calc(var(--u)*2.2);overflow:hidden;
+  box-shadow:0 calc(var(--u)*2.5) calc(var(--u)*6) rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.6);opacity:0;transform:translateY(30px) scale(.9);}
+.scene.active .shot{animation:cardIn .7s cubic-bezier(.2,.9,.3,1.2) forwards;}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;}
+.shot .tag{position:absolute;left:0;bottom:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.72));
+  color:#fff;font-size:calc(var(--u)*2.4);font-weight:600;padding:calc(var(--u)*4) calc(var(--u)*2) calc(var(--u)*1.4);}
+.shot.doc img{object-fit:cover;}
+.shot.phone{border-radius:calc(var(--u)*3.5);}
+@keyframes cardIn{to{opacity:1;transform:translateY(0) scale(1);}}
+/* subtle float */
+.scene.active .shot{animation:cardIn .7s cubic-bezier(.2,.9,.3,1.2) forwards, floaty 4s ease-in-out .7s infinite;}
+@keyframes floaty{0%,100%{margin-top:0;}50%{margin-top:calc(var(--u)*-1);}}
+
+/* per-slot placement (document-ish portrait cards) */
+.slot-a{width:calc(var(--u)*46);height:calc(var(--u)*40);left:calc(var(--u)*6);top:calc(var(--u)*2);transform:rotate(-4deg) translateY(30px) scale(.9);}
+.slot-b{width:calc(var(--u)*44);height:calc(var(--u)*44);right:calc(var(--u)*5);top:calc(var(--u)*24);z-index:22;}
+.slot-c{width:calc(var(--u)*40);height:calc(var(--u)*34);left:calc(var(--u)*10);top:calc(var(--u)*46);transform:rotate(3deg) translateY(30px) scale(.9);}
+.scene.active .slot-a{animation:cardInA .7s cubic-bezier(.2,.9,.3,1.2) forwards, floaty 4.5s ease-in-out .7s infinite;}
+.scene.active .slot-c{animation:cardInC .7s .18s cubic-bezier(.2,.9,.3,1.2) forwards, floaty 5s ease-in-out 1s infinite;}
+.scene.active .slot-b{animation:cardIn .7s .1s cubic-bezier(.2,.9,.3,1.2) forwards, floaty 4s ease-in-out .8s infinite;}
+@keyframes cardInA{to{opacity:1;transform:rotate(-4deg) translateY(0) scale(1);}}
+@keyframes cardInC{to{opacity:1;transform:rotate(3deg) translateY(0) scale(1);}}
+
+/* phone-frame variant for app screenshots */
+.shot.phone{background:#111;border:calc(var(--u)*1) solid #111;box-shadow:0 calc(var(--u)*2.5) calc(var(--u)*7) rgba(0,0,0,.55);}
+.p1{width:calc(var(--u)*30);height:calc(var(--u)*62);left:calc(var(--u)*8);top:calc(var(--u)*6);transform:rotate(-6deg) translateY(30px) scale(.9);z-index:21;}
+.p2{width:calc(var(--u)*33);height:calc(var(--u)*68);left:50%;margin-left:calc(var(--u)*-16.5);top:calc(var(--u)*2);z-index:23;}
+.p3s{width:calc(var(--u)*30);height:calc(var(--u)*62);right:calc(var(--u)*8);top:calc(var(--u)*6);transform:rotate(6deg) translateY(30px) scale(.9);z-index:21;}
+.scene.active .p1{animation:pIn1 .7s cubic-bezier(.2,.9,.3,1.2) forwards, floaty 4.5s ease-in-out .7s infinite;}
+.scene.active .p3s{animation:pIn3 .7s .2s cubic-bezier(.2,.9,.3,1.2) forwards, floaty 5s ease-in-out 1s infinite;}
+.scene.active .p2{animation:cardIn .7s .1s cubic-bezier(.2,.9,.3,1.2) forwards, floaty 4s ease-in-out .8s infinite;}
+@keyframes pIn1{to{opacity:1;transform:rotate(-6deg) translateY(0) scale(1);}}
+@keyframes pIn3{to{opacity:1;transform:rotate(6deg) translateY(0) scale(1);}}
+
+/* ---------- PRESENTER / MODEL ---------- */
+.presenter{position:absolute;right:calc(var(--u)*4);bottom:calc(var(--u)*17);width:calc(var(--u)*34);height:calc(var(--u)*46);z-index:35;}
+.presenter .ring{position:absolute;inset:0;border-radius:50% 50% 46% 46%/ 44% 44% 56% 56%;
+  background:linear-gradient(160deg,#fff,#F3EEFF);box-shadow:0 calc(var(--u)*2) calc(var(--u)*6) rgba(0,0,0,.4);overflow:hidden;
+  border:calc(var(--u)*0.6) solid rgba(255,255,255,.85);}
+/* SWAP HERE: replace this SVG (or set #modelImg src) with your filmed model / photo */
+.presenter img#modelImg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;}
+.presenter .avatar{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;}
+.presenter .avatar svg{width:86%;height:92%;}
+.talk-bars{position:absolute;left:50%;bottom:calc(var(--u)*-3.5);transform:translateX(-50%);display:flex;gap:calc(var(--u)*0.7);align-items:flex-end;height:calc(var(--u)*4);}
+.talk-bars span{width:calc(var(--u)*0.9);background:#FCD34D;border-radius:2px;height:40%;animation:talk .5s ease-in-out infinite;}
+.talk-bars span:nth-child(2){animation-delay:.1s;} .talk-bars span:nth-child(3){animation-delay:.2s;}
+.talk-bars span:nth-child(4){animation-delay:.15s;} .talk-bars span:nth-child(5){animation-delay:.05s;}
+@keyframes talk{0%,100%{height:30%;}50%{height:100%;}}
+.presenter{animation:bob 3.5s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(calc(var(--u)*-0.8));}}
+
+/* ---------- CAPTION (VO subtitle) ---------- */
+.caption{position:absolute;left:calc(var(--u)*5);right:calc(var(--u)*40);bottom:calc(var(--u)*18);z-index:36;}
+.caption .bubble{background:rgba(255,255,255,.95);color:var(--ink);font-weight:600;font-size:calc(var(--u)*3.4);
+  line-height:1.5;padding:calc(var(--u)*2.4) calc(var(--u)*3);border-radius:calc(var(--u)*2.6);
+  border-bottom-left-radius:calc(var(--u)*0.6);box-shadow:0 calc(var(--u)*1.5) calc(var(--u)*4) rgba(0,0,0,.3);
+  opacity:0;transform:translateY(14px);}
+.scene.active .caption .bubble{animation:capIn .5s .25s ease forwards;}
+@keyframes capIn{to{opacity:1;transform:translateY(0);}}
+
+/* ---------- CTA SCENE extras ---------- */
+.cta-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--u)*8);z-index:30;}
+.cta-wrap .logo{height:calc(var(--u)*16);margin-bottom:calc(var(--u)*4);}
+.cta-badge{background:#FCD34D;color:#7c2d12;font-family:'Baloo Da 2',cursive;font-weight:800;font-size:calc(var(--u)*4.4);
+  padding:calc(var(--u)*1.6) calc(var(--u)*4);border-radius:99px;margin-bottom:calc(var(--u)*4);transform:rotate(-3deg);
+  box-shadow:0 calc(var(--u)*1.5) calc(var(--u)*4) rgba(0,0,0,.3);}
+.cta-phone{color:#fff;font-family:'Baloo Da 2',cursive;font-weight:800;font-size:calc(var(--u)*8.5);letter-spacing:1px;
+  display:flex;align-items:center;gap:calc(var(--u)*2.5);text-shadow:0 3px 12px rgba(0,0,0,.4);}
+.cta-phone i{font-size:calc(var(--u)*6);}
+.cta-site{color:#FCD34D;font-weight:700;font-size:calc(var(--u)*4.4);margin-top:calc(var(--u)*2);}
+.cta-sub{color:rgba(255,255,255,.9);font-size:calc(var(--u)*3.4);margin-top:calc(var(--u)*4);}
+
+/* ---------- CONTROLS (hidden while recording) ---------- */
+#start{position:absolute;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(10,6,22,.82);color:#fff;cursor:pointer;text-align:center;gap:calc(var(--u)*3);backdrop-filter:blur(3px);}
+#start .play{width:calc(var(--u)*20);height:calc(var(--u)*20);border-radius:50%;background:#FCD34D;color:#4c1d95;
+  display:flex;align-items:center;justify-content:center;font-size:calc(var(--u)*8);box-shadow:0 0 40px rgba(252,211,77,.6);}
+#start h1{font-family:'Baloo Da 2',cursive;font-size:calc(var(--u)*5);}
+#start p{font-size:calc(var(--u)*3);opacity:.8;max-width:80%;line-height:1.6;}
+.hint{position:absolute;bottom:calc(var(--u)*5);font-size:calc(var(--u)*2.4);opacity:.6;}
+#replay{position:absolute;bottom:calc(var(--u)*5);left:50%;transform:translateX(-50%);z-index:60;
+  background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:99px;
+  padding:calc(var(--u)*1.4) calc(var(--u)*4);font-family:'Hind Siliguri';font-size:calc(var(--u)*2.8);cursor:pointer;
+  display:none;backdrop-filter:blur(4px);}
+.stage.playing #replay.show{display:block;}
+</style>
+</head>
+<body>
+<!--
+  ================= School-Bell · 45s Promo (9:16 vertical) =================
+  ব্যবহার: এই পেজটি ব্রাউজারে খুলুন → মাঝের Play বাটনে ক্লিক করুন → স্ক্রিন-রেকর্ডার
+  (OBS / Windows Game Bar Win+G / ব্রাউজার রেকর্ডার) দিয়ে stage এরিয়াটা রেকর্ড করুন।
+  সেরা মানের জন্য ব্রাউজার উইন্ডো ~1080x1920 রাখুন বা OBS-এ 9:16 canvas নিন।
+
+  মডেল বসাতে: .presenter এর ভেতর #modelImg এর src দিন (আপনার মডেলের ছবি/ভিডিও ফ্রেম),
+  আর CSS-এ `img#modelImg{display:block}` করলে ডিফল্ট অ্যাভাটার সরে গিয়ে আপনার মডেল দেখাবে।
+  সবুজ-স্ক্রিনে শুট করা ভিডিও হলে .presenter জোনটাকে গাইড হিসেবে কম্পোজিট করুন।
+
+  ভয়েস-ওভার (রেকর্ড করে অ্যাড করুন, সেকেন্ড অনুযায়ী):
+   0-4s  : স্কুল চালানো এখন আর ঝামেলা নয় - একটাই সমাধান, School-Bell।
+   4-11s : অনলাইন ভর্তি, ছবিসহ প্রোফাইল আর বারকোড আইডি কার্ড - সব এক ক্লিকে।
+   11-18s: ফিঙ্গারপ্রিন্টে হাজিরা নিন, সাথে সাথেই অভিভাবকের মোবাইলে এসএমএস।
+   18-26s: যেকোনো ফরম্যাটে রেজাল্ট, জিপিএ রিপোর্ট কার্ড, অ্যাডমিট আর সিট প্ল্যান।
+   26-33s: বিকাশ-নগদে অনলাইন ফি - শূন্য চার্জে সরাসরি ব্যাংকে জমা।
+   33-40s: রেজাল্ট, উপস্থিতি, নোটিশ - Guardian ও Teacher অ্যাপে হাতের মুঠোয়।
+   40-45s: আজই ফ্রি ডেমো নিন - কল করুন শূন্য এক সাত শূন্য এক, সাত পাঁচ সাত সাত ছয় ছয়।
+  =========================================================================
+-->
+<div class="stage" id="stage">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <!-- top bar -->
+  <div class="topbar">
+    <div class="brand"><img src="logo/bell-logo.png" alt="School-Bell" onerror="this.style.display='none'">
+      <span><span class="b-is">School</span>-<span class="b-bell">Bell</span></span></div>
+    <div style="color:rgba(255,255,255,.85);font-size:calc(var(--u)*2.6);font-weight:600;"><i class="fas fa-graduation-cap"></i> স্মার্ট স্কুল</div>
+  </div>
+
+  <!-- ============ SCENES (injected by JS) ============ -->
+  <div id="sceneHost"></div>
+
+  <!-- persistent presenter -->
+  <div class="presenter" id="presenter">
+    <div class="ring">
+      <img id="modelImg" src="" alt="model">
+      <div class="avatar">
+        <!-- default stylized presenter (swap for real model) -->
+        <svg viewBox="0 0 120 130" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#6B21A8"/></linearGradient></defs>
+          <ellipse cx="60" cy="122" rx="52" ry="30" fill="url(#g)"/>
+          <path d="M18 130 C18 96 34 84 60 84 C86 84 102 96 102 130 Z" fill="url(#g)"/>
+          <circle cx="60" cy="52" r="26" fill="#F6D3B8"/>
+          <path d="M34 48 C34 26 50 20 60 20 C70 20 86 26 86 48 C86 40 78 34 60 34 C42 34 34 40 34 48 Z" fill="#3b2a1e"/>
+          <circle cx="50" cy="52" r="3" fill="#2b1d12"/><circle cx="70" cy="52" r="3" fill="#2b1d12"/>
+          <path d="M52 64 Q60 70 68 64" stroke="#b06a4e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <rect x="46" y="80" width="28" height="16" rx="4" fill="#F6D3B8"/>
+        </svg>
+      </div>
+    </div>
+    <div class="talk-bars" id="talkbars"><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+
+  <div class="progress"><i id="bar"></i></div>
+  <button id="replay">↻ আবার চালান</button>
+
+  <!-- start overlay -->
+  <div id="start">
+    <div class="play"><i class="fas fa-play"></i></div>
+    <h1>School-Bell - ৪৫s Promo</h1>
+    <p>Play চাপুন। রেকর্ড করতে OBS / Win+G দিয়ে এই এরিয়াটা ক্যাপচার করুন।<br>ভয়েস-ওভার স্ক্রিপ্ট সোর্সের কমেন্টে দেওয়া আছে।</p>
+    <div class="hint">9:16 · 45 sec · মিউট করে চালালেও ক্যাপশন পড়া যাবে</div>
+  </div>
+</div>
+
+<script>
+/* ---------------- SCENE DATA ---------------- */
+const scenes = [
+  { start:0,  kicker:"স্মার্ট স্কুল ম্যানেজমেন্ট", title:'একটাই সফটওয়্যার<br><span class="hl">সব সমাধান</span>',
+    caption:"স্কুল চালানো এখন আর ঝামেলা নয় - একটাই সমাধান।",
+    type:"phone", imgs:[
+      {src:"docs/smart-bell-app/1.jpeg", cls:"p2", tag:"Smart Bell App"},
+    ]},
+  { start:4000, kicker:"শিক্ষার্থী ব্যবস্থাপনা", title:'ভর্তি · প্রোফাইল<br><span class="hl">ID কার্ড</span>',
+    caption:"অনলাইন ভর্তি, ছবিসহ প্রোফাইল আর বারকোড ID কার্ড।",
+    type:"doc", imgs:[
+      {src:"previews/images/p3_01.jpg", cls:"slot-a", tag:"শিক্ষার্থী প্রোফাইল"},
+      {src:"previews/images/p4_01.jpg", cls:"slot-b", tag:"ID কার্ড"},
+      {src:"previews/images/p5_01.jpg", cls:"slot-c", tag:"ভর্তি রিপোর্ট"},
+    ]},
+  { start:11000, kicker:"উপস্থিতি", title:'ফিঙ্গারপ্রিন্ট হাজিরা<br><span class="hl">+ অটো SMS</span>',
+    caption:"হাজিরা নিন, সাথে সাথেই অভিভাবকের মোবাইলে SMS।",
+    type:"doc", imgs:[
+      {src:"images/smart-attendance.jpg", cls:"slot-a", tag:"স্মার্ট অ্যাটেন্ডেন্স"},
+      {src:"images/notifications.jpg", cls:"slot-b", tag:"অভিভাবককে SMS"},
+      {src:"previews/images/p8_01.jpg", cls:"slot-c", tag:"দৈনিক রিপোর্ট"},
+    ]},
+  { start:18000, kicker:"পরীক্ষা ও রেজাল্ট", title:'রেজাল্ট · অ্যাডমিট<br><span class="hl">সিট প্ল্যান</span>',
+    caption:"যেকোনো ফরম্যাটে রেজাল্ট, GPA রিপোর্ট কার্ড, অ্যাডমিট ও সিট প্ল্যান।",
+    type:"doc", imgs:[
+      {src:"previews/images/p14_01.jpg", cls:"slot-a", tag:"রেজাল্ট শিট"},
+      {src:"previews/images/p11_01.jpg", cls:"slot-b", tag:"অ্যাডমিট কার্ড"},
+      {src:"previews/images/p12_01.jpg", cls:"slot-c", tag:"সিট প্ল্যান"},
+    ]},
+  { start:26000, kicker:"অনলাইন ফি আদায়", title:'বিকাশ · নগদে<br><span class="hl">শূন্য চার্জ</span>',
+    caption:"বিকাশ-নগদে ফি - শূন্য চার্জে সরাসরি ব্যাংকে জমা।",
+    type:"doc", imgs:[
+      {src:"docs/nagad-bkash-online-pay.jpg", cls:"slot-a", tag:"অনলাইন পেমেন্ট"},
+      {src:"previews/images/p10_01.jpg", cls:"slot-b", tag:"ফি রিসিট"},
+      {src:"previews/images/p9_01.jpg", cls:"slot-c", tag:"ডিউ ফী চার্ট"},
+    ]},
+  { start:33000, kicker:"মোবাইল অ্যাপ", title:'Guardian ও Teacher<br><span class="hl">অ্যাপ</span>',
+    caption:"রেজাল্ট, উপস্থিতি, নোটিশ - সব হাতের মুঠোয়।",
+    type:"phone", imgs:[
+      {src:"docs/smart-bell-app/Result.jpeg", cls:"p1", tag:"রেজাল্ট"},
+      {src:"docs/smart-bell-app/1.jpeg", cls:"p2", tag:"হোমস্ক্রিন"},
+      {src:"docs/smart-bell-app/Notifications.jpeg", cls:"p3s", tag:"নোটিফিকেশন"},
+    ]},
+  { start:40000, cta:true },
+];
+const END = 45000;
+
+/* ---------------- BUILD SCENES ---------------- */
+const host = document.getElementById('sceneHost');
+scenes.forEach((s,i)=>{
+  const el = document.createElement('div');
+  el.className = 'scene'; el.id = 'scene'+i;
+  if(s.cta){
+    el.innerHTML = `<div class="cta-wrap">
+      <img class="logo" src="logo/bell-logo.png" alt="School-Bell" onerror="this.style.display='none'">
+      <div class="cta-badge">🎁 ৬ মাস ফ্রি!</div>
+      <div class="cta-phone"><i class="fas fa-phone-alt"></i> ০১৭০১-৭৫৭৭৯৬</div>
+      <div class="cta-site">bell.sebd.co</div>
+      <div class="cta-sub">আজই ফ্রি ডেমো নিন - কোনো বাধ্যবাধকতা নেই</div>
+    </div>`;
+  } else {
+    const shots = s.imgs.map(im=>`
+      <div class="shot ${s.type} ${im.cls}">
+        <img src="${im.src}" alt="" onerror="this.parentElement.style.background='#ede9fe'">
+        <div class="tag">${im.tag}</div>
+      </div>`).join('');
+    el.innerHTML = `
+      <div class="headline">
+        <span class="kicker">${s.kicker}</span>
+        <div class="title">${s.title}</div>
+      </div>
+      <div class="cards">${shots}</div>
+      <div class="caption"><div class="bubble">${s.caption}</div></div>`;
+  }
+  host.appendChild(el);
+});
+
+/* ---------------- PRELOAD ---------------- */
+scenes.forEach(s=> (s.imgs||[]).forEach(im=>{const p=new Image();p.src=im.src;}));
+
+/* ---------------- TIMELINE ENGINE ---------------- */
+const stage=document.getElementById('stage'), bar=document.getElementById('bar');
+const presenter=document.getElementById('presenter'), replay=document.getElementById('replay');
+let t0=null, raf=null, current=-1;
+
+function show(i){
+  if(i===current) return;
+  document.querySelectorAll('.scene').forEach((el,idx)=>el.classList.toggle('active', idx===i));
+  current=i;
+  // hide presenter on CTA scene
+  presenter.style.display = scenes[i] && scenes[i].cta ? 'none' : 'block';
+}
+function frame(ts){
+  if(!t0) t0=ts;
+  const t=ts-t0;
+  bar.style.width = Math.min(100, t/END*100)+'%';
+  let idx=0;
+  for(let k=0;k<scenes.length;k++){ if(t>=scenes[k].start) idx=k; }
+  show(idx);
+  if(t<END){ raf=requestAnimationFrame(frame); }
+  else { replay.classList.add('show'); }
+}
+function play(){
+  document.getElementById('start').style.display='none';
+  stage.classList.add('playing');
+  replay.classList.remove('show');
+  t0=null; current=-1; cancelAnimationFrame(raf);
+  raf=requestAnimationFrame(frame);
+}
+document.getElementById('start').addEventListener('click', play);
+replay.addEventListener('click', play);
+
+/* ---- preview hook: ?scene=N shows one scene statically, ?autoplay=1 auto-starts ---- */
+const qs = new URLSearchParams(location.search);
+if(qs.has('scene')){
+  document.getElementById('start').style.display='none';
+  const i = Math.max(0, Math.min(scenes.length-1, parseInt(qs.get('scene'),10)||0));
+  show(i);
+}
+if(qs.get('autoplay')==='1'){ setTimeout(play, 200); }
+</script>
+</body>
+</html>

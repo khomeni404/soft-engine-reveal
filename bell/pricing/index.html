@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SchoolBell প্যাকেজসমূহ - মাসে 500 থেকে শুরু</title>
+<meta name="description" content="SchoolBell স্কুল ম্যানেজমেন্ট সফটওয়্যারের 5টি প্যাকেজ - বেসিক, ক্লাসিক, স্ট্যান্ডার্ড, প্রফেশনাল ও প্রিমিয়াম। কোন প্যাকেজে কোন মডিউল আছে দেখে নিন।">
+
+<!-- Siyam Rupali (Bangla) - web font CDN; local copy fallback at SiyamRupali.ttf -->
+<link rel="stylesheet" href="https://fonts.maateen.me/siyam-rupali/font.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+@font-face{
+  font-family:'Siyam Rupali';
+  src:url('SiyamRupali.ttf') format('truetype');
+  font-weight:400;font-display:swap;
+}
+:root{
+  --sb-navy:#02387E; --sb-blue:#095FEA; --sb-sky:#419EFB;
+  --sb-royal:#0134DD; --sb-azure:#0165C5; --sb-deep:#011E4D;
+  --sb-white:#FFFFFF; --sb-mist:#F4F7FC; --sb-line:#DDE6F4; --sb-muted:#5A7395; --sb-ink:#0E1B2E;
+  --sb-success:#1E9E5A;
+  --sb-gradient:linear-gradient(135deg,#0134DD 0%,#0165C5 55%,#011E4D 100%);
+  --font-bn:'Siyam Rupali','Hind Siliguri','Noto Sans Bengali',sans-serif;
+  --font-num:'Poppins','Montserrat',sans-serif;
+  --font-en:'Inter','Poppins',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sb-mist);color:var(--sb-ink);font-family:var(--font-bn);font-size:17px;line-height:1.75}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--sb-navy)}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--sb-sky);outline-offset:3px;border-radius:6px}
+.num{font-family:var(--font-num)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* Header */
+.site-header{background:#E8F3FE;border-bottom:1px solid var(--sb-line);position:sticky;top:0;z-index:10}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.site-header .logo img{width:200px;mix-blend-mode:multiply}
+.header-links{display:flex;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;border-radius:8px;background:var(--sb-blue);color:var(--sb-white);text-decoration:none;font-weight:600;font-size:16px;border:0}
+.btn:hover{background:var(--sb-navy)}
+.btn-ghost{background:var(--sb-white);color:var(--sb-navy);border:1px solid var(--sb-navy)}
+.btn-ghost:hover{background:var(--sb-mist);color:var(--sb-navy)}
+.btn .num{letter-spacing:.04em;font-weight:500}
+
+/* Hero */
+.hero{background:var(--sb-gradient);color:var(--sb-white);text-align:center;padding:52px 0 60px}
+.hero h1{margin:0;font-weight:400;line-height:1.15;font-size:clamp(30px,4.4vw,52px)}
+.hero p{margin:12px 0 0;font-size:clamp(17px,1.8vw,21px)}
+
+/* Package matrix */
+.packages{padding:48px 0 56px}
+.matrix-card{background:var(--sb-white);border:1px solid var(--sb-line);border-radius:16px;box-shadow:0 1px 2px rgba(2,56,126,.06);overflow-x:auto}
+table.matrix{width:100%;min-width:860px;border-collapse:separate;border-spacing:0;font-size:16px}
+.matrix th,.matrix td{padding:10px 12px;border-bottom:1px solid var(--sb-line)}
+.matrix tbody tr:last-child th,.matrix tbody tr:last-child td{border-bottom:0}
+
+/* first column: module names, flush left */
+.matrix th[scope="row"]{text-align:left;font-weight:400;line-height:1.45;min-width:250px;position:sticky;left:0;background:var(--sb-white);z-index:1}
+.matrix thead th:first-child{position:sticky;left:0;background:var(--sb-white);z-index:2}
+.matrix .mod-tag{display:inline-block;margin-right:8px;font-family:var(--font-en);font-size:12px;font-weight:600;color:var(--sb-muted);vertical-align:1px}
+
+/* package columns */
+.matrix thead th{vertical-align:bottom}
+.pkg-col{text-align:center;width:132px}
+.pkg-head{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px 8px}
+.pkg-name{font-size:18px;color:var(--sb-navy);line-height:1.3}
+.pkg-price{font-family:var(--font-num);font-weight:700;font-size:24px;color:var(--sb-navy);line-height:1.1}
+.pkg-per{font-size:13px;color:var(--sb-muted);font-weight:400}
+.pkg-pop .pkg-head{background:var(--sb-blue);border-radius:10px;color:var(--sb-white)}
+.pkg-pop .pkg-name,.pkg-pop .pkg-price{color:var(--sb-white)}
+.pkg-pop .pkg-per{color:#DCEAFF}
+.pop-tag{font-size:12px;background:var(--sb-white);color:var(--sb-navy);border-radius:999px;padding:0 10px;line-height:1.7}
+
+td.mark{text-align:center}
+.yes,.no{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:999px}
+.yes{background:rgba(30,158,90,.12)}
+.no{background:rgba(210,55,60,.12)}
+tr.grp th{background:var(--sb-mist);color:var(--sb-navy);font-size:14px;padding-top:8px;padding-bottom:8px}
+tr.grp td{background:var(--sb-mist)}
+
+.matrix tfoot td,.matrix tfoot th{border-bottom:0;border-top:2px solid var(--sb-line);padding-top:14px;padding-bottom:16px}
+.matrix tfoot th{text-align:left;font-weight:400}
+.pkg-foot{display:flex;flex-direction:column;align-items:center;gap:6px}
+.foot-name{display:flex;flex-direction:column;align-items:center;gap:1px;font-size:15px;color:var(--sb-navy);line-height:1.3}
+.foot-price{font-size:12.5px;color:var(--sb-muted)}
+.foot-price .num{font-weight:600;color:var(--sb-navy)}
+.choose{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:6px 14px;border-radius:8px;background:var(--sb-blue);color:var(--sb-white);text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap}
+.choose{border:0;cursor:pointer;font-family:var(--font-bn)}
+.choose:hover{background:var(--sb-navy)}
+
+/* Lead modal */
+dialog.lead-modal{width:min(92vw,560px);border:0;border-radius:12px;padding:0;background:var(--sb-white);color:var(--sb-ink)}
+dialog.lead-modal::backdrop{background:rgba(1,30,77,.55)}
+.lm-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 24px 0}
+.lm-head h2{margin:0;font-size:22px;font-weight:400;color:var(--sb-navy);line-height:1.3}
+.lm-pkg{margin:4px 0 0;font-size:15px;color:var(--sb-muted)}
+.lm-pkg b{color:var(--sb-navy);font-weight:400}
+.lm-close{background:none;border:0;cursor:pointer;padding:8px;margin:-4px -8px 0 0;color:var(--sb-muted);min-width:44px;min-height:44px}
+.lm-close:hover{color:var(--sb-navy)}
+.lm-form{padding:16px 24px 24px;display:flex;flex-direction:column;gap:14px}
+.lm-field{display:flex;flex-direction:column;gap:5px}
+.lm-field label{font-family:var(--font-en);font-size:14px;font-weight:500;color:var(--sb-ink)}
+.lm-field input{height:40px;border:1px solid var(--sb-line);border-radius:8px;padding:0 12px;font-family:var(--font-bn);font-size:16px;color:var(--sb-ink);background:var(--sb-white)}
+.lm-field input:focus{outline:none;border-color:var(--sb-sky);box-shadow:0 0 0 2px var(--sb-sky)}
+.lm-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+.btn-secondary{background:var(--sb-white);color:var(--sb-navy);border:1px solid var(--sb-navy)}
+.btn-secondary:hover{background:var(--sb-mist)}
+/* Success modal */
+dialog.done-modal{width:min(92vw,440px);border:0;border-radius:12px;padding:0;background:var(--sb-white);color:var(--sb-ink)}
+dialog.done-modal::backdrop{background:rgba(1,30,77,.55)}
+.dm-body{padding:32px 28px 28px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.dm-icon{width:64px;height:64px;border-radius:999px;background:rgba(30,158,90,.12);display:flex;align-items:center;justify-content:center}
+.dm-body h2{margin:0;font-size:22px;font-weight:400;color:var(--sb-navy);line-height:1.3}
+.dm-msg{margin:0;font-size:16px;line-height:1.7}
+.dm-body .btn{margin-top:6px;min-width:140px}
+.lm-status{display:none;margin:0;padding:10px 14px;border-radius:8px;font-size:15px;line-height:1.6}
+.lm-status.show{display:block}
+.lm-status.ok{background:rgba(30,158,90,.12);color:#14532D}
+.lm-status.err{background:rgba(210,55,60,.12);color:#7F1D1D}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;margin:18px 0 0;padding:0;list-style:none;font-size:15px}
+.legend li{display:flex;align-items:center;gap:8px}
+.note{margin:12px 0 0;font-size:15px;color:var(--sb-navy)}
+
+/* CTA */
+.cta{background:var(--sb-gradient);color:var(--sb-white);text-align:center;padding:56px 0}
+.cta h2{margin:0;font-size:clamp(24px,3vw,34px);font-weight:400;line-height:1.3}
+.cta p{margin:6px 0 0;font-size:18px}
+.cta .phone{display:inline-block;margin-top:8px;color:var(--sb-white);text-decoration:none;font-family:var(--font-num);font-weight:300;font-size:clamp(40px,6vw,68px);letter-spacing:.06em;line-height:1.15}
+.cta .phone:hover{color:var(--sb-sky)}
+
+/* Footer */
+.site-footer{background:var(--sb-white);border-top:1px solid var(--sb-line)}
+.site-footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:18px;padding-bottom:18px}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--font-en);font-size:15px;font-weight:500}
+.foot-links a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;min-height:44px}
+.foot-links a:hover{color:var(--sb-blue)}
+.dev{display:flex;align-items:center;gap:10px;font-family:var(--font-en);font-size:13px;color:var(--sb-muted)}
+.dev img{height:64px;width:auto}
+
+@media (max-width:640px){
+  body{font-size:16px}
+  .site-header .logo img{width:156px}
+  .btn{padding:10px 14px;white-space:nowrap}
+  .btn .num{display:none}
+  .matrix th[scope="row"]{min-width:190px}
+  .pkg-col{width:112px}
+}
+/* Mobile: module name on its own row, marks on the row below */
+@media (max-width:720px){
+  .matrix-card{overflow:visible}
+  table.matrix{display:block;min-width:0}
+  .matrix thead{display:block;position:sticky;top:64px;z-index:5;background:var(--sb-white);box-shadow:0 1px 0 var(--sb-line)}
+  .matrix thead tr{display:grid;grid-template-columns:repeat(5,1fr)}
+  .matrix thead th{padding:8px 2px;border-bottom:0}
+  .matrix thead th:first-child{display:none}
+  .pkg-col{width:auto}
+  .pkg-head{padding:4px 2px;gap:0}
+  .pkg-name{font-size:13.5px;line-height:1.25}
+  .pkg-price{font-size:15px}
+  .pkg-per,.pop-tag{display:none}
+  .matrix tbody{display:block}
+  .matrix tbody tr{display:grid;grid-template-columns:repeat(5,1fr);row-gap:6px;padding:10px 4px 12px;border-bottom:1px solid var(--sb-line)}
+  .matrix tbody tr:last-child{border-bottom:0}
+  .matrix tbody th[scope="row"]{grid-column:1/-1;position:static;min-width:0;padding:0 4px;border-bottom:0;background:transparent}
+  .matrix tbody td{padding:0;border-bottom:0}
+  .matrix tr.grp{display:block;padding:8px;background:var(--sb-mist)}
+  .matrix tr.grp th{padding:0;background:transparent}
+  .matrix tr.grp td{display:none}
+  .matrix tfoot{display:block;border-top:1px solid var(--sb-line)}
+  .matrix tfoot tr{display:flex;flex-direction:column;gap:8px;padding:12px 8px}
+  .matrix tfoot th,.matrix tfoot td{border:0;padding:0}
+  .matrix tfoot th{display:none}
+  .pkg-foot{flex-direction:row;justify-content:space-between;width:100%}
+  .foot-name{align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="https://sebd.co/bell/" aria-label="SchoolBell হোম">
+      <img src="School_Bell_Logo_for_web-02.png" alt="SchoolBell - step towards smart school" width="200" height="49">
+    </a>
+    <nav class="header-links" aria-label="প্রধান লিংক">
+      <a class="btn btn-ghost" href="https://sebd.co/bell/">মূল পাতা</a>
+      <a class="btn" href="tel:+8801701757796" aria-label="ফ্রি ডেমোর জন্য কল করুন 017 017 577 96">ফ্রি ডেমো <span class="num">017 017 577 96</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>আপনার স্কুলের জন্য সঠিক প্যাকেজ বেছে নিন</h1>
+      <p>100 থেকে 300 শিক্ষার্থীর প্রতিষ্ঠানের জন্য</p>
+    </div>
+  </section>
+
+  <section class="packages" aria-label="প্যাকেজ তুলনা">
+    <div class="wrap">
+      <div class="matrix-card">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th scope="col"><span class="visually-hidden"></span></th>
+              <th scope="col" class="pkg-col"><div class="pkg-head"><span class="pkg-name">বেসিক</span><span class="pkg-price num">500</span><span class="pkg-per">প্রতি মাসে</span></div></th>
+              <th scope="col" class="pkg-col"><div class="pkg-head"><span class="pkg-name">ক্লাসিক</span><span class="pkg-price num">900</span><span class="pkg-per">প্রতি মাসে</span></div></th>
+              <th scope="col" class="pkg-col pkg-pop"><div class="pkg-head"><span class="pop-tag">জনপ্রিয়</span><span class="pkg-name">স্ট্যান্ডার্ড</span><span class="pkg-price num">1500</span><span class="pkg-per">প্রতি মাসে</span></div></th>
+              <th scope="col" class="pkg-col"><div class="pkg-head"><span class="pkg-name">প্রফেশনাল</span><span class="pkg-price num">2100</span><span class="pkg-per">প্রতি মাসে</span></div></th>
+              <th scope="col" class="pkg-col"><div class="pkg-head"><span class="pkg-name">প্রিমিয়াম</span><span class="pkg-price num">2600</span><span class="pkg-per">প্রতি মাসে</span></div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="grp"><th scope="row">সাধারণ সার্ভিস</th><td colspan="5"></td></tr>
+            <tr>
+              <th scope="row">পোর্টাল (bell.sebd.co)</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row">সাপোর্ট (ঐচ্ছিক ৪০০ টাকা)</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr class="grp"><th scope="row">মডিউলসমূহ</th><td colspan="5"></td></tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-1</span>স্বয়ংক্রিয় আইডি কার্ড ডাউনলোড ও স্মার্ট উপস্থিতি</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-2</span>স্মার্ট নোটিফিকেশন (উপস্থিতি/অনুপস্থিতি এসএমএস)</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-3</span>মোবাইল অ্যাপ (অভিভাবক প্যানেল)</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-4</span>প্রবেশপত্র ও সিট প্ল্যান</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-5</span>ওয়েবসাইট হোস্টিং ও ওয়েবসাইট নোটিশ</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-6</span>ছুটি ম্যানেজমেন্ট</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-7</span>শিক্ষক ও শিক্ষার্থী উপস্থিতি রিপোর্ট</th>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-8</span>রেজাল্ট প্রসেসিং ও অনলাইনে প্রকাশ</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-9</span>প্রফেশনাল অ্যাকাউন্টস</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-10</span>শিক্ষক বেতন ম্যানেজমেন্ট</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-11</span>দৈনিক খরচ ম্যানেজমেন্ট</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-12</span>অনলাইন ফি কালেকশন, বকেয়া তালিকা ও এসএমএস</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-13</span>অনলাইন ভর্তি ও ভর্তি রিপোর্ট</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="yes" role="img" aria-label="আছে"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-14</span>অনলাইন MCQ কুইজ ও ফলাফল এসএমএস (Advance)</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="mod-tag num">M-15</span>স্বয়ংক্রিয় OMR Sheet Processing (Extreme)</th>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+              <td class="mark"><span class="no" role="img" aria-label="নেই"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row"></th>
+              <td class="mark"><div class="pkg-foot"><span class="foot-name">বেসিক<small class="foot-price"><span class="num">500</span> প্রতি মাসে</small></span><button type="button" class="choose" data-pkg="বেসিক" data-price="500">আগ্রহী</button></div></td>
+              <td class="mark"><div class="pkg-foot"><span class="foot-name">ক্লাসিক<small class="foot-price"><span class="num">900</span> প্রতি মাসে</small></span><button type="button" class="choose" data-pkg="ক্লাসিক" data-price="900">আগ্রহী</button></div></td>
+              <td class="mark"><div class="pkg-foot"><span class="foot-name">স্ট্যান্ডার্ড<small class="foot-price"><span class="num">1500</span> প্রতি মাসে</small></span><button type="button" class="choose" data-pkg="স্ট্যান্ডার্ড" data-price="1500">আগ্রহী</button></div></td>
+              <td class="mark"><div class="pkg-foot"><span class="foot-name">প্রফেশনাল<small class="foot-price"><span class="num">2100</span> প্রতি মাসে</small></span><button type="button" class="choose" data-pkg="প্রফেশনাল" data-price="2100">আগ্রহী</button></div></td>
+              <td class="mark"><div class="pkg-foot"><span class="foot-name">প্রিমিয়াম<small class="foot-price"><span class="num">2600</span> প্রতি মাসে</small></span><button type="button" class="choose" data-pkg="প্রিমিয়াম" data-price="2600">আগ্রহী</button></div></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <ul class="legend" aria-label="চিহ্নের অর্থ">
+        <li><span class="yes"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>প্যাকেজে আছে</li>
+        <li><span class="no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D2373C" stroke-width="3.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>প্যাকেজে নেই</li>
+      </ul>
+      <p class="note">দ্রঃ স্কুল কর্তৃপক্ষ প্রয়োজন অনুযায়ী যেকোনো প্যাকেজের সাথে আলাদা মডিউল যোগ করে নিতে পারবেন।</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>একটি ডেমো দেখুন, পার্থক্য নিজেই বুঝুন</h2>
+      <p>ফ্রি ডেমো দেখতে যোগাযোগ করুনঃ</p>
+      <a class="phone" href="tel:+8801701757796">017 017 577 96</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="https://sebd.co/bell/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z"/></svg>sebd.co/bell</a>
+      <a href="https://www.facebook.com/SchoolBellOfficial"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>facebook.com/SchoolBellOfficial</a>
+    </div>
+    <div class="dev">Developed by <img src="Logo-01.jpg" alt="Soft Engine Ltd." width="151" height="64"></div>
+  </div>
+</footer>
+
+<dialog class="lead-modal" id="leadModal" aria-labelledby="lmTitle">
+  <div class="lm-head">
+    <div>
+      <h2 id="lmTitle">ফ্রি ডেমো ও প্যাকেজের জন্য আগ্রহ জানান</h2>
+      <p class="lm-pkg">নির্বাচিত প্যাকেজ: <b id="lmPkg">-</b></p>
+    </div>
+    <button type="button" class="lm-close" id="lmClose" aria-label="বন্ধ করুন"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <form class="lm-form" id="lmForm" novalidate>
+    <div class="lm-field"><label for="lmName">Name:</label><input id="lmName" name="name" type="text" autocomplete="name" required></div>
+    <div class="lm-field"><label for="lmSchool">School Name:</label><input id="lmSchool" name="schoolName" type="text" autocomplete="organization" required></div>
+    <div class="lm-field"><label for="lmStudents">Number of Students:</label><input id="lmStudents" name="studentCount" type="number" min="1" inputmode="numeric" required></div>
+    <div class="lm-field"><label for="lmMobile">Mobile Number:</label><input id="lmMobile" name="mobile" type="text" inputmode="tel" autocomplete="tel"
+       maxlength="15" placeholder="01XXXXXXXXX" required></div>
+    <div class="lm-field"><label for="lmDistrict">District:</label><input id="lmDistrict" name="district" type="text" required></div>
+    <p class="lm-status" id="lmStatus" role="status" aria-live="polite"></p>
+    <div class="lm-actions">
+      <button type="button" class="btn btn-secondary" id="lmCancel">বাতিল</button>
+      <button type="submit" class="btn" id="lmSubmit">পাঠিয়ে দিন</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="done-modal" id="doneModal" aria-labelledby="dmTitle">
+  <div class="dm-body">
+    <span class="dm-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E9E5A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+    <h2 id="dmTitle">ধন্যবাদ!</h2>
+    <p class="dm-msg" id="dmMsg"></p>
+    <button type="button" class="btn" id="dmOk">ঠিক আছে</button>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var API='https://bell.sebd.co/api/sebddotco/v1/save-package';
+  var modal=document.getElementById('leadModal'),
+      form=document.getElementById('lmForm'),
+      pkgEl=document.getElementById('lmPkg'),
+      status=document.getElementById('lmStatus'),
+      submitBtn=document.getElementById('lmSubmit'),
+      pkgName='',pkgPrice=0;
+
+  function openModal(name,price){
+    pkgName=name;pkgPrice=price;
+    pkgEl.textContent=name+' - '+price+' টাকা/মাস';
+    status.className='lm-status';status.textContent='';
+    form.reset();submitBtn.disabled=false;submitBtn.textContent='পাঠিয়ে দিন';
+    if(typeof modal.showModal==='function'){modal.showModal();}else{modal.setAttribute('open','');}
+    document.getElementById('lmName').focus();
+  }
+  function closeModal(){ if(modal.close){modal.close();}else{modal.removeAttribute('open');} }
+
+  document.querySelectorAll('.choose').forEach(function(btn){
+    btn.addEventListener('click',function(){openModal(btn.dataset.pkg,btn.dataset.price);});
+  });
+  document.getElementById('lmClose').addEventListener('click',closeModal);
+  document.getElementById('lmCancel').addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){ if(e.target===modal){closeModal();} });
+
+  // Same rule as the server: Bangla digits -> 0-9, drop non-digits, drop leading 88.
+  function normalizeMobile(v){
+    var d = String(v || '')
+      .replace(/[০-৯]/g, function(c){ return String(c.charCodeAt(0) - 0x09E6); })
+      .replace(/\D/g, '');
+    if (d.length === 13 && d.indexOf('88') === 0) d = d.slice(2);
+    return d;
+  }
+
+  var doneModal=document.getElementById('doneModal');
+  function showDone(msg){
+    document.getElementById('dmMsg').textContent=msg;
+    if(typeof doneModal.showModal==='function'){doneModal.showModal();}else{doneModal.setAttribute('open','');}
+    document.getElementById('dmOk').focus();
+  }
+  document.getElementById('dmOk').addEventListener('click',function(){ if(doneModal.close){doneModal.close();}else{doneModal.removeAttribute('open');} });
+  doneModal.addEventListener('click',function(e){ if(e.target===doneModal){ if(doneModal.close){doneModal.close();}else{doneModal.removeAttribute('open');} } });
+
+  function showStatus(ok,msg){
+    status.textContent=msg;
+    status.className='lm-status show '+(ok?'ok':'err');
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var mobile=normalizeMobile(form.mobile.value);
+    if(!form.checkValidity()){showStatus(false,'সব ঘর পূরণ করুন।');form.reportValidity();return;}
+    if(!/^01[0-9]{9}$/.test(mobile)){showStatus(false,'সঠিক ১১ ডিজিটের মোবাইল নাম্বার দিন (01 দিয়ে শুরু)।');form.mobile.focus();return;}
+    var payload={
+      name:form.name.value.trim(),
+      schoolName:form.schoolName.value.trim(),
+      studentCount:parseInt(form.studentCount.value,10),
+      mobile:mobile,
+      district:form.district.value.trim(),
+      packageName:pkgName,
+      packagePrice:parseInt(pkgPrice,10),
+      source:'sebd.co pricing page'
+    };
+    submitBtn.disabled=true;submitBtn.textContent='পাঠানো হচ্ছে…';
+    fetch(API,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    }).then(function(res){
+      return res.json().then(function(data){return {ok:res.ok,data:data};});
+    }).then(function(r){
+      if(r.ok && r.data && r.data.success){
+        form.reset();
+        closeModal();
+        showDone(r.data.message || 'ধন্যবাদ! আপনার তথ্য পৌঁছে গেছে। আমরা শিগগিরই যোগাযোগ করব।');
+      }else{
+        showStatus(false,(r.data&&r.data.message)||'দুঃখিত, পাঠানো যায়নি। আবার চেষ্টা করুন অথবা কল করুন 017 017 577 96।');
+        submitBtn.disabled=false;submitBtn.textContent='পাঠিয়ে দিন';
+      }
+    }).catch(function(){
+      showStatus(false,'নেটওয়ার্ক সমস্যা হয়েছে। আবার চেষ্টা করুন অথবা কল করুন 017 017 577 96।');
+      submitBtn.disabled=false;submitBtn.textContent='পাঠিয়ে দিন';
+    });
+  });
+})();
+</script>
+</body>
+</html>

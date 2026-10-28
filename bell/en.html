@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School-Bell – Smart School Management Software</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Baloo+Da+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="libs/bell-landing.css">
+
+
+<style>
+/* ---- BN / EN language switch ---- */
+.lang-switch{display:inline-flex;align-items:center;border:1.5px solid var(--border,#e4e8f0);border-radius:30px;overflow:hidden;background:#fff;margin:0 4px;flex:0 0 auto}
+.lang-switch .lang-btn{border:0;background:transparent;padding:7px 11px;font-family:'Baloo Da 2',cursive;font-size:0.78rem;font-weight:700;letter-spacing:.4px;color:var(--text-muted,#77839b);cursor:pointer;line-height:1;transition:all .2s}
+.lang-switch .lang-btn:hover{color:var(--primary,#053982)}
+.lang-switch .lang-btn.active{background:linear-gradient(135deg,#053982,#0D5CE1);color:#fff}
+@media (max-width:575.98px){.lang-switch .lang-btn{padding:6px 9px;font-size:0.72rem}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar-custom">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="#">
+                <img src="logo/bell-logo.png" alt="School-Bell" style="height:42px;width:auto;object-fit:contain;">
+            </a>
+            <div class="d-flex align-items-center gap-1">
+            <div class="d-none d-md-flex align-items-center gap-1">
+                <a href="#features" class="nav-link-custom">ফিচার</a>
+                <a href="#schools" class="nav-link-custom">আমাদের সাথে</a>
+                <a href="#faq" class="nav-link-custom">প্রশ্ন-উত্তর</a>
+                <a href="#contact" class="nav-link-custom">যোগাযোগ</a>
+                <a href="tel:01701757796" class="btn-primary-custom btn-accent ms-2" style="padding:9px 20px;font-size:0.88rem;">
+                    <i class="fas fa-phone"></i> ডেমো দেখুন
+                </a>
+            </div>
+                <div class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+                    <button type="button" class="lang-btn active" data-lang="bn">BN</button>
+                    <button type="button" class="lang-btn" data-lang="en">EN</button>
+                </div>
+            <a href="tel:01701757796" class="btn-primary-custom btn-accent d-md-none" style="padding:8px 16px;font-size:0.85rem;">
+                <i class="fas fa-phone"></i>
+            </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-decor hd1"></div>
+    <div class="hero-decor hd2"></div>
+    <div class="hero-decor hd3"></div>
+    <div class="container position-relative py-4 py-lg-5">
+        <div class="row align-items-center g-3 g-lg-5">
+            <div class="col-lg-6">
+                <!--<div class="brand-badge"><span class="pulse-dot"></span> Soft Engine Ltd. · স্মার্ট স্কুল সলিউশন</div>-->
+                <h1 class="hero-title">স্কুল পরিচালনা<br><span class="gradient-text">আরও সহজ, স্মার্ট</span></h1>
+                <p class="hero-sub">শিক্ষার্থী ভর্তি থেকে ফলাফল, উপস্থিতি থেকে ফি আদায় - School-Bell-এ সবকিছু এক
+                    প্ল্যাটফর্মে।</p>
+                <div class="d-flex flex-wrap gap-3">
+                   <!-- <a href="https://sebd.co/bell/pricing" class="btn-primary-custom btn-accent">মুল্য তালিকা</a>-->
+                    <a href="https://www.youtube.com/playlist?list=PLCyfVzbOkpzS0zT1Bz8YMjkV2czr2jpZG"
+                       class="btn-success-custom"><i class="fa-brands fa-youtube"></i> টিউটোরিয়াল</a>
+                    <a href="#features" class="btn-outline-custom">সব ফিচার</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-num" data-count="500" data-suffix="+">৫০০+</div>
+                        <div class="stat-label">ফিচার/অপশন</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num" data-count="25" data-suffix="+">২৫+</div>
+                        <div class="stat-label">রিপোর্ট ফরম্যাট</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num" data-count="100" data-suffix="%">১০০%</div>
+                        <div class="stat-label">বাংলায় সাপোর্ট</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 ">
+                <div class="hero-card">
+                    <div style="font-size:1.75rem;color:var(--text-muted);margin-bottom:12px;font-family:'Baloo Da 2',cursive; font-weight: bolder">
+                        📊 Daily Attendance
+                    </div>
+                    <div class="mock-screen">
+                        <div class="mock-row"><span style="color:#333;flex:1">Class</span><span
+                                style="color:#2563EB;margin-right:8px">Present</span><span
+                                style="color:#059669">Absent</span></div>
+                        <div class="mock-row"><span class="mock-dot" style="background:#10B981"></span><span
+                                style="color:#333;flex:1">KG (2023)</span><span style="color:#2563EB;margin-right:8px">59</span><span
+                                style="color:#059669">16</span></div>
+                        <div class="mock-row"><span class="mock-dot" style="background:#10B981"></span><span
+                                style="color:#333;flex:1">One (2023)</span><span style="color:#2563EB;margin-right:8px">100</span><span
+                                style="color:#059669">23</span></div>
+                        <div class="mock-row"><span class="mock-dot" style="background:#F59E0B"></span><span
+                                style="color:#333;flex:1">Four (2023)</span><span
+                                style="color:#2563EB;margin-right:8px">154</span><span style="color:#059669">32</span>
+                        </div>
+                        <div class="mock-row"><span class="mock-dot" style="background:#10B981"></span><span
+                                style="color:#333;flex:1">Six (2023)</span><span style="color:#2563EB;margin-right:8px">195</span><span
+                                style="color:#059669">40</span></div>
+                        <div class="mock-row"><span class="mock-dot" style="background:#EF4444"></span><span
+                                style="color:#333;flex:1">Eight (2023)</span><span
+                                style="color:#2563EB;margin-right:8px">174</span><span style="color:#D97706">25</span>
+                        </div>
+                    </div>
+                    <!--<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+                      <span style="background:rgba(16,185,129,0.1);color:#059669;border-radius:20px;padding:4px 12px;font-size:0.72rem;border:1px solid rgba(16,185,129,0.25)"><i class="fas fa-check-circle"></i> রিয়েল-টাইম</span>
+                      <span style="background:rgba(59,130,246,0.1);color:#2563EB;border-radius:20px;padding:4px 12px;font-size:0.72rem;border:1px solid rgba(59,130,246,0.25)"><i class="fas fa-print"></i> প্রিন্টযোগ্য</span>
+                      <span style="background:rgba(245,158,11,0.1);color:#D97706;border-radius:20px;padding:4px 12px;font-size:0.72rem;border:1px solid rgba(245,158,11,0.25)"><i class="fas fa-sms"></i> SMS নোটিফিকেশন</span>
+                    </div>-->
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+                        প্রিভিউ দেখতে নিচের বাটনগুলোতে ক্লিক করুন
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+                        <span onclick="showImgModal('images/smart-attendance.jpg','স্মার্ট এটেন্ডেন্স')"
+                              style="background:rgba(16,185,129,0.1);color:#059669;border-radius:20px;padding:4px 12px;font-size:0.72rem;border:1px solid rgba(16,185,129,0.25);cursor:pointer"><i
+                                class="fas fa-check-circle"></i> রিয়েল-টাইম</span>
+                        <span onclick="showImgModal('images/present-percentage.jpg','উপস্থিতি রিপোর্ট')"
+                              style="background:rgba(59,130,246,0.1);color:#2563EB;border-radius:20px;padding:4px 12px;font-size:0.72rem;border:1px solid rgba(59,130,246,0.25);cursor:pointer"><i
+                                class="fas fa-print"></i> প্রিন্টযোগ্য</span>
+                        <span onclick="showImgModal('images/notifications.jpg','SMS নোটিফিকেশন')"
+                              style="background:rgba(245,158,11,0.1);color:#D97706;border-radius:20px;padding:4px 12px;font-size:0.72rem;border:1px solid rgba(245,158,11,0.25);cursor:pointer"><i
+                                class="fas fa-sms"></i> SMS নোটিফিকেশন</span>
+                        <span onclick="showImgModal('images/guardian-pan-attn.jpg','গার্ডিয়ান প্যানেল')"
+                              style="background:rgba(245,158,11,0.1);color:#D97706;border-radius:20px;padding:4px 12px;font-size:0.72rem;border:1px solid rgba(245,158,11,0.25);cursor:pointer"><i
+                                class="fas fa-user"></i> Guardian Panel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES TABS -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <h2 class="section-title">সম্পূর্ণ <span class="gradient-text">ফিচার সমূহ</span></h2>
+            <p class="section-sub">স্কুলের প্রতিটি বিভাগের জন্য আলাদা মডিউল - একটাই সফটওয়্যার, সব সমাধান।</p>
+        </div>
+        <!-- Feature tabs removed - সব প্যানেল একসাথে দেখানো হয়, প্রতিটির আগে সাব-হেডার -->
+
+        <!-- STUDENT -->
+        <h3 class="faq-subhead faq-subhead-first"><i class="fas fa-user-graduate"></i> শিক্ষার্থী</h3>
+        <div class="feature-panel" id="tab-student">
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-blue"><i class="fas fa-globe"></i></div>
+                        <h5>অনলাইন ভর্তি</h5>
+                        <p>ঘরে বসেই ভর্তি ফর্ম পূরণ, ফী প্রদান ও প্রবেশপত্র প্রিন্ট - কলেজে না গিয়েই সম্পূর্ণ প্রক্রিয়া।</p>
+                        <div class="feat-tags"><span class="feat-tag">৩টি ধাপ</span><span class="feat-tag">অনলাইন পেমেন্ট</span></div>
+                        <button class="btn-preview" data-key="online_admission"><i class="fas fa-eye"></i> সুবিধা দেখ
+                        </button>
+                        <button class="btn-preview" data-key="online_admission_pdf"><i class="fas fa-file-pdf"></i> পুরো প্রক্রিয়া
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-purple"><i class="fas fa-id-card"></i></div>
+                        <h5>শিক্ষার্থী প্রোফাইল</h5>
+                        <p>নাম, ঠিকানা, অভিভাবকের তথ্য, রক্তের গ্রুপ সহ ৪৪টি তথ্য সংরক্ষণ। ছবি সহ সম্পূর্ণ প্রোফাইল।</p>
+                        <div class="feat-tags"><span class="feat-tag">ইংরেজি ও বাংলা</span><span
+                                class="feat-tag">ছবি সহ</span></div>
+                        <button class="btn-preview" data-key="p3"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                        <button class="btn-preview" data-key="student_more"><i class="fas fa-th-list"></i> আরও অপশন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-amber"><i class="fas fa-id-badge"></i></div>
+                        <h5>ID কার্ড তৈরি</h5>
+                        <p>সফটওয়্যার থেকে সরাসরি ID কার্ড প্রিন্ট করুন। বারকোড সহ ডিজাইন।</p>
+                        <div class="feat-tags"><span class="feat-tag">বারকোড সহ</span><span class="feat-tag">প্রিন্ট রেডি</span>
+                        </div>
+                        <button class="btn-preview" data-key="p4"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-chart-bar"></i></div>
+                        <h5>ভর্তি রিপোর্ট</h5>
+                        <p>শ্রেণী, লিঙ্গ, নতুন-পুরনো ভর্তি অনুযায়ী বিস্তারিত রিপোর্ট।</p>
+                        <div class="feat-tags"><span class="feat-tag">ক্লাসওয়াইজ</span><span class="feat-tag">গ্রুপওয়াইজ</span>
+                        </div>
+                        <button class="btn-preview" data-key="p5"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-blue"><i class="fas fa-layer-group"></i></div>
+                        <h5>শ্রেণী ব্যবস্থাপনা</h5>
+                        <p>ইচ্ছামতো শ্রেণী তৈরি করুন। ছেলে/মেয়ে, মুসলিম/সনাতন আলাদা করে ডেটা সংরক্ষণ।</p>
+                        <div class="feat-tags"><span class="feat-tag">সেকশন ওয়াইজ</span><span class="feat-tag">গ্রুপ ওয়াইজ</span>
+                        </div>
+                        <button class="btn-preview" data-key="p_class_mgmt"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-pink"><i class="fas fa-exchange-alt"></i></div>
+                        <h5>ক্লাস প্রমোশন</h5>
+                        <p>বার্ষিক পরীক্ষার পর এক ক্লিকে সকল শিক্ষার্থীকে পরবর্তী শ্রেণীতে প্রমোট করুন।</p>
+                        <div class="feat-tags"><span class="feat-tag">অটোমেটিক</span><span class="feat-tag">দ্রুত</span>
+                        </div>
+                        <button class="btn-preview" data-key="p_class_promo"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-red"><i class="fas fa-print"></i></div>
+                        <h5>স্টুডেন্ট লিস্ট</h5>
+                        <p>যেকোনো ফরম্যাটে শিক্ষার্থীর তালিকা প্রিন্ট করুন - ছবি সহ বা ছাড়া।</p>
+                        <div class="feat-tags"><span class="feat-tag">ফিল্টারযোগ্য</span><span class="feat-tag">এক্সপোর্ট</span>
+                        </div>
+                        <button class="btn-preview" data-key="p_student_list"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ATTENDANCE -->
+        <h3 class="faq-subhead"><i class="fas fa-calendar-check"></i> উপস্থিতি</h3>
+        <div class="feature-panel" id="tab-attendance">
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-fingerprint"></i></div>
+                        <h5>ফিঙ্গারপ্রিন্ট উপস্থিতি</h5>
+                        <p>আঙুলের ছাপ বা ID কার্ড স্ক্যানে উপস্থিতি নিন। অভিভাবকের মোবাইলে সাথে সাথে SMS যাবে।</p>
+                        <div class="feat-tags"><span class="feat-tag">বায়োমেট্রিক</span><span
+                                class="feat-tag">অটো SMS</span></div>
+                        <button class="btn-preview" data-key="img_smart"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-blue"><i class="fas fa-mobile-alt"></i></div>
+                        <h5>মোবাইল অ্যাপে উপস্থিতি</h5>
+                        <p>শিক্ষকরা ঘরে বসে মোবাইল অ্যাপের মাধ্যমে উপস্থিতি দিতে পারবেন।</p>
+                        <div class="feat-tags"><span class="feat-tag">iOS ও Android</span><span class="feat-tag">রিয়েল-টাইম</span>
+                        </div>
+                        <button class="btn-preview" data-key="mob_attn_take"><i class="fas fa-eye"></i> উপস্থিতি নেয়া
+                        </button>
+                        <button class="btn-preview" data-key="img_guardian"><i class="fas fa-eye"></i> উপস্থিতি দেখা
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-amber"><i class="fas fa-calendar-alt"></i></div>
+                        <h5>উপস্থিতি রিপোর্ট</h5>
+                        <p>প্রতিদিনের উপস্থিতি রিপোর্ট। শ্রেণী, মাস, শিক্ষার্থীভিত্তিক বিশ্লেষণ।</p>
+                        <div class="feat-tags"><span class="feat-tag">ডেইলি</span><span class="feat-tag">মান্থলি</span>
+                        </div>
+                        <button class="btn-preview" data-key="p7"><i class="fas fa-eye"></i> মাসিক উপস্থিতি
+                        </button>
+                        <button class="btn-preview" data-key="p8"><i class="fas fa-eye"></i> দৈনিক রিপোর্ট
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-purple"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h5>শিক্ষক উপস্থিতি</h5>
+                        <p>শিক্ষক-কর্মচারীদের উপস্থিতিও ফিঙ্গারপ্রিন্টে নেওয়া যাবে। বেতন শিটের সাথে সংযুক্ত।</p>
+                        <div class="feat-tags"><span class="feat-tag">স্টাফ ট্র্যাকিং</span><span class="feat-tag">বেতন সংযুক্ত</span>
+                        </div>
+                        <button class="btn-preview" data-key="p7"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-red"><i class="fas fa-bell"></i></div>
+                        <h5>নোটিফিকেশনস</h5>
+                        <p>শিক্ষার্থী অনুপস্থিত থাকলে অভিভাবকের ফোনে স্বয়ংক্রিয় SMS পাঠানো হবে।</p>
+                        <div class="feat-tags"><span class="feat-tag">অটোমেটিক</span><span
+                                class="feat-tag">তাৎক্ষণিক</span></div>
+                        <button class="btn-preview" data-key="notif_present"><i class="fas fa-bell"></i> উপস্থিতি
+                        </button>
+                        <button class="btn-preview" data-key="notif_absent"><i class="fas fa-bell"></i> অনুপস্থিতি
+                        </button>
+                        <button class="btn-preview" data-key="notif_notice"><i class="fas fa-bell"></i> নোটিস
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-pink"><i class="fas fa-percent"></i></div>
+                        <h5>উপস্থিতি শতাংশ</h5>
+                        <p>প্রতিটি শিক্ষার্থীর উপস্থিতির হার, দেরিতে আসার তথ্য, ছুটির হিসাব সব একসাথে।</p>
+                        <div class="feat-tags"><span class="feat-tag">Late, Leave, Absent</span></div>
+                        <button class="btn-preview" data-key="p6"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXAM -->
+        <h3 class="faq-subhead"><i class="fas fa-file-alt"></i> পরীক্ষা</h3>
+        <div class="feature-panel active" id="tab-exam">
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-purple"><i class="fas fa-poll"></i></div>
+                        <h5>পরীক্ষার রেজাল্ট</h5>
+                        <p>সাময়িক, অর্ধ-বার্ষিক, বার্ষিক, টেস্ট - যেকোনো পরীক্ষার রেজাল্ট তৈরি করুন।</p>
+                        <div class="feat-tags"><span class="feat-tag">100+ ফরম্যাট</span><span class="feat-tag">কাস্টম ডিজাইন</span>
+                        </div>
+                        <button class="btn-preview" data-key="exam_r1"><i class="fas fa-eye"></i> দেখুন রেজাল্ট - ১
+                        </button>
+                        <button class="btn-preview" data-key="exam_r2"><i class="fas fa-eye"></i> দেখুন রেজাল্ট - ২
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-amber"><i class="fas fa-award"></i></div>
+                        <h5>রেজাল্ট কার্ড</h5>
+                        <p>GPA, গ্রেড, মেরিট লিস্ট সহ সুন্দর রিপোর্ট কার্ড। স্কুলের লোগো ও সিগনেচার সহ।</p>
+                        <div class="feat-tags"><span class="feat-tag">SBA সহ</span><span
+                                class="feat-tag">মেরিট লিস্ট</span></div>
+                        <button class="btn-preview" data-key="rc_v1"><i class="fas fa-eye"></i> দেখুন কার্ড-১
+                        </button>
+                        <button class="btn-preview" data-key="rc_v2"><i class="fas fa-eye"></i> দেখুন কার্ড-২
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-id-card-alt"></i></div>
+                        <h5>অ্যাডমিট কার্ড</h5>
+                        <p>পরীক্ষার আগে ছবি সহ অ্যাডমিট কার্ড প্রিন্ট করুন। সিট নম্বর ও পরীক্ষার রুটিন সহ।</p>
+                        <div class="feat-tags"><span class="feat-tag">ছবি সহ</span><span
+                                class="feat-tag">সিট প্ল্যান</span></div>
+                        <button class="btn-preview" data-key="admit_v1"><i class="fas fa-eye"></i> দেখুন কার্ড-১
+                        </button>
+                        <button class="btn-preview" data-key="p11"><i class="fas fa-eye"></i> দেখুন কার্ড-২
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-blue"><i class="fas fa-chair"></i></div>
+                        <h5>সিট প্ল্যান</h5>
+                        <p>পরীক্ষার হলের সিট প্ল্যান সফটওয়্যার থেকে তৈরি করুন এবং প্রিন্ট করুন।</p>
+                        <div class="feat-tags"><span class="feat-tag">অটো জেনারেট</span><span class="feat-tag">রুম ওয়াইজ</span>
+                        </div>
+                        <button class="btn-preview" data-key="p12"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-red"><i class="fas fa-pen-square"></i></div>
+                        <h5>শিক্ষকের মার্ক এন্ট্রি</h5>
+                        <p>শিক্ষকরা নিজেরাই ঘরে বসে মোবাইল অ্যাপের মাধ্যমে মার্ক এন্ট্রি করতে পারবেন।</p>
+                        <div class="feat-tags"><span class="feat-tag">মোবাইল অ্যাপ</span><span
+                                class="feat-tag">অনলাইন</span></div>
+                        <button class="btn-preview" data-key="marks_entry"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-pink"><i class="fas fa-th-list"></i></div>
+                        <h5>আরও থাকছে যা</h5>
+                        <p>মেরিট লিস্ট, ট্যাবুলেশন শিট, প্রমোশন লিস্ট, ফেইল লিস্টিং সহ আরও ২০+ রিপোর্ট।</p>
+                        <div class="feat-tags"><span class="feat-tag">২০+ রিপোর্ট</span><span class="feat-tag">গ্রুপ ওয়াইজ</span></div>
+                        <button class="btn-preview" data-key="more_reports"><i class="fas fa-eye"></i> বাকি অপশন দেখুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEES -->
+        <h3 class="faq-subhead"><i class="fas fa-money-bill-wave"></i> ফি আদায়</h3>
+        <div class="feature-panel" id="tab-fees">
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-blue"><i class="fas fa-university"></i></div>
+                        <h5>বিকাশ/অনলাইন ফী আদায়</h5>
+                        <p>বিকাশ, নগদ, ব্যাংক - সব পদ্ধতিতে ফি আদায়। শূন্য টাকা সার্ভিস চার্জ। <span style="font-weight: bold; color: #ff5d0e">স্বয়ংক্রিয় ব্যাংকে জমা হয়ে যাবে ।</span> </p>
+                        <div class="feat-tags"><span class="feat-tag">বিকাশ/নগদ</span><span
+                                class="feat-tag">শূন্য চার্জ</span></div>
+                        <button class="btn-preview" data-key="online_fee_features"><i class="fas fa-eye"></i> সুবিধা সমুহ
+                        </button>
+                        <button class="btn-preview" data-key="online_fee_bkash"><i class="fas fa-eye"></i> বিকাশ
+                        </button>
+                        <button class="btn-preview" data-key="online_fee_guide"><i class="fas fa-file-pdf"></i> অনলাইন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-receipt"></i></div>
+                        <h5>ফি কালেকশন রিসিট</h5>
+                        <p>ফি আদায়ের সাথে সাথে দুই কপি রিসিট প্রিন্ট হবে। অভিভাবককে SMS পাঠানো হবে।</p>
+                        <div class="feat-tags"><span class="feat-tag">দুই কপি</span><span class="feat-tag">SMS নিশ্চিতকরণ</span>
+                        </div>
+                        <button class="btn-preview" data-key="p10"><i class="fas fa-eye"></i> রশিদ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-amber"><i class="fas fa-book-open"></i></div>
+                        <h5>ডিউ ফী চার্ট</h5>
+                        <p>কে কত মাসের ফি বকেয়া আছে - মাসভিত্তিক বিস্তারিত রিপোর্ট।</p>
+                        <div class="feat-tags"><span class="feat-tag">বকেয়া SMS</span><span class="feat-tag">ক্লাসওয়াইজ</span>
+                        </div>
+                        <button class="btn-preview" data-key="p9"><i class="fas fa-eye"></i> ডিউ ফী
+                        </button>
+                        <button class="btn-preview" data-key="due_fees_summary"><i class="fas fa-eye"></i> সামারি দেখুন
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-purple"><i class="fas fa-sliders-h"></i></div>
+                        <h5>ভিন্ন ফি স্ট্রাকচার</h5>
+                        <p>একই ক্লাসে ভিন্ন ভিন্ন টিউশন ফি সম্ভব। তাৎক্ষণিক ছাড়/মওকুফের ব্যবস্থা আছে।</p>
+                        <div class="feat-tags"><span class="feat-tag">ডিসকাউন্ট</span><span
+                                class="feat-tag">মওকুফ</span></div>
+                        <button class="btn-preview" data-key="fee_structure"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-red"><i class="fas fa-money-check-alt"></i></div>
+                        <h5>অগ্রিম ফি</h5>
+                        <p>অগ্রিম ফি নেওয়া যাবে। পরের মাসের বেতন থেকে স্বয়ংক্রিয়ভাবে কাটা যাবে।</p>
+                        <div class="feat-tags"><span class="feat-tag">অটো অ্যাডজাস্ট</span></div>
+                        <button class="btn-preview" data-key="advance_fee"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-pink"><i class="fas fa-chart-line"></i></div>
+                        <h5>দৈনিক কালেকশন রিপোর্ট</h5>
+                        <p>দিন শেষে কত টাকা আদায় হলো, কোন হেড থেকে কত আদায় হয়েছে বিস্তারিত।</p>
+                        <div class="feat-tags"><span class="feat-tag">হেড ওয়াইজ</span><span class="feat-tag">ডেইলি সামারি</span>
+                        </div>
+                        <button class="btn-preview" data-key="fees_r1"><i class="fas fa-eye"></i> রিপোর্ট-১
+                        </button>
+                        <button class="btn-preview" data-key="fees_r2"><i class="fas fa-eye"></i> রিপোর্ট-২
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SMS -->
+        <h3 class="faq-subhead"><i class="fas fa-sms"></i> SMS &amp; নোটিফিকেশন</h3>
+        <div class="feature-panel" id="tab-sms">
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-paper-plane"></i></div>
+                        <h5>ক্লাস ওয়াইজ SMS</h5>
+                        <p>একাধিক ক্লাস সিলেক্ট করে নির্দিষ্ট Recipient-দের SMS বা App নোটিফিকেশন পাঠান।</p>
+                        <div class="feat-tags"><span class="feat-tag">মাল্টি ক্লাস</span><span class="feat-tag">SMS & FCM</span></div>
+                        <button class="btn-preview" data-key="class_sms"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-sms"></i></div>
+                        <h5>গ্রুপ SMS</h5>
+                        <p>ক্লাসওয়াইজ বা গ্রুপওয়াইজ শিক্ষার্থী ও শিক্ষকদের নোটিশ পাঠানো যাবে।</p>
+                        <div class="feat-tags"><span class="feat-tag">ক্লাস SMS</span><span
+                                class="feat-tag">গ্রুপ SMS</span></div>
+                        <button class="btn-preview" data-key="sms_group_list"><i class="fas fa-list"></i> গ্রুপ লিস্ট
+                        </button>
+                        <button class="btn-preview" data-key="sms_group_send"><i class="fas fa-paper-plane"></i> SMS পাঠান
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-blue"><i class="fas fa-bell"></i></div>
+                        <h5>অ্যাপ নোটিফিকেশন</h5>
+                        <p>Guardian ও Teacher App-এ Push Notification। Google-এর মাধ্যমে বিনামূল্যে।</p>
+                        <div class="feat-tags"><span class="feat-tag">ফ্রি নোটিফিকেশন</span><span class="feat-tag">তাৎক্ষণিক</span>
+                        </div>
+                        <button class="btn-preview" data-key="img_notif"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-amber"><i class="fas fa-coins"></i></div>
+                        <h5>SMS খরচ কম</h5>
+                        <p>প্রতি SMS মাত্র ২০.৬ পয়সা (দেশের সর্বনিম্ন রেট)। অ্যাপে কোনো SMS খরচ নেই।</p>
+                        <div class="feat-tags"><span class="feat-tag">সাশ্রয়ী</span><span
+                                class="feat-tag">অ্যাপে ফ্রি</span></div>
+                        <button class="btn-preview" data-key="sms_cost"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-purple"><i class="fas fa-toggle-on"></i></div>
+                        <h5>SMS নিয়ন্ত্রণ</h5>
+                        <p>কোন কোন ক্ষেত্রে SMS বন্ধ বা চালু থাকবে তা সহজে নিয়ন্ত্রণ করা যাবে।</p>
+                        <div class="feat-tags"><span class="feat-tag">কাস্টমাইজেবল</span></div>
+                        <button class="btn-preview" data-key="sms_control"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-red"><i class="fas fa-wallet"></i></div>
+                        <h5>বকেয়া SMS</h5>
+                        <p>যাদের যত টাকা বকেয়া আছে সেই পরিমাণ সহ SMS পাঠানো যাবে।</p>
+                        <div class="feat-tags"><span class="feat-tag">বকেয়া পরিমাণ সহ</span><span class="feat-tag">বাল্ক SMS</span>
+                        </div>
+                        <button class="btn-preview" data-key="due_sms"><i class="fas fa-eye"></i> প্রিভিউ দেখুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE APP -->
+        <h3 class="faq-subhead"><i class="fas fa-mobile-alt"></i> মোবাইল অ্যাপ</h3>
+        <div class="feature-panel" id="tab-app">
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-blue"><i class="fas fa-mobile-alt"></i></div>
+                        <h5>Smart Bell অ্যাপ</h5>
+                        <p>এক অ্যাপেই সব - ফী পেমেন্ট, উপস্থিতি, নোটিশ বোর্ড, Teacher ও Guardian প্যানেল।</p>
+                        <div class="feat-tags"><span class="feat-tag">Guardian App</span><span class="feat-tag">Teacher App</span></div>
+                        <button class="btn-preview" data-key="app_home"><i class="fas fa-eye"></i> হোমস্ক্রিন
+                        </button>
+                        <button class="btn-preview" data-key="app_teacher_panel"><i class="fas fa-chalkboard-teacher"></i> টিচার হোম
+                        </button>
+                        <a href="https://play.google.com/store/apps/details?id=co.sebd.tingtong" target="_blank" class="btn-preview"><i class="fab fa-google-play"></i> প্লে স্টোর
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-users"></i></div>
+                        <h5>মাল্টি-স্কুল সাপোর্ট</h5>
+                        <p>একই অ্যাপে একাধিক সন্তান - ভিন্ন ভিন্ন স্কুলেও কোনো সমস্যা নেই। এক লগইনেই সব।</p>
+                        <div class="feat-tags"><span class="feat-tag">Multi-School</span><span class="feat-tag">একাধিক সন্তান</span></div>
+                        <button class="btn-preview" data-key="app_child_list"><i class="fas fa-eye"></i> Child List
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-amber"><i class="fas fa-credit-card"></i></div>
+                        <h5>অ্যাপ থেকে ফী পেমেন্ট</h5>
+                        <p>বিকাশ, নগদ বা কার্ডে সরাসরি অ্যাপ থেকে ফী দিন - স্কুলে না গিয়েও।</p>
+                        <div class="feat-tags"><span class="feat-tag">বিকাশ/নগদ</span><span class="feat-tag">ঘরে বসে</span></div>
+                        <button class="btn-preview" data-key="app_pay_fees"><i class="fas fa-eye"></i> ফী পেমেন্ট
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-green"><i class="fas fa-calendar-alt"></i></div>
+                        <h5>উপস্থিতি ক্যালেন্ডার</h5>
+                        <p>প্রতিদিনের উপস্থিতি ক্যালেন্ডারে দেখুন - Present, Absent, Late, Leave রঙে আলাদা। মাসিক সামারি সহ।</p>
+                        <div class="feat-tags"><span class="feat-tag">ক্যালেন্ডার ভিউ</span><span class="feat-tag">মাসিক সামারি</span></div>
+                        <button class="btn-preview" data-key="app_attn_list"><i class="fas fa-eye"></i> Student List
+                        </button>
+                        <button class="btn-preview" data-key="app_attn_cal"><i class="fas fa-eye"></i> ক্যালেন্ডার
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-pink"><i class="fas fa-user-shield"></i></div>
+                        <h5>Guardian Corner</h5>
+                        <p>Profile, Notice, Appointment, ZOOM, Results, In-Out, H.Work, Contact - ১০টি অপশন এক জায়গায়।</p>
+                        <div class="feat-tags"><span class="feat-tag">১০+ অপশন</span><span class="feat-tag">Guardian Panel</span></div>
+                        <button class="btn-preview" data-key="app_guardian_home"><i class="fas fa-eye"></i> Guardian মেনু
+                        </button>
+                        <button class="btn-preview" data-key="app_teacher_contact"><i class="fas fa-eye"></i> Teacher Contact
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="feat-card">
+                        <div class="feat-icon icon-purple"><i class="fas fa-bell"></i></div>
+                        <h5>রেজাল্ট ও নোটিফিকেশন</h5>
+                        <p>সাবজেক্টওয়াইজ রেজাল্ট ও Present/Absent/ফী - সব নোটিফিকেশন অ্যাপেই দেখুন।</p>
+                        <div class="feat-tags"><span class="feat-tag">রেজাল্ট</span><span class="feat-tag">নোটিফিকেশন ফিড</span></div>
+                        <button class="btn-preview" data-key="app_result"><i class="fas fa-eye"></i> রেজাল্ট
+                        </button>
+                        <button class="btn-preview" data-key="app_notif_board"><i class="fas fa-eye"></i> নোটিফিকেশন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCHOOLS WE SERVE - hidden: style="display:none;" সরালে দেখাবে -->
+<section class="section section-alt" id="schools" style="display:none;">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <h2 class="section-title" data-en="Schools &lt;span class=&quot;gradient-text&quot;&gt;With Us&lt;/span&gt;">আমাদের সাথে <span class="gradient-text">আছেন যারা</span></h2>
+            <p class="section-sub">সারাদেশের বিভিন্ন শিক্ষাপ্রতিষ্ঠান School-Bell ব্যবহার করছে</p>
+        </div>
+        <div class="marquee-outer"><div class="school-grid marquee-track">
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/105.jpg" alt="Pouro Model School"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Pouro Model School and College</div>
+                <div class="school-place">Jhenaidah</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/106.jpg" alt="School of the Nation"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">School of the Nation (SON)</div>
+                <div class="school-place">Banasree, Dhaka</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/109.jpg" alt="Dr. Abdur Razzak Municipal College"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Dr. Abdur Razzak Municipal College</div>
+                <div class="school-place">Jashore</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/110.jpg" alt="College of Finance and Management"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">College of Finance and Management</div>
+                <div class="school-place">Savar, Dhaka</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/111.jpg" alt="BAF Shaheen College Jashore"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Bangladesh Air Force Shaheen College</div>
+                <div class="school-place">Jashore</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/113.jpg" alt="HS Coaching Center"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">HS Coaching Center</div>
+                <div class="school-place">Post Office Para, Jashore</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/130.jpg" alt="Freedom International High School"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Freedom International High School</div>
+                <div class="school-place">Savar, Dhaka</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/159.jpg" alt="Knowledge Inn International School"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Knowledge Inn International School & College</div>
+                <div class="school-place">Tushardhara R/A, Dhaka</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/164.jpg" alt="Taora Azizur Rahman Secondary School"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Taora Azizur Rahman Secondary School</div>
+                <div class="school-place">Jhikofgacha, Jessore</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/167.jpg" alt="Cosmopolitan Laboratory School"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Cosmopolitan Laboratory School</div>
+                <div class="school-place">South Keranigonj, Dhaka</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/169.jpg" alt="Progoti Adorsho Madrasha"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Progoti Adorsho Madrasha</div>
+                <div class="school-place">New Market, Jashore</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/175.jpg" alt="Gyangriha Ideal School"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Gyangriha Ideal School</div>
+                <div class="school-place">Betila, Manikganj</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/176.jpg" alt="Shaheed Zia Girls High School"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Shaheed Zia Girls High School and College</div>
+                <div class="school-place">Jatrabari, Dhaka</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/178.jpg" alt="Three Language Cadet Madrasah"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Three Language Cadet Madrasah</div>
+                <div class="school-place">Sharsha, Jashore</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/180.jpg" alt="IQRA Cadet Madrasah"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">IQRA CADET MADRASAH</div>
+                <div class="school-place">Kaliganj, Jhenaidah</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/182.jpg" alt="Jhaudia Mahabiddalay"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Jhaudia Mahabiddalay</div>
+                <div class="school-place">Kushtia Sadar, Kushtia</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/183.jpg" alt="Hamidpur Al-Hera College"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Hamidpur Al-Hera College</div>
+                <div class="school-place">Hamidpur, Jashore</div>
+            </div>
+            <div class="school-item">
+                <div class="school-icon" style="background:transparent;padding:0;overflow:hidden;border-radius:12px;">
+                    <img src="logo/184.jpg" alt="Merciful International Madrasah"
+                         style="width:52px;height:52px;object-fit:contain;border-radius:12px;">
+                </div>
+                <div class="school-name">Merciful International Madrasah</div>
+                <div class="school-place">West Dhanmondi, Dhaka</div>
+            </div>
+        </div></div>
+        <div class="text-center mt-4 animate-on-scroll"  onclick="window.location = 'https://bell.sebd.co/home/onlineRegistrationStep1.se'">
+            <a href="#contact" class="school-item school-cta-item">
+                <div class="school-icon icon-red"><i class="fas fa-plus"></i></div>
+                <div class="school-name">আপনার স্কুল</div>
+                <div class="school-place">আজই যোগ দিন →</div>
+            </a>
+        </div>
+        <div class="text-center mt-2 animate-on-scroll">
+            <p style="color:var(--text-muted);font-size:0.9rem;">এ মাসেই রেজিস্ট্রেশনে পাবেন <strong
+                    style="color:var(--primary)"> ৬ মাস ফ্রী ব্যবহারের সুযোগ </strong> এবং <strong
+                    style="color:var(--primary)"> ১ টি এক্সাম </strong> রেজাল্ট প্রসেসিং ও প্রিন্টিং সুবিধা </p>
+        </div>
+    </div>
+</section>
+
+<!-- SHOWCASE - hidden: style="display:none;" সরালে দেখাবে -->
+<section class="section" id="showcase" style="display:none;">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <h2 class="section-title">দেখুন কিভাবে <span class="gradient-text">কাজ করে</span></h2>
+            <p class="section-sub">বাস্তব স্কুলে ব্যবহৃত রিপোর্ট ও ডকুমেন্টের নমুনা</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+                <div class="showcase-card">
+                    <div class="showcase-img">
+                        <div class="showcase-badge">শিক্ষার্থী</div>
+                        <div style="background:#fff;border-radius:12px;padding:16px;text-align:left;font-size:0.72rem;border:1px solid var(--border);">
+                            <div style="color:#053982;font-weight:700;margin-bottom:8px;font-family:'Baloo Da 2',cursive;font-size:0.85rem;">
+                                🎓 Student Profile
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;color:#888;">
+                                <div>ID: <span style="color:#333">2302001</span></div>
+                                <div>Class: <span style="color:#333">STD-II</span></div>
+                                <div>Section: <span style="color:#333">Parrot</span></div>
+                                <div>Roll: <span style="color:#333">02</span></div>
+                                <div>Blood: <span style="color:#EF4444">B(+Ve)</span></div>
+                                <div>Religion: <span style="color:#333">Muslim</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>শিক্ষার্থী প্রোফাইল</h5>
+                        <p>সম্পূর্ণ তথ্য, অভিভাবকের বিবরণ ও ছবি সহ ডিজিটাল প্রোফাইল।</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+                <div class="showcase-card">
+                    <div class="showcase-img">
+                        <div class="showcase-badge">ফলাফল</div>
+                        <div style="background:#fff;border-radius:12px;padding:16px;font-size:0.72rem;border:1px solid var(--border);">
+                            <div style="color:#059669;font-weight:700;margin-bottom:8px;font-family:'Baloo Da 2',cursive;font-size:0.85rem;">
+                                📊 Progress Report
+                            </div>
+                            <table style="width:100%;color:#888;border-collapse:collapse;">
+                                <tr style="border-bottom:1px solid #f0f0f0;">
+                                    <td style="padding:3px 0">Bangla 1st</td>
+                                    <td style="color:#059669;text-align:right">A+</td>
+                                    <td style="color:#053982;text-align:right">5.0</td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #f0f0f0;">
+                                    <td style="padding:3px 0">English 1st</td>
+                                    <td style="color:#059669;text-align:right">A+</td>
+                                    <td style="color:#053982;text-align:right">5.0</td>
+                                </tr>
+                                <tr style="border-bottom:1px solid #f0f0f0;">
+                                    <td style="padding:3px 0">Mathematics</td>
+                                    <td style="color:#059669;text-align:right">A+</td>
+                                    <td style="color:#053982;text-align:right">5.0</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:3px 0;color:#D97706;font-weight:700">GPA</td>
+                                    <td style="color:#D97706;text-align:right;font-weight:800">5.00</td>
+                                    <td style="color:#059669;text-align:right">Outstanding</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>রেজাল্ট কার্ড</h5>
+                        <p>GPA, গ্রেড পয়েন্ট ও মন্তব্য সহ সুন্দর রিপোর্ট কার্ড।</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+                <div class="showcase-card">
+                    <div class="showcase-img">
+                        <div class="showcase-badge">ফি</div>
+                        <div style="background:#fff;border-radius:12px;padding:16px;font-size:0.72rem;border:1px solid var(--border);">
+                            <div style="color:#D97706;font-weight:700;margin-bottom:8px;font-family:'Baloo Da 2',cursive;font-size:0.85rem;">
+                                💳 Fees Collection Receipt
+                            </div>
+                            <div style="color:#888;">
+                                <div>Class: <span style="color:#333">SIX (Section X)</span></div>
+                                <div>Name: <span style="color:#333">MD. AL AMIN</span></div>
+                                <div style="margin-top:8px;border-top:1px solid #f0f0f0;padding-top:8px;">
+                                    <div>Tuition Fee: <span style="color:#059669">450.00</span></div>
+                                    <div>Other Charge: <span style="color:#059669">150.00</span></div>
+                                    <div style="margin-top:6px;color:#D97706;font-weight:700;font-size:0.8rem;">TOTAL:
+                                        600.00 TK
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showcase-body">
+                        <h5>ফি কালেকশন রিসিট</h5>
+                        <p>অফিস কপি ও স্টুডেন্ট কপি সহ প্রফেশনাল রিসিট।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS - hidden: style="display:none;" সরালে দেখাবে -->
+<section class="section section-alt" id="testimonials" style="display:none;">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <h2 class="section-title">তারা <span class="gradient-text">বিশ্বাস করেন</span></h2>
+            <p class="section-sub">সারাদেশের স্কুল কর্তৃপক্ষের অভিজ্ঞতা</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">উপস্থিতি থেকে ফি আদায় সবকিছু এখন অটোমেটিক। অভিভাবকরা SMS পেয়ে খুশি। স্কুলের
+                        প্রশাসনিক কাজ ৭০% কমে গেছে।</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background:linear-gradient(135deg,#053982,#0D5CE1)" data-en="H">প</div>
+                        <div>
+                            <div class="testi-name">প্রধান শিক্ষক</div>
+                            <div class="testi-role">BAF Shaheen College, Jashore</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">ফিঙ্গারপ্রিন্টে উপস্থিতি নেওয়া শুরু করার পর সময়মতো আসার হার বেড়েছে। রেজাল্ট
+                        কার্ড এখন প্রফেশনাল মানের।</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background:linear-gradient(135deg,#0D5CE1,#549EE8)" data-en="P">অ</div>
+                        <div>
+                            <div class="testi-name">অধ্যক্ষ</div>
+                            <div class="testi-role">Cosmopolitan Lab. School & College</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 animate-on-scroll">
+                <div class="testi-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">অনলাইনে ফি আদায় শুরু করেছি। বকেয়া SMS দেওয়ার পর আদায়ের হার অনেক বেড়েছে।
+                        সাপোর্ট টিম সবসময় সাহায্য করে।</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="background:linear-gradient(135deg,#10B981,#06B6D4)" data-en="D">প</div>
+                        <div>
+                            <div class="testi-name">পরিচালক</div>
+                            <div class="testi-role">Pouro Model School, Jhenaidah</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ / প্রশ্ন-উত্তর -->
+<section class="section" id="faq">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <h2 class="section-title"><span class="gradient-text">প্রশ্ন-উত্তর</span></h2>
+            <p class="section-sub">আপনার মনে যে প্রশ্ন আসছে, উত্তর এখানেই পাবেন</p>
+        </div>
+
+        <!-- Category tabs removed - সব গ্রুপ একসাথে দেখানো হয়, প্রতিটির আগে সাব-হেডার -->
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+
+                <!-- তথ্য ব্যবস্থাপনা -->
+                <h3 class="faq-subhead faq-subhead-first"><i class="fas fa-database"></i> তথ্য ব্যবস্থাপনা</h3>
+                <div class="faq-group active" id="faq-data">
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">কি কি তথ্য স্কুল-বেলে এন্ট্রি দেওয়া যাবে? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">
+                            <strong>ব্যক্তিগত তথ্য:</strong> পূর্ণ নাম, জন্ম তারিখ, লিঙ্গ, রক্তের গ্রুপ, ধর্ম, জাতীয়তা, ছবি।<br>
+                            <strong>একাডেমিক তথ্য:</strong> স্টুডেন্ট আইডি, শ্রেণী, সেকশন, রোল নং, শিফট, ভার্সন/মিডিয়াম, সেশন, স্টুডেন্ট টাইপ (নতুন/পুরাতন), ক্যাটাগরি, স্টাইপেন্ড।<br>
+                            <strong>অভিভাবক ও যোগাযোগ:</strong> বাবা-মায়ের নাম ও মোবাইল, লোকাল গার্ডিয়ানের নাম/মোবাইল/সম্পর্ক এবং SMS ও লগইন OTP-র জন্য নোটিফিকেশন সেল।<br>
+                            <strong>ঠিকানা:</strong> বর্তমান ও স্থায়ী ঠিকানা, হোম ডিস্ট্রিক্ট, কোথা থেকে এসেছে।<br>
+                            <strong>ফি সংক্রান্ত:</strong> টিউশন ফি ও শুরুর তারিখ, রাইড/কোচিং/হোস্টেল/টিফিন/হিফজ ফি, DTF (ডেইলি টিউশন ফি) অপশন।<br>
+                            <strong>ডিভাইস ও পরিবহন:</strong> RFID কার্ড সিরিয়াল, ফিঙ্গারপ্রিন্ট আইডি, রাইড সার্ভিস ও রাইড স্টপেজ (প্রাইমারি/সেকেন্ডারি)।<br>
+                            সব মিলিয়ে প্রতিটি শিক্ষার্থীর ৪৪টিরও বেশি তথ্য স্কুল-বেলে সংরক্ষণ করা যায়।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">কতগুলো শ্রেণী মেইনটেইন করা যাবে? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">যত ইচ্ছা শ্রেণী তৈরি করা যাবে। ইংরেজি ভার্সন বা আরবি ভার্সনের জন্য শ্রেণী
+                            আলাদা করা যাবে। তাছাড়া, শ্রেণী ওয়াইজ, ছেলে-মেয়ে বা মুসলিম-সনাতন এভাবে ডাটা আলাদা করা
+                            যাবে।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">আইডি কার্ড কে করে দিবে? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">সফটওয়্যার থেকে আইডি কার্ডের সফট কপি বের হয় ডিজাইন সহ। এটা যে কোন প্রিন্টিং
+                            প্রেসে দিলেই তারা আইডি কার্ড প্রিন্ট করে দিতে পারবে। আপনারা আমাদের দায়িত্ব দিলে আমরাও
+                            প্রিন্ট করে আপনাদেরকে দিতে পারব। কার্ড+ফিতার খরচ সাধারণত ৭০ থেকে ১২০ টাকা। তাছাড়া নিজেরাই
+                            স্থানীয় বাজার থেকে রঙিন পেপারে কার্ড প্রিন্ট করে লেমিনেটিং করে নিলে ১৫ টাকার মধ্যেই কার্ড
+                            তৈরি করা সম্ভব।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- উপস্থিতি -->
+                <h3 class="faq-subhead"><i class="fas fa-fingerprint"></i> উপস্থিতি</h3>
+                <div class="faq-group" id="faq-attendance">
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">ফিঙ্গারপ্রিন্ট মেশিনের মাধ্যমে এটেন্ডেন্স নেওয়া যাবে কিনা? <span
+                                class="arrow"><i class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ যাবে। আঙুলের ছাপ অথবা আইডি কার্ড ছোঁয়ানোর মাধ্যমেও এটেন্ডেন্স নেওয়া
+                            যাবে এবং সাথে অভিভাবকের মোবাইলে উপস্থিতির একটি এসএমএস যাবে। তাছাড়া শিক্ষক শিক্ষিকাগণও
+                            ক্লাসে মোবাইল এ্যাপের মাধ্যমে এটেন্ডেন্স নিতে পারবেন।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">ফিঙ্গারপ্রিন্ট মেশিনের দাম কত এবং এটার খরচ কে বহন করবে? <span
+                                class="arrow"><i class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">একটা মেশিনের দাম ৪-১৫ হাজারের মধ্যে হবে। যে কোন ধরনের সেবা সংক্রান্ত খরচ
+                            শেষমেষ গিয়ে ভোক্তার উপর গিয়ে পড়ে, সেটা ঘুরিয়ে পেঁচিয়ে হোক বা সোজা ভাবে হোক। তাই স্কুল
+                            কর্তৃপক্ষ চাইলে আমরা কিনে বসিয়ে দিতে পারি (পরবর্তীতে কিস্তিতে পরিশোধ যোগ্য)। কোন কোন
+                            ক্ষেত্রে আমরা একটা ডিভাইস ফ্রি দিয়ে থাকি।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SMS -->
+                <h3 class="faq-subhead"><i class="fas fa-sms"></i> SMS</h3>
+                <div class="faq-group" id="faq-sms">
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">স্টুডেন্ট, টিচারদের SMS-এর মাধ্যমে নোটিস পাঠানো যাবে কি? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ, ক্লাস ওয়াইজ ও গ্রুপ ওয়াইজ স্টুডেন্ট, টিচারদের নোটিস পাঠানো যাবে।
+                            <div class="sms-sample">
+                                <div class="sms-label"><i class="fas fa-users"></i> উদাহরণ - এভাবে আলাদা গ্রুপে নোটিস পাঠানো যায়</div>
+                                <div class="grp-chips">
+                                    <span>বিজ্ঞান শিক্ষক গ্রুপ</span>
+                                    <span>ম্যানেজমেন্ট কমিটি গ্রুপ</span>
+                                    <span>ক্লাস টেন ও নাইন</span>
+                                    <span>বাংলা ভার্শন স্টুডেন্ট</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">বকেয়া সংক্রান্ত এসএমএস দেওয়া যাবে কিনা? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">অবশ্যই। যাদের যত টাকা বকেয়া আছে সেই সকল স্টুডেন্টদের টাকার পরিমাণ সহ এসএমএস
+                            দেওয়া যাবে।
+                            <div class="sms-sample">
+                                <div class="sms-label"><i class="fas fa-sms"></i> নমুনা SMS</div>
+                                প্রিয় অভিভাবক, আপনার সন্তান <b>মো. আল আমিন</b> (শ্রেণী: ছয়, রোল: ১২)-এর
+                                অক্টোবর/২০২৫ পর্যন্ত <b>৳ ১,২০০</b> টাকা বকেয়া রয়েছে। অনুগ্রহ করে দ্রুত পরিশোধ
+                                করুন। - <b>গ্রীন ভ্যালি স্কুল অ্যান্ড কলেজ</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">SMS-এর খরচ কত এবং এর খরচ কে বহন করবে? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">আমাদের মোবাইল অ্যাপ গার্ডিয়ান ও শিক্ষক-কর্মচারীদের ফোনে ইন্সটল থাকলে গুগলের
+                            মাধ্যমে নোটিফিকেশন যাবে - সেক্ষেত্রে কোন এসএমএস খরচ লাগবে না। অন্যদিকে সিমে এসএমএস দিতে
+                            প্রতি এসএমএস ২০.৬ পয়সা (এদেশের সর্বনিম্ন রেট) খরচ হবে এবং এটা শিক্ষাপ্রতিষ্ঠান বহন করবে।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">চাইলে এসএমএস বন্ধ করা যায় কিনা? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ, অবশ্যই যাবে। কোন কোন ক্ষেত্রে বন্ধ ও কোন কোন ক্ষেত্রে এসএমএস ওপেন
+                            থাকবে তা কন্ট্রোল করা যাবে সহজেই।
+                        </div>
+                    </div>
+                </div>
+
+                <!-- পরীক্ষা ও রেজাল্ট -->
+                <h3 class="faq-subhead"><i class="fas fa-file-alt"></i> পরীক্ষা ও রেজাল্ট</h3>
+                <div class="faq-group" id="faq-exam">
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">প্রতিবছর কতগুলো পরীক্ষার রেজাল্ট করা যাবে? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">যতগুলো ইচ্ছা ততগুলো পরীক্ষার রেজাল্ট করা যাবে। যেমন সাময়িকী, অর্ধ-বার্ষিক,
+                            বার্ষিক, টেস্ট, টিউটোরিয়াল এরকম বিভিন্ন নামে এক্সাম তৈরি করা সম্ভব।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">আমাদের দেওয়া ফরম্যাটে রেজাল্ট করা সম্ভব কিনা? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ সম্ভব। আমাদের ২৫টি বিভিন্ন ধরনের রেজাল্ট ফরম্যাট আছে। এর বাইরে আপনাদের
+                            দেখানো ফরম্যাটে রেজাল্ট করা সম্ভব।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">টিউটোরিয়াল/মডেল-টেস্ট এসব প্রি-এক্সামগুলির মার্ক সাময়িকী/সেমিস্টার পরীক্ষার
+                            সাথে যুক্ত করার ব্যবস্থা আছে কি? <span class="arrow"><i
+                                    class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ আছে। মূল পরীক্ষার আগে চারটি টিউটোরিয়াল/মডেল-টেস্ট নেওয়া যাবে এবং
+                            সেগুলির মার্ক পার্সেন্টেজ আকারে মূল পরীক্ষার (সাময়িকী/সেমিস্টার) সাথে যুক্ত করে রেজাল্ট
+                            দেওয়া যাবে।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">সেমিস্টার/অর্ধ-বার্ষিক পরীক্ষার রেজাল্টের একটা অংশ, বার্ষিক পরীক্ষার সাথে
+                            যুক্ত করা যাবে কি? <span class="arrow"><i class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ যাবে। সাময়িকী/সেমিস্টার পরীক্ষার রেজাল্টের একটা অংশ নিয়ে বার্ষিক
+                            পরীক্ষার রেজাল্টের সাথে যোগ/পার্সেন্টেজ করেও রেজাল্ট দেওয়া যাবে।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">পরীক্ষার রেজাল্ট সংক্রান্ত কি কি তথ্য পাওয়া যাবে? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">ট্যাবুলেশন শিট, মেরিট লিস্ট, ফেইল লিস্ট (সাবজেক্ট সহ রোলসমূহ), রেজাল্ট কার্ড,
+                            টপ টেন, সাবজেক্ট ওয়াইজ ও গ্রুপ ওয়াইজ রেজাল্ট ইত্যাদি দেওয়া সম্ভব।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">শিক্ষক-শিক্ষিকারা নিজেদের মার্ক নিজেরা এন্ট্রি দিতে পারবেন? <span
+                                class="arrow"><i class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ, তাঁরা নিজেদের মার্ক নিজেরাই যেকোনো ঘরে বসে মোবাইল অ্যাপের মাধ্যমে দিতে
+                            পারবেন।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">প্রবেশপত্র ও সিট প্ল্যান কোথা থেকে পাওয়া যাবে? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">প্রতিটা পরীক্ষার আগে এগুলি সফটওয়্যার থেকে প্রিন্ট করে নেওয়া যাবে।</div>
+                    </div>
+                </div>
+
+                <!-- ফি কালেকশন -->
+                <h3 class="faq-subhead"><i class="fas fa-money-bill"></i> ফি কালেকশন</h3>
+                <div class="faq-group" id="faq-fees">
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">সফটওয়্যারের মাধ্যমে ফী কালেকশন করা যায়? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ। সেশন, ভর্তি, টিউশন ফী, পরীক্ষার ফী সহ সকল ধরনের ফী সফটওয়্যারের
+                            মাধ্যমে কালেকশন করা সম্ভব। সবার বাকি বকেয়া সফটওয়্যার নিজে থেকেই ফলো করবে। কালেকশনের পর
+                            অভিভাবকের মোবাইলে একটা এসএমএস যাবে এবং সফটওয়্যার থেকে বের হওয়া রিসিদটি স্টুডেন্টকে প্রিন্ট
+                            করে দেওয়া যাবে। দিন শেষে কত কালেকশন হলো তার রিপোর্টও পাওয়া যাবে।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">কেও অগ্রিম ফি দিতে পারে কি? অথবা কেও কিছু টাকা বাকি রাখতে পারে কি? <span
+                                class="arrow"><i class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">অগ্রিম দিলে সেটা অগ্রিম হিসাবে দেখানো হবে এবং পরের মাসের বেতন অগ্রিম থেকে
+                            কাটা যাবে। অন্যদিকে বাকি রাখলে সেটা পরের মাসের বকেয়ার সাথে আলাদা করে দেখানো হবে - এবং আদায়
+                            করা যাবে।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">একই ক্লাসে ভিন্ন ভিন্ন ফী ধার্য করা যাবে কিনা? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ, একই ক্লাসে শিক্ষার্থীদের টিউশন ফির পরিমাণ ভিন্ন হতে পারে এবং ভিন্ন
+                            পরিমাণের ফি ইম্পোজিং-এর ব্যবস্থা আছে। তাছাড়া, তাৎক্ষণিক কিছু/সম্পূর্ণ ফি মওকুফের ব্যবস্থা
+                            আছে।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">অনলাইনে (ব্যাংক / বিকাশ / নগদ) ফি কালেক্ট করা যাবে কিনা? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">হ্যাঁ, ব্যাংক / বিকাশ / নগদ এসবের মাধ্যমে ফি কালেক্ট করা যাবে এবং সাথে সাথেই
+                            আমাদের সফটওয়্যারে তা আপডেট হয়ে যাবে। এবং এসএমএস-এর মাধ্যমে গার্ডিয়ানকে জানানো যাবে। API
+                            Integration ও Website Collection (Payment Gateway) - দুটি পদ্ধতিতেই কালেকশন সম্ভব।
+                        </div>
+                    </div>
+                    <div class="faq-item animate-on-scroll">
+                        <div class="faq-q">অনলাইনে আদায় করা ফি কিভাবে আমরা হাতে পাব? <span class="arrow"><i
+                                class="fas fa-chevron-down"></i></span></div>
+                        <div class="faq-a">অনলাইনে আদায় করা ফি আপনাদের শিক্ষাপ্রতিষ্ঠানের ব্যাংক একাউন্টে
+                            স্বয়ংক্রিয়ভাবে জমা হয়ে যাবে।
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+    <div class="container">
+        <div class="animate-on-scroll">
+            <h2 class="section-title" data-en="Get in &lt;span class=&quot;gradient-text&quot;&gt;Touch&lt;/span&gt;">আমাদের সাথে <span class="gradient-text">যোগাযোগ করুন</span></h2>
+            <p class="section-sub">ফ্রি ডেমো দেখতে আজই যোগাযোগ করুন - কোনো বাধ্যবাধকতা নেই</p>
+        </div>
+        <div class="row g-4 justify-content-center mb-5">
+            <div class="col-lg-3 col-md-6 animate-on-scroll">
+                <div class="contact-card">
+                    <div class="contact-icon icon-purple"><i class="fas fa-phone"></i></div>
+                    <div><h6>ফোন / WhatsApp</h6><a href="tel:01701757796">017 017 577 96</a><a href="tel:01701757796">01701-757796</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 animate-on-scroll">
+                <div class="contact-card">
+                    <div class="contact-icon icon-amber"><i class="fas fa-envelope"></i></div>
+                    <div><h6>ইমেইল</h6><a href="mailto:info@sebd.co">info@sebd.co</a><a
+                            href="mailto:khomeni404@gmail.com">khomeni404@gmail.com</a></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 animate-on-scroll">
+                <div class="contact-card">
+                    <div class="contact-icon icon-green"><i class="fas fa-globe"></i></div>
+                    <div><h6>ওয়েবসাইট</h6><a href="https://sebd.co" target="_blank">www.sebd.co</a><a
+                            href="https://bell.sebd.co" target="_blank">www.bell.sebd.co</a></div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 animate-on-scroll">
+                <div class="contact-card">
+                    <div class="contact-icon icon-blue"><i class="fab fa-skype"></i></div>
+                    <div><h6>Skype</h6><a href="skype:Mr.Mak22?call">Mr.Mak22</a><span
+                            style="font-size:0.8rem;color:var(--text-muted)">অনলাইন সাপোর্ট</span></div>
+                </div>
+            </div>
+        </div>
+        <!-- CTA -->
+        <div class="cta-section animate-on-scroll">
+            <h2 style="font-family:'Baloo Da 2',cursive;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:1rem;color:var(--text);">
+                আজই শুরু করুন - <span class="gradient-text">ফ্রি ডেমো</span> দেখুন
+            </h2>
+            <p style="color:var(--text-muted);max-width:500px;margin:0 auto 2rem;font-size:1rem;line-height:1.75;">
+                আমাদের টিম আপনার স্কুলে গিয়ে বা অনলাইনে ডেমো দেখাবে। কোনো চাপ নেই, সম্পূর্ণ বিনামূল্যে।
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a href="tel:01701757796" class="btn-primary-custom btn-accent"><i class="fas fa-phone-alt"></i> 017 017 577 96 কল
+                    করুন</a>
+                <a href="https://wa.me/8801701757796" target="_blank" class="btn-outline-custom"><i
+                        class="fab fa-whatsapp"></i> WhatsApp করুন</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="navbar-brand-text mb-2" style="font-size:1.3rem;">
+            <span class="brand-is">School</span><span style="color:#333">-</span><span class="brand-bell">Bell</span>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.youtube.com/playlist?list=PLCyfVzbOkpzS0zT1Bz8YMjkV2czr2jpZG" target="_blank" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/8801701757796" target="_blank" title="WhatsApp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:info@sebd.co" title="ইমেইল" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:01701757796" title="ফোন" aria-label="Phone"><i class="fas fa-phone"></i></a>
+        </div>
+        <p style="margin-bottom:4px;">Powered by <strong style="color:#053982;">Soft Engine Ltd.</strong> - Soft Style
+            Everywhere</p>
+        <p style="color:#aaa;font-size:0.8rem;">© 2024 School-Bell. Step towards Smart School.</p>
+    </div>
+</footer>
+
+<!-- IMAGE PREVIEW MODAL -->
+<div class="modal fade preview-modal" id="previewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="previewModalLabel"><i class="fas fa-image me-2" style="color:#053982"></i>ডকুমেন্ট
+                    প্রিভিউ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="previewMainImg"
+                     style="text-align:center;min-height:200px;display:flex;align-items:center;justify-content:center;">
+                    <div style="text-align:center;color:var(--text-muted);">
+                        <div style="font-size:3rem;margin-bottom:12px;">🖼️</div>
+                        <p style="font-family:'Baloo Da 2',cursive;font-size:1rem;">লোড হচ্ছে...</p>
+                    </div>
+                </div>
+                <div class="preview-nav" id="previewThumbs"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PDF page image map (base64 data URIs via embed trick / placeholder info cards) -->
+<!-- Since actual PDF images can't be extracted at runtime, we show info panels per page -->
+
+<!-- Floating CTA (mobile only) -->
+<div class="floating-cta d-md-none">
+    <a href="tel:01701757796" class="btn-primary-custom btn-accent w-100 justify-content-center">
+        <i class="fas fa-phone"></i> ফ্রি ডেমো দেখুন - কল করুন
+    </a>
+</div>
+
+<script src="libs/jquery.min.js"></script>
+<script src="libs/bootstrap.bundle.min.js"></script>
+<script src="libs/bell-landing.js"></script>
+
+
+<!-- Image Quick Modal -->
+<div class="modal fade" id="imgQuickModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width:min(92vw,700px)">
+        <div class="modal-content" style="border:none;border-radius:18px;overflow:hidden;">
+            <div class="modal-header"
+                 style="background:var(--bg2);border-bottom:1.5px solid var(--border);padding:12px 20px;">
+                <h6 class="modal-title" id="imgQuickTitle"
+                    style="font-family:'Baloo Da 2',cursive;font-weight:700;color:var(--text);margin:0"></h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="padding:16px;background:#fff;text-align:center;">
+                <img id="imgQuickSrc" src="" alt=""
+                     style="width:100%;height:auto;max-height:80vh;object-fit:contain;border-radius:10px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showImgModal(src, title) {
+        document.getElementById('imgQuickSrc').src = src;
+        document.getElementById('imgQuickTitle').textContent = (window.bellT ? window.bellT(title) : title);
+        var modal = new bootstrap.Modal(document.getElementById('imgQuickModal'));
+        modal.show();
+    }
+</script>
+
+
+
+<!-- ================= BN / EN LANGUAGE SWITCH ================= -->
+<script>
+(function () {
+    var DICT = {
+"(শ্রেণী: ছয়, রোল: ১২)-এর অক্টোবর/২০২৫ পর্যন্ত": "(Class: Six, Roll: 12) owes",
+"017 017 577 96 কল করুন": "Call 017 017 577 96",
+"100+ ফরম্যাট": "100+ Formats",
+"GPA, গ্রেড পয়েন্ট ও মন্তব্য সহ সুন্দর রিপোর্ট কার্ড।": "A clean report card with GPA, grade point and remarks.",
+"GPA, গ্রেড, মেরিট লিস্ট সহ সুন্দর রিপোর্ট কার্ড। স্কুলের লোগো ও সিগনেচার সহ।": "A clean report card with GPA, grade and merit position, carrying the school logo and signature.",
+"Guardian ও Teacher App-এ Push Notification। Google-এর মাধ্যমে বিনামূল্যে।": "Push notification to the Guardian and Teacher apps - free, through Google.",
+"Guardian মেনু": "Guardian Menu",
+"ID কার্ড তৈরি": "ID Card Generation",
+"Profile, Notice, Appointment, ZOOM, Results, In-Out, H.Work, Contact - ১০টি অপশন এক জায়গায়।": "Profile, Notice, Appointment, ZOOM, Results, In-Out, H.Work, Contact - ten options in one place.",
+"RFID কার্ড সিরিয়াল, ফিঙ্গারপ্রিন্ট আইডি, রাইড সার্ভিস ও রাইড স্টপেজ (প্রাইমারি/সেকেন্ডারি)।": "RFID card serial, fingerprint ID, ride service and ride stoppage (primary/secondary).",
+"SBA সহ": "With SBA",
+"SMS & নোটিফিকেশন": "SMS & Notification",
+"SMS খরচ কম": "Low SMS Cost",
+"SMS নিয়ন্ত্রণ": "SMS Control",
+"SMS নিশ্চিতকরণ": "SMS Confirmation",
+"SMS নোটিফিকেশন": "SMS Notification",
+"SMS পাঠান": "Send SMS",
+"SMS-এর খরচ কত এবং এর খরচ কে বহন করবে?": "How much does an SMS cost, and who pays for it?",
+"Smart Bell অ্যাপ": "Smart Bell App",
+"WhatsApp করুন": "Chat on WhatsApp",
+"iOS ও Android": "iOS & Android",
+"অ": "P",
+"অগ্রিম দিলে সেটা অগ্রিম হিসাবে দেখানো হবে এবং পরের মাসের বেতন অগ্রিম থেকে কাটা যাবে। অন্যদিকে বাকি রাখলে সেটা পরের মাসের বকেয়ার সাথে আলাদা করে দেখানো হবে - এবং আদায় করা যাবে।": "An advance is shown as an advance, and the next month dues are taken from it. If part is left unpaid it is shown separately along with the next month dues - and can be collected then.",
+"অগ্রিম ফি": "Advance Fee",
+"অগ্রিম ফি নেওয়া যাবে। পরের মাসের বেতন থেকে স্বয়ংক্রিয়ভাবে কাটা যাবে।": "Advance fees can be taken and are adjusted automatically against the next month dues.",
+"অটো SMS": "Auto SMS",
+"অটো অ্যাডজাস্ট": "Auto Adjust",
+"অটো জেনারেট": "Auto Generate",
+"অটোমেটিক": "Automatic",
+"অধ্যক্ষ": "Principal",
+"অনলাইন": "Online",
+"অনলাইন পেমেন্ট": "Online Payment",
+"অনলাইন ভর্তি": "Online Admission",
+"অনলাইন সাপোর্ট": "Online Support",
+"অনলাইনে (ব্যাংক / বিকাশ / নগদ) ফি কালেক্ট করা যাবে কিনা?": "Can fees be collected online (bank / bKash / Nagad)?",
+"অনলাইনে আদায় করা ফি আপনাদের শিক্ষাপ্রতিষ্ঠানের ব্যাংক একাউন্টে স্বয়ংক্রিয়ভাবে জমা হয়ে যাবে।": "Fees collected online are credited automatically to the bank account of your institution.",
+"অনলাইনে আদায় করা ফি কিভাবে আমরা হাতে পাব?": "How do we receive the fees collected online?",
+"অনলাইনে ফি আদায় শুরু করেছি। বকেয়া SMS দেওয়ার পর আদায়ের হার অনেক বেড়েছে। সাপোর্ট টিম সবসময় সাহায্য করে।": "We have started collecting fees online. Collection improved a lot after the due SMS went out. The support team always helps.",
+"অনুপস্থিতি": "Absence",
+"অফিস কপি ও স্টুডেন্ট কপি সহ প্রফেশনাল রিসিট।": "A professional receipt with an office copy and a student copy.",
+"অবশ্যই। যাদের যত টাকা বকেয়া আছে সেই সকল স্টুডেন্টদের টাকার পরিমাণ সহ এসএমএস দেওয়া যাবে।": "Certainly. An SMS carrying the exact outstanding amount can be sent to every student who owes money.",
+"অভিভাবক ও যোগাযোগ:": "Guardian and contact:",
+"অ্যাডমিট কার্ড": "Admit Card",
+"অ্যাপ থেকে ফী পেমেন্ট": "Fee Payment from the App",
+"অ্যাপ নোটিফিকেশন": "App Notification",
+"অ্যাপে ফ্রি": "Free in App",
+"আইডি কার্ড কে করে দিবে?": "Who will make the ID cards?",
+"আঙুলের ছাপ বা ID কার্ড স্ক্যানে উপস্থিতি নিন। অভিভাবকের মোবাইলে সাথে সাথে SMS যাবে।": "Take attendance by fingerprint or ID card scan. An SMS reaches the guardian at once.",
+"আছেন যারা": "Are With Us",
+"আজই যোগ দিন →": "Join today ->",
+"আজই শুরু করুন -": "Get started today -",
+"আপনার মনে যে প্রশ্ন আসছে, উত্তর এখানেই পাবেন": "The questions on your mind, answered right here",
+"আপনার স্কুল": "Your School",
+"আমাদের টিম আপনার স্কুলে গিয়ে বা অনলাইনে ডেমো দেখাবে। কোনো চাপ নেই, সম্পূর্ণ বিনামূল্যে।": "Our team will demo it at your school or online. No pressure, completely free.",
+"আমাদের দেওয়া ফরম্যাটে রেজাল্ট করা সম্ভব কিনা?": "Can results be produced in the format we provide?",
+"আমাদের মোবাইল অ্যাপ গার্ডিয়ান ও শিক্ষক-কর্মচারীদের ফোনে ইন্সটল থাকলে গুগলের মাধ্যমে নোটিফিকেশন যাবে - সেক্ষেত্রে কোন এসএমএস খরচ লাগবে না। অন্যদিকে সিমে এসএমএস দিতে প্রতি এসএমএস ২০.৬ পয়সা (এদেশের সর্বনিম্ন রেট) খরচ হবে এবং এটা শিক্ষাপ্রতিষ্ঠান বহন করবে।": "If our mobile app is installed on the guardian and staff phones, notifications go through Google - and then there is no SMS cost at all. Sending an SMS to a SIM costs 20.6 poisha per message, the lowest rate in the country, and the institution bears it.",
+"আমাদের সাথে": "With Us",
+"আরও অপশন": "More Options",
+"আরও থাকছে যা": "And More",
+"আরও সহজ, স্মার্ট": "made easy & smart",
+"ইংরেজি ও বাংলা": "English & Bangla",
+"ইচ্ছামতো শ্রেণী তৈরি করুন। ছেলে/মেয়ে, মুসলিম/সনাতন আলাদা করে ডেটা সংরক্ষণ।": "Create as many classes as you like. Keep data separate by boys/girls or by religion.",
+"ইমেইল": "Email",
+"উদাহরণ - এভাবে আলাদা গ্রুপে নোটিস পাঠানো যায়": "Example - notices can go to separate groups like these",
+"উপস্থিতি": "Attendance",
+"উপস্থিতি ক্যালেন্ডার": "Attendance Calendar",
+"উপস্থিতি থেকে ফি আদায় সবকিছু এখন অটোমেটিক। অভিভাবকরা SMS পেয়ে খুশি। স্কুলের প্রশাসনিক কাজ ৭০% কমে গেছে।": "Attendance and fee collection are all automatic now. Guardians are happy to get the SMS. Administrative work has dropped by 70%.",
+"উপস্থিতি দেখা": "View Attendance",
+"উপস্থিতি নেয়া": "Take Attendance",
+"উপস্থিতি রিপোর্ট": "Attendance Report",
+"উপস্থিতি শতাংশ": "Attendance Percentage",
+"এ মাসেই রেজিস্ট্রেশনে পাবেন": "Register this month and get",
+"এক অ্যাপেই সব - ফী পেমেন্ট, উপস্থিতি, নোটিশ বোর্ড, Teacher ও Guardian প্যানেল।": "Everything in one app - fee payment, attendance, notice board, and both the Teacher and Guardian panels.",
+"একই অ্যাপে একাধিক সন্তান - ভিন্ন ভিন্ন স্কুলেও কোনো সমস্যা নেই। এক লগইনেই সব।": "Several children in one app, even across different schools. One login covers all.",
+"একই ক্লাসে ভিন্ন ভিন্ন টিউশন ফি সম্ভব। তাৎক্ষণিক ছাড়/মওকুফের ব্যবস্থা আছে।": "Different tuition fees are possible inside the same class, with instant discount or waiver.",
+"একই ক্লাসে ভিন্ন ভিন্ন ফী ধার্য করা যাবে কিনা?": "Can different fees be set inside the same class?",
+"একটা মেশিনের দাম ৪-১৫ হাজারের মধ্যে হবে। যে কোন ধরনের সেবা সংক্রান্ত খরচ শেষমেষ গিয়ে ভোক্তার উপর গিয়ে পড়ে, সেটা ঘুরিয়ে পেঁচিয়ে হোক বা সোজা ভাবে হোক। তাই স্কুল কর্তৃপক্ষ চাইলে আমরা কিনে বসিয়ে দিতে পারি (পরবর্তীতে কিস্তিতে পরিশোধ যোগ্য)। কোন কোন ক্ষেত্রে আমরা একটা ডিভাইস ফ্রি দিয়ে থাকি।": "A machine costs between 4 and 15 thousand taka. Any service cost finally lands on the consumer, directly or indirectly. So if the school wants, we can buy and install it (payable later in instalments). In some cases we provide one device free.",
+"একাডেমিক তথ্য:": "Academic information:",
+"একাধিক ক্লাস সিলেক্ট করে নির্দিষ্ট Recipient-দের SMS বা App নোটিফিকেশন পাঠান।": "Select several classes and send an SMS or app notification to the chosen recipients.",
+"একাধিক সন্তান": "Multiple Children",
+"এক্সপোর্ট": "Export",
+"এবং": "and",
+"ওয়েবসাইট": "Website",
+"কতগুলো শ্রেণী মেইনটেইন করা যাবে?": "How many classes can be maintained?",
+"কাজ করে": "works",
+"কাস্টম ডিজাইন": "Custom Design",
+"কাস্টমাইজেবল": "Customizable",
+"কি কি তথ্য স্কুল-বেলে এন্ট্রি দেওয়া যাবে?": "What information can be entered in School-Bell?",
+"কে কত মাসের ফি বকেয়া আছে - মাসভিত্তিক বিস্তারিত রিপোর্ট।": "Who owes how many months of fees - a detailed month-by-month report.",
+"কেও অগ্রিম ফি দিতে পারে কি? অথবা কেও কিছু টাকা বাকি রাখতে পারে কি?": "Can someone pay in advance, or leave part of the amount unpaid?",
+"কোন কোন ক্ষেত্রে SMS বন্ধ বা চালু থাকবে তা সহজে নিয়ন্ত্রণ করা যাবে।": "Control easily which events send an SMS and which stay silent.",
+"ক্যালেন্ডার": "Calendar",
+"ক্যালেন্ডার ভিউ": "Calendar View",
+"ক্লাস SMS": "Class SMS",
+"ক্লাস ওয়াইজ SMS": "Class-wise SMS",
+"ক্লাস টেন ও নাইন": "Class Ten and Nine",
+"ক্লাস প্রমোশন": "Class Promotion",
+"ক্লাসওয়াইজ": "Class-wise",
+"ক্লাসওয়াইজ বা গ্রুপওয়াইজ শিক্ষার্থী ও শিক্ষকদের নোটিশ পাঠানো যাবে।": "Notices can be sent to students and teachers class-wise or group-wise.",
+"গার্ডিয়ান প্যানেল": "Guardian Panel",
+"গ্রীন ভ্যালি স্কুল অ্যান্ড কলেজ": "Green Valley School and College",
+"গ্রুপ SMS": "Group SMS",
+"গ্রুপ ওয়াইজ": "Group-wise",
+"গ্রুপ লিস্ট": "Group List",
+"গ্রুপওয়াইজ": "Group-wise",
+"ঘরে বসে": "From Home",
+"ঘরে বসেই ভর্তি ফর্ম পূরণ, ফী প্রদান ও প্রবেশপত্র প্রিন্ট - কলেজে না গিয়েই সম্পূর্ণ প্রক্রিয়া।": "Fill in the admission form, pay the fee and print the admit card from home - the whole process without a campus visit.",
+"চাইলে এসএমএস বন্ধ করা যায় কিনা?": "Can SMS be switched off if we want?",
+"ছবি সহ": "With Photo",
+"টাকা বকেয়া রয়েছে। অনুগ্রহ করে দ্রুত পরিশোধ করুন। -": "up to October/2025. Please pay it soon. -",
+"টিউটোরিয়াল/মডেল-টেস্ট এসব প্রি-এক্সামগুলির মার্ক সাময়িকী/সেমিস্টার পরীক্ষার সাথে যুক্ত করার ব্যবস্থা আছে কি?": "Can the marks of pre-exams such as tutorials and model tests be added to the terminal/semester exam?",
+"টিউটোরিয়াল": "Tutorials",
+"টিউশন ফি ও শুরুর তারিখ, রাইড/কোচিং/হোস্টেল/টিফিন/হিফজ ফি, DTF (ডেইলি টিউশন ফি) অপশন।": "Tuition fee and its start date, ride/coaching/hostel/tiffin/hifz fees, and the DTF (daily tuition fee) option.",
+"টিচার হোম": "Teacher Home",
+"ট্যাবুলেশন শিট, মেরিট লিস্ট, ফেইল লিস্ট (সাবজেক্ট সহ রোলসমূহ), রেজাল্ট কার্ড, টপ টেন, সাবজেক্ট ওয়াইজ ও গ্রুপ ওয়াইজ রেজাল্ট ইত্যাদি দেওয়া সম্ভব।": "Tabulation sheet, merit list, fail list (with subjects and roll numbers), result card, top ten, subject-wise and group-wise results, and more.",
+"ঠিকানা:": "Address:",
+"ডকুমেন্ট প্রিভিউ": "Document Preview",
+"ডিউ ফী": "Due Fee",
+"ডিউ ফী চার্ট": "Due Fee Chart",
+"ডিভাইস ও পরিবহন:": "Device and transport:",
+"ডিসকাউন্ট": "Discount",
+"ডেইলি": "Daily",
+"ডেইলি সামারি": "Daily Summary",
+"ডেমো দেখুন": "Get a Demo",
+"তথ্য ব্যবস্থাপনা": "Information Management",
+"তারা": "They",
+"তাৎক্ষণিক": "Instant",
+"দিন শেষে কত টাকা আদায় হলো, কোন হেড থেকে কত আদায় হয়েছে বিস্তারিত।": "How much was collected by the end of the day, and how much under each head.",
+"দুই কপি": "Two Copies",
+"দেখুন": "now",
+"দেখুন কার্ড-১": "See Card-1",
+"দেখুন কার্ড-২": "See Card-2",
+"দেখুন কিভাবে": "See how it",
+"দেখুন রেজাল্ট - ১": "See Result - 1",
+"দেখুন রেজাল্ট - ২": "See Result - 2",
+"দৈনিক কালেকশন রিপোর্ট": "Daily Collection Report",
+"দৈনিক রিপোর্ট": "Daily Report",
+"দ্রুত": "Fast",
+"নমুনা SMS": "Sample SMS",
+"নাম, ঠিকানা, অভিভাবকের তথ্য, রক্তের গ্রুপ সহ ৪৪টি তথ্য সংরক্ষণ। ছবি সহ সম্পূর্ণ প্রোফাইল।": "Stores 44 fields including name, address, guardian details and blood group - a complete profile with photo.",
+"নোটিফিকেশন": "Notification",
+"নোটিফিকেশন ফিড": "Notification Feed",
+"নোটিফিকেশনস": "Notifications",
+"নোটিস": "Notice",
+"প": "H",
+"পরিচালক": "Director",
+"পরীক্ষা": "Examination",
+"পরীক্ষা ও রেজাল্ট": "Exams and Results",
+"পরীক্ষার আগে ছবি সহ অ্যাডমিট কার্ড প্রিন্ট করুন। সিট নম্বর ও পরীক্ষার রুটিন সহ।": "Print admit cards with photo before the exam, with seat number and exam routine.",
+"পরীক্ষার রেজাল্ট": "Exam Results",
+"পরীক্ষার রেজাল্ট সংক্রান্ত কি কি তথ্য পাওয়া যাবে?": "What exam result outputs are available?",
+"পরীক্ষার হলের সিট প্ল্যান সফটওয়্যার থেকে তৈরি করুন এবং প্রিন্ট করুন।": "Build and print the exam hall seat plan from the software.",
+"পুরো প্রক্রিয়া": "Full Process",
+"পূর্ণ নাম, জন্ম তারিখ, লিঙ্গ, রক্তের গ্রুপ, ধর্ম, জাতীয়তা, ছবি।": "Full name, date of birth, gender, blood group, religion, nationality, photo.",
+"প্রতি SMS মাত্র ২০.৬ পয়সা (দেশের সর্বনিম্ন রেট)। অ্যাপে কোনো SMS খরচ নেই।": "Only 20.6 poisha per SMS, the lowest rate in the country. In the app there is no SMS cost at all.",
+"প্রতিটা পরীক্ষার আগে এগুলি সফটওয়্যার থেকে প্রিন্ট করে নেওয়া যাবে।": "Before every exam they can be printed from the software.",
+"প্রতিটি শিক্ষার্থীর উপস্থিতির হার, দেরিতে আসার তথ্য, ছুটির হিসাব সব একসাথে।": "Every student's attendance rate, late arrivals and leave record in one place.",
+"প্রতিদিনের উপস্থিতি ক্যালেন্ডারে দেখুন - Present, Absent, Late, Leave রঙে আলাদা। মাসিক সামারি সহ।": "See every day on a calendar - Present, Absent, Late and Leave each in their own colour, with a monthly summary.",
+"প্রতিদিনের উপস্থিতি রিপোর্ট। শ্রেণী, মাস, শিক্ষার্থীভিত্তিক বিশ্লেষণ।": "Daily attendance reports, analysed by class, month and student.",
+"প্রতিবছর কতগুলো পরীক্ষার রেজাল্ট করা যাবে?": "How many exam results can be processed each year?",
+"প্রধান শিক্ষক": "Head Teacher",
+"প্রবেশপত্র ও সিট প্ল্যান কোথা থেকে পাওয়া যাবে?": "Where do the admit cards and seat plan come from?",
+"প্রশ্ন-উত্তর": "FAQ",
+"প্রিন্ট রেডি": "Print Ready",
+"প্রিন্টযোগ্য": "Printable",
+"প্রিভিউ দেখতে নিচের বাটনগুলোতে ক্লিক করুন": "Click the buttons below for a preview",
+"প্রিভিউ দেখুন": "See Preview",
+"প্রিয় অভিভাবক, আপনার সন্তান": "Dear Guardian, your child",
+"প্লে স্টোর": "Play Store",
+"ফলাফল": "Results",
+"ফি": "Fee",
+"ফি আদায়": "Fee Collection",
+"ফি আদায়ের সাথে সাথে দুই কপি রিসিট প্রিন্ট হবে। অভিভাবককে SMS পাঠানো হবে।": "Two copies of the receipt print as the fee is collected, and the guardian gets an SMS.",
+"ফি কালেকশন": "Fee Collection",
+"ফি কালেকশন রিসিট": "Fee Collection Receipt",
+"ফি সংক্রান্ত:": "Fee related:",
+"ফিঙ্গারপ্রিন্ট উপস্থিতি": "Fingerprint Attendance",
+"ফিঙ্গারপ্রিন্ট মেশিনের দাম কত এবং এটার খরচ কে বহন করবে?": "How much does a fingerprint machine cost, and who pays for it?",
+"ফিঙ্গারপ্রিন্ট মেশিনের মাধ্যমে এটেন্ডেন্স নেওয়া যাবে কিনা?": "Can attendance be taken with a fingerprint machine?",
+"ফিঙ্গারপ্রিন্টে উপস্থিতি নেওয়া শুরু করার পর সময়মতো আসার হার বেড়েছে। রেজাল্ট কার্ড এখন প্রফেশনাল মানের।": "Punctuality improved after we started taking attendance by fingerprint. The result cards look professional now.",
+"ফিচার": "Features",
+"ফিচার সমূহ": "Feature Set",
+"ফিচার/অপশন": "Features / Options",
+"ফিল্টারযোগ্য": "Filterable",
+"ফী পেমেন্ট": "Fee Payment",
+"ফোন": "Phone",
+"ফোন / WhatsApp": "Phone / WhatsApp",
+"ফ্রি ডেমো": "Free Demo",
+"ফ্রি ডেমো দেখতে আজই যোগাযোগ করুন - কোনো বাধ্যবাধকতা নেই": "Get in touch today for a free demo - no obligation",
+"ফ্রি ডেমো দেখুন - কল করুন": "Free demo - call us",
+"ফ্রি নোটিফিকেশন": "Free Notification",
+"বকেয়া SMS": "Due SMS",
+"বকেয়া পরিমাণ সহ": "With Due Amount",
+"বকেয়া সংক্রান্ত এসএমএস দেওয়া যাবে কিনা?": "Can SMS be sent about dues?",
+"বর্তমান ও স্থায়ী ঠিকানা, হোম ডিস্ট্রিক্ট, কোথা থেকে এসেছে।": "Present and permanent address, home district, where the student came from.",
+"বাংলা ভার্শন স্টুডেন্ট": "Bangla Version students",
+"বাংলায় সাপোর্ট": "Support in Bangla",
+"বাকি অপশন দেখুন": "See the Rest",
+"বাবা-মায়ের নাম ও মোবাইল, লোকাল গার্ডিয়ানের নাম/মোবাইল/সম্পর্ক এবং SMS ও লগইন OTP-র জন্য নোটিফিকেশন সেল।": "Name and mobile of father and mother, local guardian name/mobile/relation, and the notification cell used for SMS and login OTP.",
+"বায়োমেট্রিক": "Biometric",
+"বারকোড সহ": "With Barcode",
+"বার্ষিক পরীক্ষার পর এক ক্লিকে সকল শিক্ষার্থীকে পরবর্তী শ্রেণীতে প্রমোট করুন।": "Promote every student to the next class in a single click after the annual exam.",
+"বাল্ক SMS": "Bulk SMS",
+"বাস্তব স্কুলে ব্যবহৃত রিপোর্ট ও ডকুমেন্টের নমুনা": "Samples of reports and documents in use at real schools",
+"বিকাশ": "bKash",
+"বিকাশ, নগদ বা কার্ডে সরাসরি অ্যাপ থেকে ফী দিন - স্কুলে না গিয়েও।": "Pay the fee straight from the app by bKash, Nagad or card - without going to the school.",
+"বিকাশ, নগদ, ব্যাংক - সব পদ্ধতিতে ফি আদায়। শূন্য টাকা সার্ভিস চার্জ।": "Collect fees by bKash, Nagad or bank - with zero service charge.",
+"বিকাশ/অনলাইন ফী আদায়": "bKash / Online Fee Collection",
+"বিকাশ/নগদ": "bKash / Nagad",
+"বিজ্ঞান শিক্ষক গ্রুপ": "Science Teachers group",
+"বিশ্বাস করেন": "Trust Us",
+"বেতন সংযুক্ত": "Payroll Linked",
+"ব্যক্তিগত তথ্য:": "Personal information:",
+"ভর্তি রিপোর্ট": "Admission Report",
+"ভিন্ন ফি স্ট্রাকচার": "Flexible Fee Structure",
+"মওকুফ": "Waiver",
+"মান্থলি": "Monthly",
+"মাল্টি ক্লাস": "Multi Class",
+"মাল্টি-স্কুল সাপোর্ট": "Multi-school Support",
+"মাসিক উপস্থিতি": "Monthly Attendance",
+"মাসিক সামারি": "Monthly Summary",
+"মেরিট লিস্ট": "Merit List",
+"মেরিট লিস্ট, ট্যাবুলেশন শিট, প্রমোশন লিস্ট, ফেইল লিস্টিং সহ আরও ২০+ রিপোর্ট।": "Merit list, tabulation sheet, promotion list, fail listing and 20+ more reports.",
+"মো. আল আমিন": "Md. Al Amin",
+"মোবাইল অ্যাপ": "Mobile App",
+"মোবাইল অ্যাপে উপস্থিতি": "Attendance on Mobile App",
+"ম্যানেজমেন্ট কমিটি গ্রুপ": "Management Committee group",
+"যত ইচ্ছা শ্রেণী তৈরি করা যাবে। ইংরেজি ভার্সন বা আরবি ভার্সনের জন্য শ্রেণী আলাদা করা যাবে। তাছাড়া, শ্রেণী ওয়াইজ, ছেলে-মেয়ে বা মুসলিম-সনাতন এভাবে ডাটা আলাদা করা যাবে।": "As many classes as you want. Classes can be kept separate for the English version or the Arabic version. Data can also be separated class-wise, by boys and girls, or by religion.",
+"যতগুলো ইচ্ছা ততগুলো পরীক্ষার রেজাল্ট করা যাবে। যেমন সাময়িকী, অর্ধ-বার্ষিক, বার্ষিক, টেস্ট, টিউটোরিয়াল এরকম বিভিন্ন নামে এক্সাম তৈরি করা সম্ভব।": "As many as you want. Exams can be created under any name - terminal, half-yearly, annual, test, tutorial and so on.",
+"যাদের যত টাকা বকেয়া আছে সেই পরিমাণ সহ SMS পাঠানো যাবে।": "An SMS can go to each student carrying the exact amount they owe.",
+"যেকোনো ফরম্যাটে শিক্ষার্থীর তালিকা প্রিন্ট করুন - ছবি সহ বা ছাড়া।": "Print the student list in any format - with or without photos.",
+"যোগাযোগ": "Contact",
+"যোগাযোগ করুন": "Contact Us",
+"রশিদ দেখুন": "See Receipt",
+"রিপোর্ট ফরম্যাট": "Report Formats",
+"রিপোর্ট-১": "Report-1",
+"রিপোর্ট-২": "Report-2",
+"রিয়েল-টাইম": "Real-time",
+"রুম ওয়াইজ": "Room-wise",
+"রেজাল্ট": "Result",
+"রেজাল্ট ও নোটিফিকেশন": "Results & Notifications",
+"রেজাল্ট কার্ড": "Result Card",
+"রেজাল্ট প্রসেসিং ও প্রিন্টিং সুবিধা": "result processing and printing",
+"লোড হচ্ছে...": "Loading...",
+"শিক্ষক উপস্থিতি": "Staff Attendance",
+"শিক্ষক-কর্মচারীদের উপস্থিতিও ফিঙ্গারপ্রিন্টে নেওয়া যাবে। বেতন শিটের সাথে সংযুক্ত।": "Teacher and staff attendance can be taken by fingerprint too, and it feeds the salary sheet.",
+"শিক্ষক-শিক্ষিকারা নিজেদের মার্ক নিজেরা এন্ট্রি দিতে পারবেন?": "Can teachers enter their own marks themselves?",
+"শিক্ষকরা ঘরে বসে মোবাইল অ্যাপের মাধ্যমে উপস্থিতি দিতে পারবেন।": "Teachers can take attendance through the mobile app, even from home.",
+"শিক্ষকরা নিজেরাই ঘরে বসে মোবাইল অ্যাপের মাধ্যমে মার্ক এন্ট্রি করতে পারবেন।": "Teachers can enter their own marks from the mobile app, even from home.",
+"শিক্ষকের মার্ক এন্ট্রি": "Teacher Mark Entry",
+"শিক্ষার্থী": "Students",
+"শিক্ষার্থী অনুপস্থিত থাকলে অভিভাবকের ফোনে স্বয়ংক্রিয় SMS পাঠানো হবে।": "If a student is absent, an automatic SMS goes to the guardian's phone.",
+"শিক্ষার্থী প্রোফাইল": "Student Profile",
+"শিক্ষার্থী ভর্তি থেকে ফলাফল, উপস্থিতি থেকে ফি আদায় - School-Bell-এ সবকিছু এক প্ল্যাটফর্মে।": "From admission to results, attendance to fee collection - School-Bell puts everything on one platform.",
+"শূন্য চার্জ": "Zero Charge",
+"শ্রেণী ব্যবস্থাপনা": "Class Management",
+"শ্রেণী, লিঙ্গ, নতুন-পুরনো ভর্তি অনুযায়ী বিস্তারিত রিপোর্ট।": "Detailed reports by class, gender and new vs old admission.",
+"সফটওয়্যার থেকে আইডি কার্ডের সফট কপি বের হয় ডিজাইন সহ। এটা যে কোন প্রিন্টিং প্রেসে দিলেই তারা আইডি কার্ড প্রিন্ট করে দিতে পারবে। আপনারা আমাদের দায়িত্ব দিলে আমরাও প্রিন্ট করে আপনাদেরকে দিতে পারব। কার্ড+ফিতার খরচ সাধারণত ৭০ থেকে ১২০ টাকা। তাছাড়া নিজেরাই স্থানীয় বাজার থেকে রঙিন পেপারে কার্ড প্রিন্ট করে লেমিনেটিং করে নিলে ১৫ টাকার মধ্যেই কার্ড তৈরি করা সম্ভব।": "The software produces a soft copy of the ID card, design included. Any printing press can print it from that. If you hand the job to us, we can print and deliver them too. A card with a lanyard usually costs 70 to 120 taka. You can also print the cards yourself on colour paper from the local market and laminate them - that keeps it within about 15 taka.",
+"সফটওয়্যার থেকে সরাসরি ID কার্ড প্রিন্ট করুন। বারকোড সহ ডিজাইন।": "Print ID cards straight from the software, design and barcode included.",
+"সফটওয়্যারের মাধ্যমে ফী কালেকশন করা যায়?": "Can fees be collected through the software?",
+"সব ফিচার": "All Features",
+"সব মিলিয়ে প্রতিটি শিক্ষার্থীর ৪৪টিরও বেশি তথ্য স্কুল-বেলে সংরক্ষণ করা যায়।": "All together, more than 44 fields can be stored for every student in School-Bell.",
+"সম্পূর্ণ": "Complete",
+"সম্পূর্ণ তথ্য, অভিভাবকের বিবরণ ও ছবি সহ ডিজিটাল প্রোফাইল।": "A digital profile with full information, guardian details and photo.",
+"সাবজেক্টওয়াইজ রেজাল্ট ও Present/Absent/ফী - সব নোটিফিকেশন অ্যাপেই দেখুন।": "Subject-wise results and every Present/Absent/fee notification, all inside the app.",
+"সাময়িক, অর্ধ-বার্ষিক, বার্ষিক, টেস্ট - যেকোনো পরীক্ষার রেজাল্ট তৈরি করুন।": "Process results for any exam - terminal, half-yearly, annual or test.",
+"সামারি দেখুন": "See Summary",
+"সারাদেশের বিভিন্ন শিক্ষাপ্রতিষ্ঠান School-Bell ব্যবহার করছে": "Institutions across the country are using School-Bell",
+"সারাদেশের স্কুল কর্তৃপক্ষের অভিজ্ঞতা": "What school authorities across the country say",
+"সাশ্রয়ী": "Affordable",
+"সিট প্ল্যান": "Seat Plan",
+"সুবিধা দেখ": "See Benefits",
+"সুবিধা সমুহ": "Benefits",
+"সেকশন ওয়াইজ": "Section-wise",
+"সেমিস্টার/অর্ধ-বার্ষিক পরীক্ষার রেজাল্টের একটা অংশ, বার্ষিক পরীক্ষার সাথে যুক্ত করা যাবে কি?": "Can a part of the semester/half-yearly result be carried into the annual exam?",
+"স্কুল পরিচালনা": "School management",
+"স্কুলের প্রতিটি বিভাগের জন্য আলাদা মডিউল - একটাই সফটওয়্যার, সব সমাধান।": "A separate module for every department of the school - one software, every solution.",
+"স্টাফ ট্র্যাকিং": "Staff Tracking",
+"স্টুডেন্ট আইডি, শ্রেণী, সেকশন, রোল নং, শিফট, ভার্সন/মিডিয়াম, সেশন, স্টুডেন্ট টাইপ (নতুন/পুরাতন), ক্যাটাগরি, স্টাইপেন্ড।": "Student ID, class, section, roll no, shift, version/medium, session, student type (new/old), category, stipend.",
+"স্টুডেন্ট লিস্ট": "Student List",
+"স্টুডেন্ট, টিচারদের SMS-এর মাধ্যমে নোটিস পাঠানো যাবে কি?": "Can notices be sent to students and teachers by SMS?",
+"স্বয়ংক্রিয় ব্যাংকে জমা হয়ে যাবে ।": "Deposited into your bank account automatically.",
+"স্মার্ট এটেন্ডেন্স": "Smart Attendance",
+"হেড ওয়াইজ": "Head-wise",
+"হোমস্ক্রিন": "Home Screen",
+"হ্যাঁ আছে। মূল পরীক্ষার আগে চারটি টিউটোরিয়াল/মডেল-টেস্ট নেওয়া যাবে এবং সেগুলির মার্ক পার্সেন্টেজ আকারে মূল পরীক্ষার (সাময়িকী/সেমিস্টার) সাথে যুক্ত করে রেজাল্ট দেওয়া যাবে।": "Yes. Up to four tutorials or model tests can be held before the main exam, and their marks can be added as a percentage to the main (terminal/semester) exam result.",
+"হ্যাঁ যাবে। আঙুলের ছাপ অথবা আইডি কার্ড ছোঁয়ানোর মাধ্যমেও এটেন্ডেন্স নেওয়া যাবে এবং সাথে অভিভাবকের মোবাইলে উপস্থিতির একটি এসএমএস যাবে। তাছাড়া শিক্ষক শিক্ষিকাগণও ক্লাসে মোবাইল এ্যাপের মাধ্যমে এটেন্ডেন্স নিতে পারবেন।": "Yes. Attendance can be taken by fingerprint or by touching an ID card, and an attendance SMS goes to the guardian mobile. Teachers can also take attendance in class through the mobile app.",
+"হ্যাঁ যাবে। সাময়িকী/সেমিস্টার পরীক্ষার রেজাল্টের একটা অংশ নিয়ে বার্ষিক পরীক্ষার রেজাল্টের সাথে যোগ/পার্সেন্টেজ করেও রেজাল্ট দেওয়া যাবে।": "Yes. A part of the terminal/semester exam result can be added, or taken as a percentage, into the annual exam result.",
+"হ্যাঁ সম্ভব। আমাদের ২৫টি বিভিন্ন ধরনের রেজাল্ট ফরম্যাট আছে। এর বাইরে আপনাদের দেখানো ফরম্যাটে রেজাল্ট করা সম্ভব।": "Yes. We have 25 different result formats. Beyond those, results can be produced in a format you show us.",
+"হ্যাঁ, অবশ্যই যাবে। কোন কোন ক্ষেত্রে বন্ধ ও কোন কোন ক্ষেত্রে এসএমএস ওপেন থাকবে তা কন্ট্রোল করা যাবে সহজেই।": "Yes, certainly. Which events send an SMS and which stay silent can be controlled easily.",
+"হ্যাঁ, একই ক্লাসে শিক্ষার্থীদের টিউশন ফির পরিমাণ ভিন্ন হতে পারে এবং ভিন্ন পরিমাণের ফি ইম্পোজিং-এর ব্যবস্থা আছে। তাছাড়া, তাৎক্ষণিক কিছু/সম্পূর্ণ ফি মওকুফের ব্যবস্থা আছে।": "Yes, the tuition fee can differ between students of the same class, and fees of different amounts can be imposed. There is also an arrangement for instant partial or full waiver.",
+"হ্যাঁ, ক্লাস ওয়াইজ ও গ্রুপ ওয়াইজ স্টুডেন্ট, টিচারদের নোটিস পাঠানো যাবে।": "Yes, notices can be sent to students and teachers class-wise and group-wise.",
+"হ্যাঁ, তাঁরা নিজেদের মার্ক নিজেরাই যেকোনো ঘরে বসে মোবাইল অ্যাপের মাধ্যমে দিতে পারবেন।": "Yes, they can enter their own marks from anywhere through the mobile app.",
+"হ্যাঁ, ব্যাংক / বিকাশ / নগদ এসবের মাধ্যমে ফি কালেক্ট করা যাবে এবং সাথে সাথেই আমাদের সফটওয়্যারে তা আপডেট হয়ে যাবে। এবং এসএমএস-এর মাধ্যমে গার্ডিয়ানকে জানানো যাবে। API Integration ও Website Collection (Payment Gateway) - দুটি পদ্ধতিতেই কালেকশন সম্ভব।": "Yes, fees can be collected through bank, bKash or Nagad, and it updates in our software at once. The guardian can be informed by SMS. Collection works both ways - API integration and website collection through a payment gateway.",
+"হ্যাঁ। সেশন, ভর্তি, টিউশন ফী, পরীক্ষার ফী সহ সকল ধরনের ফী সফটওয়্যারের মাধ্যমে কালেকশন করা সম্ভব। সবার বাকি বকেয়া সফটওয়্যার নিজে থেকেই ফলো করবে। কালেকশনের পর অভিভাবকের মোবাইলে একটা এসএমএস যাবে এবং সফটওয়্যার থেকে বের হওয়া রিসিদটি স্টুডেন্টকে প্রিন্ট করে দেওয়া যাবে। দিন শেষে কত কালেকশন হলো তার রিপোর্টও পাওয়া যাবে।": "Yes. Session, admission, tuition and exam fees - every kind of fee can be collected through the software. The software follows up outstanding dues by itself. After collection an SMS goes to the guardian mobile, and the receipt from the software can be printed for the student. At the end of the day you also get a report of how much was collected.",
+"১ টি এক্সাম": "1 exam",
+"১০+ অপশন": "10+ Options",
+"১০০%": "100%",
+"২০+ রিপোর্ট": "20+ Reports",
+"২৫+": "25+",
+"৩টি ধাপ": "3 Steps",
+"৫০০+": "500+",
+"৬ মাস ফ্রী ব্যবহারের সুযোগ": "6 months free",
+"৳ ১,২০০": "BDT 1,200"
+};
+
+    var BN_RE = /[\u0980-\u09FF]/;
+    var ATTRS = ['title', 'alt', 'placeholder', 'aria-label'];
+    var cur = 'bn', obs = null, timer = null;
+
+    function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
+
+    function prep(node) {
+        var nv = node.nodeValue;
+        var m = /^(\s*)([\s\S]*?)(\s*)$/.exec(nv);
+        var hit = DICT[norm(m[2])];
+        node.__bnV = nv;
+        node.__enV = hit ? (m[1] + hit + m[3]) : nv;
+    }
+
+    /* elements that carry a ready-made English markup in data-en */
+    function swapEls(lang) {
+        var els = document.body.querySelectorAll('[data-en]');
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            if (el.__bnH === undefined) { el.__bnH = el.innerHTML; }
+            var h = (lang === 'en') ? el.getAttribute('data-en') : el.__bnH;
+            if (el.innerHTML !== h) { el.innerHTML = h; }
+        }
+    }
+
+    function swapText(lang) {
+        var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+            acceptNode: function (n) {
+                if (n.__bnV === undefined && (!n.nodeValue || !BN_RE.test(n.nodeValue))) {
+                    return NodeFilter.FILTER_SKIP;
+                }
+                var p = n.parentNode;
+                while (p && p.nodeType === 1) {
+                    var t = p.nodeName;
+                    if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEXTAREA') { return NodeFilter.FILTER_SKIP; }
+                    if (p.hasAttribute('data-en')) { return NodeFilter.FILTER_SKIP; }
+                    p = p.parentNode;
+                }
+                return NodeFilter.FILTER_ACCEPT;
+            }
+        }, false);
+        var list = [], n;
+        while ((n = w.nextNode())) { list.push(n); }
+        for (var i = 0; i < list.length; i++) {
+            var node = list[i];
+            /* re-read whenever somebody else rewrote this node (e.g. the stat counter) */
+            if (node.__bnV === undefined || (node.nodeValue !== node.__bnV && node.nodeValue !== node.__enV)) {
+                prep(node);
+            }
+            var v = (lang === 'en') ? node.__enV : node.__bnV;
+            if (node.nodeValue !== v) { node.nodeValue = v; }
+        }
+    }
+
+    function swapAttrs(lang) {
+        for (var a = 0; a < ATTRS.length; a++) {
+            var name = ATTRS[a], bk = '__bnA_' + name, ek = '__enA_' + name;
+            var els = document.body.querySelectorAll('[' + name + ']');
+            for (var i = 0; i < els.length; i++) {
+                var el = els[i], v = el.getAttribute(name);
+                if (el[bk] === undefined) {
+                    if (!v || !BN_RE.test(v)) { continue; }
+                    el[bk] = v;
+                    el[ek] = DICT[norm(v)] || v;
+                }
+                var nv = (lang === 'en') ? el[ek] : el[bk];
+                if (v !== nv) { el.setAttribute(name, nv); }
+            }
+        }
+    }
+
+    function observe() {
+        if (obs) { obs.observe(document.body, {childList: true, subtree: true, characterData: true}); }
+    }
+
+    function apply(lang, persist) {
+        cur = (lang === 'en') ? 'en' : 'bn';
+        if (obs) { obs.disconnect(); }
+        swapEls(cur);
+        swapText(cur);
+        swapAttrs(cur);
+        var root = document.documentElement;
+        root.setAttribute('lang', cur);
+        root.setAttribute('data-lang', cur);
+        var btns = document.querySelectorAll('#langSwitch .lang-btn');
+        for (var i = 0; i < btns.length; i++) {
+            if (btns[i].getAttribute('data-lang') === cur) { btns[i].classList.add('active'); }
+            else { btns[i].classList.remove('active'); }
+        }
+        if (persist !== false) { try { localStorage.setItem('bellLang', cur); } catch (e) {} }
+        observe();
+    }
+
+    if (window.MutationObserver) {
+        obs = new MutationObserver(function () {
+            if (cur !== 'en') { return; }
+            clearTimeout(timer);
+            timer = setTimeout(function () { apply('en', false); }, 60);
+        });
+    }
+
+    function init() {
+        var q = (location.search.match(/[?&]lang=(en|bn)/i) || [])[1];
+        var saved = null;
+        try { saved = localStorage.getItem('bellLang'); } catch (e) {}
+        var sw = document.getElementById('langSwitch');
+        if (sw) {
+            sw.addEventListener('click', function (e) {
+                var b = e.target;
+                while (b && b !== sw && !(b.className && ('' + b.className).indexOf('lang-btn') > -1)) { b = b.parentNode; }
+                if (b && b !== sw) { apply(b.getAttribute('data-lang'), true); }
+            });
+        }
+        apply((q || saved || 'bn').toLowerCase(), true);
+    }
+
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); }
+    else { init(); }
+
+    window.bellSetLang = apply;
+    window.bellLang = function () { return cur; };
+    window.bellT = function (s) {
+        if (cur !== 'en' || !s) { return s; }
+        return DICT[norm(s)] || s;
+    };
+})();
+</script>
+</body>
+</html>

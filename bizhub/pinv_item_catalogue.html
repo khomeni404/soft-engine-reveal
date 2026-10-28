@@ -1,0 +1,1528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Project Inventory - Ready-made Item Catalogue</title>
+<style>
+:root{
+  --paper:#ffffff; --ground:#eff1ef; --panel:#f7f8f6;
+  --ink:#161a19; --muted:#5c6663; --rule:#d9ded9;
+  --mark:#0d4f4a; --mark-soft:#dfeeeb;
+  --warn:#7d5407; --warn-soft:#f6ecd7;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#171a1a; --ground:#0e1111; --panel:#1d2121;
+    --ink:#e7eae7; --muted:#98a29e; --rule:#2c3130;
+    --mark:#63c9b8; --mark-soft:#15302d;
+    --warn:#e0b264; --warn-soft:#2e2718;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#171a1a; --ground:#0e1111; --panel:#1d2121;
+  --ink:#e7eae7; --muted:#98a29e; --rule:#2c3130;
+  --mark:#63c9b8; --mark-soft:#15302d;
+  --warn:#e0b264; --warn-soft:#2e2718;
+}
+*,*::before,*::after{box-sizing:border-box;}
+[hidden]{display:none !important;}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  font-size:16px; line-height:1.55; -webkit-text-size-adjust:100%;
+}
+code{font-family:'Cascadia Mono',Consolas,'SF Mono',Menlo,monospace;
+  font-variant-numeric:tabular-nums;}
+h1,h2,h3{text-wrap:balance; margin:0;}
+a{color:var(--mark);}
+:focus-visible{outline:2px solid var(--mark); outline-offset:2px;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+header.masthead,section.guide,nav.jump,.toolbar,main,footer,.empty{
+  max-width:70rem; margin-inline:auto; padding-inline:clamp(1rem,4vw,2.5rem);
+}
+
+header.masthead{padding-top:clamp(2rem,6vw,4rem); padding-bottom:1.75rem;}
+.eyebrow{
+  margin:0 0 .75rem; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:600; color:var(--mark);
+}
+h1{font-size:clamp(1.9rem,5vw,3rem); line-height:1.1; letter-spacing:-.02em; font-weight:700;}
+.lede{max-width:60ch; margin:1rem 0 0; color:var(--muted); font-size:1.02rem;}
+.lede b{color:var(--ink); font-weight:600;}
+.tally{
+  display:flex; flex-wrap:wrap; gap:2.25rem; list-style:none;
+  margin:1.75rem 0 0; padding:1.1rem 0 0; border-top:1px solid var(--rule);
+  font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
+}
+.tally .n{
+  display:block; font-size:1.9rem; line-height:1.1; letter-spacing:-.01em;
+  text-transform:none; font-weight:700; color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+
+section.guide{padding-block:1.5rem 2rem;}
+section.guide h2{
+  font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--muted); font-weight:600; margin-bottom:1rem;
+}
+section.guide dl{
+  display:grid; grid-template-columns:minmax(8rem,11rem) 1fr; gap:.85rem 1.5rem;
+  margin:0; padding:1.35rem 1.5rem; background:var(--panel);
+  border:1px solid var(--rule); border-radius:2px;
+}
+section.guide dt{font-weight:600;}
+section.guide dd{margin:0; color:var(--muted);}
+section.guide dd code{color:var(--ink);}
+.bn{display:block; margin-top:.15rem; color:var(--mark); font-size:.95em;}
+.caution{
+  margin:1rem 0 0; padding-left:.9rem; border-left:3px solid var(--warn);
+  color:var(--muted); font-size:.94rem;
+}
+
+nav.jump{display:flex; flex-wrap:wrap; gap:.4rem; padding-bottom:1.25rem;}
+nav.jump a{
+  display:inline-flex; align-items:baseline; gap:.45rem;
+  padding:.3rem .6rem; border:1px solid var(--rule); border-radius:2px;
+  background:var(--paper); color:var(--ink); text-decoration:none; font-size:.85rem;
+}
+nav.jump a:hover{border-color:var(--mark); color:var(--mark);}
+nav.jump a span{color:var(--muted); font-size:.78rem; font-variant-numeric:tabular-nums;}
+
+.toolbar{
+  position:sticky; top:0; z-index:5;
+  display:flex; flex-wrap:wrap; align-items:center; gap:.75rem;
+  padding-block:.7rem; background:var(--ground);
+  border-bottom:1px solid var(--rule);
+}
+.toolbar .field{flex:1 1 16rem;}
+.toolbar input{
+  width:100%; padding:.5rem .75rem; font:inherit; font-size:.95rem;
+  color:var(--ink); background:var(--paper);
+  border:1px solid var(--rule); border-radius:2px;
+}
+.toolbar input:focus{border-color:var(--mark); outline:none;
+  box-shadow:0 0 0 3px var(--mark-soft);}
+.toolbar .count{margin:0; color:var(--muted); font-size:.85rem;
+  font-variant-numeric:tabular-nums;}
+.toolbar button{
+  padding:.5rem .95rem; font:inherit; font-size:.85rem; font-weight:600;
+  color:var(--paper); background:var(--mark); border:1px solid var(--mark);
+  border-radius:2px; cursor:pointer;
+}
+.toolbar button:hover{filter:brightness(1.12);}
+
+main{padding-block:2rem 3rem; display:flex; flex-direction:column; gap:2.75rem;}
+.cat{scroll-margin-top:4.5rem;}
+.cat-head{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:.5rem 1rem;
+  padding-bottom:.65rem; margin-bottom:1.25rem; border-bottom:2px solid var(--ink);
+}
+.cat-head h2{font-size:1.4rem; letter-spacing:-.01em; font-weight:700;}
+.cat-head p{margin:0; flex:1 1 14rem; color:var(--muted); font-size:.92rem;}
+.cat-count{
+  color:var(--muted); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase;
+  font-variant-numeric:tabular-nums;
+}
+
+.type{margin-bottom:1.5rem; break-inside:avoid;}
+.type h3{
+  font-size:.74rem; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; color:var(--mark); margin-bottom:.4rem;
+}
+.type table{
+  width:100%; border-collapse:collapse; background:var(--paper);
+  border:1px solid var(--rule); font-size:.92rem;
+}
+.type thead th{
+  text-align:left; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+  font-weight:600; color:var(--muted); padding:.5rem .8rem;
+  border-bottom:1px solid var(--rule); background:var(--panel);
+}
+.type td{padding:.45rem .8rem; border-top:1px solid var(--rule); vertical-align:top;}
+.type tbody tr:first-child td{border-top:none;}
+.type td.item{font-weight:600; width:38%;}
+.type td:nth-child(2){width:14%; white-space:nowrap;}
+code.uom{
+  display:inline-block; padding:.1rem .45rem; font-size:.85em;
+  color:var(--mark); background:var(--mark-soft); border-radius:2px;
+}
+.alts{display:flex; flex-wrap:wrap; gap:.35rem .9rem; color:var(--muted);}
+.alts code{color:var(--ink); font-size:.85em;}
+.alts .none{color:var(--muted);}
+.conv{white-space:nowrap;}
+.tag{
+  display:inline-block; padding:.05rem .4rem; border-radius:2px;
+  font-size:.66rem; letter-spacing:.07em; text-transform:uppercase; font-weight:700;
+}
+.tag.warn{color:var(--warn); background:var(--warn-soft);}
+
+.empty{padding-bottom:3rem; color:var(--muted);}
+footer{
+  padding-block:1.5rem 3rem; border-top:1px solid var(--rule);
+  color:var(--muted); font-size:.82rem;
+}
+footer p{margin:0;}
+
+@media (max-width:640px){
+  section.guide dl{grid-template-columns:1fr; gap:.25rem;}
+  section.guide dd{margin-bottom:.6rem;}
+  .type td.item,.type td:nth-child(2){width:auto;}
+}
+
+@media print{
+  :root{
+    --paper:#fff; --ground:#fff; --panel:#fff;
+    --ink:#000; --muted:#444; --rule:#999;
+    --mark:#000; --mark-soft:#fff; --warn:#000; --warn-soft:#fff;
+  }
+  body{font-size:10pt;}
+  .toolbar,nav.jump{display:none;}
+  .cat{break-before:page;}
+  .cat:first-of-type{break-before:auto;}
+  .type,.type table{break-inside:avoid;}
+  .tag.warn{border:1px solid #000;}
+  code.uom{border:1px solid #999;}
+}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <p class="eyebrow">BizHub&#8209;360 &nbsp;&middot;&nbsp; Project Inventory</p>
+  <h1>Ready-made Item Catalogue</h1>
+  <p class="lede">The materials the software can set up for you on <b>Setup &rsaquo; Auto Item</b>. Tick what this company actually keeps, press Initialise, and the categories, types, items and their units are created for you. Anything not here you can still add by hand.</p>
+  <ul class="tally">
+    <li><span class="n">12</span> categories</li>
+    <li><span class="n">49</span> types</li>
+    <li><span class="n">153</span> items</li>
+  </ul>
+</header>
+<section class="guide">
+  <h2>How to read this</h2>
+  <dl>
+    <dt>Base unit</dt>
+    <dd>The unit stock is counted in. Rod is held in <code>KG</code>, so twenty kilos can be issued even though it was bought by the ton. <span class="bn">&#2488;&#2509;&#2463;&#2453; &#2447;&#2439; &#2447;&#2453;&#2453;&#2503;&#2439; &#2455;&#2507;&#2472;&#2494; &#2489;&#2527;&#2404;</span></dd>
+    <dt>Also entered as</dt>
+    <dd>Other units the operator may type on a challan. The software converts them itself - nobody does the arithmetic. <span class="bn">&#2458;&#2494;&#2482;&#2494;&#2472;&#2503; &#2479;&#2503; &#2447;&#2453;&#2453; &#2482;&#2503;&#2454;&#2494;, &#2488;&#2503;&#2439; &#2447;&#2453;&#2453;&#2503;&#2439; &#2447;&#2472;&#2509;&#2463;&#2509;&#2480;&#2495; &#2470;&#2503;&#2476;&#2503;&#2472;&#2404;</span></dd>
+    <dt><span class="tag warn">adjustable</span></dt>
+    <dd>A unit whose real size varies from delivery to delivery - a truck of sand is not the same hundred cubic feet every trip. The operator may correct the conversion on the day. <span class="bn">&#2478;&#2494;&#2474; &#2474;&#2509;&#2480;&#2468;&#2495;&#2476;&#2494;&#2480; &#2488;&#2478;&#2494;&#2472; &#2489;&#2527; &#2472;&#2494;, &#2468;&#2494;&#2439; &#2447;&#2472;&#2509;&#2463;&#2509;&#2480;&#2495;&#2468;&#2503; &#2476;&#2470;&#2482;&#2494;&#2472;&#2507; &#2479;&#2494;&#2527;&#2404;</span></dd>
+  </dl>
+  <p class="caution">Once stock has moved against an item, its base unit can no longer be changed. It is worth a minute at setup to check the units suit the way this company buys.</p>
+</section>
+<nav class="jump" aria-label="Categories">
+  <a href="#c0">Construction Materials <span>25</span></a>
+  <a href="#c1">Plumbing Materials <span>19</span></a>
+  <a href="#c2">Electrical Equipment <span>23</span></a>
+  <a href="#c3">Formwork &amp; Scaffolding <span>11</span></a>
+  <a href="#c4">Finishing Materials <span>10</span></a>
+  <a href="#c5">Sanitary Ware <span>9</span></a>
+  <a href="#c6">Doors &amp; Windows <span>11</span></a>
+  <a href="#c7">Paints &amp; Chemicals <span>9</span></a>
+  <a href="#c8">Hardware &amp; Fasteners <span>10</span></a>
+  <a href="#c9">Tools &amp; Equipment <span>10</span></a>
+  <a href="#c10">Safety &amp; Site Supplies <span>10</span></a>
+  <a href="#c11">Fire Fighting <span>6</span></a>
+</nav>
+<div class="toolbar" role="search">
+  <label class="field">
+    <span class="sr">Find an item</span>
+    <input type="search" id="q" placeholder="Find an item, type or unit…" autocomplete="off"/>
+  </label>
+  <p class="count" id="count" aria-live="polite"></p>
+  <button type="button" id="printBtn">Print</button>
+</div>
+<main>
+<section class="cat" id="c0">
+  <div class="cat-head">
+    <h2>Construction Materials</h2>
+    <p>Everything the structure itself is made of</p>
+    <span class="cat-count">25 items</span>
+  </div>
+  <div class="type">
+    <h3>Rod</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="8mm rod rod construction materials kg ton">
+          <td class="item">8mm Rod</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>1000 KG</code></span></td>
+        </tr>
+        <tr data-find="10mm rod rod construction materials kg ton">
+          <td class="item">10mm Rod</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>1000 KG</code></span></td>
+        </tr>
+        <tr data-find="12mm rod rod construction materials kg ton">
+          <td class="item">12mm Rod</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>1000 KG</code></span></td>
+        </tr>
+        <tr data-find="16mm rod rod construction materials kg ton">
+          <td class="item">16mm Rod</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>1000 KG</code></span></td>
+        </tr>
+        <tr data-find="20mm rod rod construction materials kg ton">
+          <td class="item">20mm Rod</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>1000 KG</code></span></td>
+        </tr>
+        <tr data-find="25mm rod rod construction materials kg ton">
+          <td class="item">25mm Rod</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>1000 KG</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Cement</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="opc cement cement construction materials bag ton">
+          <td class="item">OPC Cement</td>
+          <td><code class="uom">Bag</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>20 Bag</code></span></td>
+        </tr>
+        <tr data-find="pcc cement cement construction materials bag ton">
+          <td class="item">PCC Cement</td>
+          <td><code class="uom">Bag</code></td>
+          <td class="alts"><span class="conv"><code>1 Ton</code> = <code>20 Bag</code></span></td>
+        </tr>
+        <tr data-find="white cement cement construction materials bag">
+          <td class="item">White Cement</td>
+          <td><code class="uom">Bag</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Sand</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="sylhet sand sand construction materials cft truck">
+          <td class="item">Sylhet Sand</td>
+          <td><code class="uom">CFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Truck</code> = <code>100 CFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="local sand sand construction materials cft truck">
+          <td class="item">Local Sand</td>
+          <td><code class="uom">CFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Truck</code> = <code>100 CFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="plaster sand sand construction materials cft truck">
+          <td class="item">Plaster Sand</td>
+          <td><code class="uom">CFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Truck</code> = <code>100 CFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="filling sand sand construction materials cft truck">
+          <td class="item">Filling Sand</td>
+          <td><code class="uom">CFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Truck</code> = <code>100 CFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Brick</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="1st class brick brick construction materials piece hazar">
+          <td class="item">1st Class Brick</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="conv"><code>1 Hazar</code> = <code>1000 Piece</code></span></td>
+        </tr>
+        <tr data-find="2nd class brick brick construction materials piece hazar">
+          <td class="item">2nd Class Brick</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="conv"><code>1 Hazar</code> = <code>1000 Piece</code></span></td>
+        </tr>
+        <tr data-find="picket brick brick construction materials piece hazar">
+          <td class="item">Picket Brick</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="conv"><code>1 Hazar</code> = <code>1000 Piece</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Stone Chips</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="3/4 inch stone chips stone chips construction materials cft truck">
+          <td class="item">3/4 inch Stone Chips</td>
+          <td><code class="uom">CFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Truck</code> = <code>100 CFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="1/2 inch stone chips stone chips construction materials cft truck">
+          <td class="item">1/2 inch Stone Chips</td>
+          <td><code class="uom">CFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Truck</code> = <code>100 CFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="brick chips stone chips construction materials cft truck">
+          <td class="item">Brick Chips</td>
+          <td><code class="uom">CFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Truck</code> = <code>100 CFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Ready Mix Concrete</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="rmc 3000 psi ready mix concrete construction materials cbm">
+          <td class="item">RMC 3000 PSI</td>
+          <td><code class="uom">CBM</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="rmc 4000 psi ready mix concrete construction materials cbm">
+          <td class="item">RMC 4000 PSI</td>
+          <td><code class="uom">CBM</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="rmc 5000 psi ready mix concrete construction materials cbm">
+          <td class="item">RMC 5000 PSI</td>
+          <td><code class="uom">CBM</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Block</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="aac block block construction materials piece">
+          <td class="item">AAC Block</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="concrete hollow block block construction materials piece">
+          <td class="item">Concrete Hollow Block</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Admixture</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="concrete admixture admixture construction materials litre drum">
+          <td class="item">Concrete Admixture</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="conv"><code>1 Drum</code> = <code>200 Litre</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c1">
+  <div class="cat-head">
+    <h2>Plumbing Materials</h2>
+    <p>Water supply, sanitary lines and their fittings</p>
+    <span class="cat-count">19 items</span>
+  </div>
+  <div class="type">
+    <h3>Pipe</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="1/2 inch pvc pipe pipe plumbing materials rft length">
+          <td class="item">1/2 inch PVC Pipe</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>20 RFT</code></span></td>
+        </tr>
+        <tr data-find="3/4 inch pvc pipe pipe plumbing materials rft length">
+          <td class="item">3/4 inch PVC Pipe</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>20 RFT</code></span></td>
+        </tr>
+        <tr data-find="1 inch pvc pipe pipe plumbing materials rft length">
+          <td class="item">1 inch PVC Pipe</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>20 RFT</code></span></td>
+        </tr>
+        <tr data-find="1.25 inch pvc pipe pipe plumbing materials rft length">
+          <td class="item">1.25 inch PVC Pipe</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>20 RFT</code></span></td>
+        </tr>
+        <tr data-find="4 inch pvc pipe pipe plumbing materials rft length">
+          <td class="item">4 inch PVC Pipe</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>20 RFT</code></span></td>
+        </tr>
+        <tr data-find="1/2 inch cpvc pipe pipe plumbing materials rft length">
+          <td class="item">1/2 inch CPVC Pipe</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>10 RFT</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Pipe Fittings</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="pvc elbow pipe fittings plumbing materials piece">
+          <td class="item">PVC Elbow</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="pvc tee pipe fittings plumbing materials piece">
+          <td class="item">PVC Tee</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="pvc socket pipe fittings plumbing materials piece">
+          <td class="item">PVC Socket</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="pvc reducer pipe fittings plumbing materials piece">
+          <td class="item">PVC Reducer</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="pvc bend pipe fittings plumbing materials piece">
+          <td class="item">PVC Bend</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Valve</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="gate valve valve plumbing materials piece">
+          <td class="item">Gate Valve</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="check valve valve plumbing materials piece">
+          <td class="item">Check Valve</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="ball valve valve plumbing materials piece">
+          <td class="item">Ball Valve</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Water Tank</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="500 litre water tank water tank plumbing materials piece">
+          <td class="item">500 Litre Water Tank</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="1000 litre water tank water tank plumbing materials piece">
+          <td class="item">1000 Litre Water Tank</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Drainage</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="gully trap drainage plumbing materials piece">
+          <td class="item">Gully Trap</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="floor drain drainage plumbing materials piece">
+          <td class="item">Floor Drain</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="manhole cover drainage plumbing materials piece">
+          <td class="item">Manhole Cover</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c2">
+  <div class="cat-head">
+    <h2>Electrical Equipment</h2>
+    <p>Wiring, protection and fittings</p>
+    <span class="cat-count">23 items</span>
+  </div>
+  <div class="type">
+    <h3>Cable</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="1.5 sqmm cable cable electrical equipment meter coil">
+          <td class="item">1.5 sqmm Cable</td>
+          <td><code class="uom">Meter</code></td>
+          <td class="alts"><span class="conv"><code>1 Coil</code> = <code>100 Meter</code></span></td>
+        </tr>
+        <tr data-find="2.5 sqmm cable cable electrical equipment meter coil">
+          <td class="item">2.5 sqmm Cable</td>
+          <td><code class="uom">Meter</code></td>
+          <td class="alts"><span class="conv"><code>1 Coil</code> = <code>100 Meter</code></span></td>
+        </tr>
+        <tr data-find="4 sqmm cable cable electrical equipment meter coil">
+          <td class="item">4 sqmm Cable</td>
+          <td><code class="uom">Meter</code></td>
+          <td class="alts"><span class="conv"><code>1 Coil</code> = <code>100 Meter</code></span></td>
+        </tr>
+        <tr data-find="6 sqmm cable cable electrical equipment meter coil">
+          <td class="item">6 sqmm Cable</td>
+          <td><code class="uom">Meter</code></td>
+          <td class="alts"><span class="conv"><code>1 Coil</code> = <code>100 Meter</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Conduit</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="20mm pvc conduit conduit electrical equipment rft length">
+          <td class="item">20mm PVC Conduit</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>10 RFT</code></span></td>
+        </tr>
+        <tr data-find="25mm pvc conduit conduit electrical equipment rft length">
+          <td class="item">25mm PVC Conduit</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Length</code> = <code>10 RFT</code></span></td>
+        </tr>
+        <tr data-find="conduit bend conduit electrical equipment piece">
+          <td class="item">Conduit Bend</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Socket</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="2 pin socket socket electrical equipment piece">
+          <td class="item">2 Pin Socket</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="3 pin socket socket electrical equipment piece">
+          <td class="item">3 Pin Socket</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="multi plug socket socket electrical equipment piece">
+          <td class="item">Multi Plug Socket</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Switch</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="1 gang switch switch electrical equipment piece">
+          <td class="item">1 Gang Switch</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="2 gang switch switch electrical equipment piece">
+          <td class="item">2 Gang Switch</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="two way switch switch electrical equipment piece">
+          <td class="item">Two Way Switch</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Circuit Protection</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="mcb 16a circuit protection electrical equipment piece">
+          <td class="item">MCB 16A</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="mcb 32a circuit protection electrical equipment piece">
+          <td class="item">MCB 32A</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="mccb 100a circuit protection electrical equipment piece">
+          <td class="item">MCCB 100A</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="distribution board circuit protection electrical equipment piece">
+          <td class="item">Distribution Board</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Light Fitting</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="led tube light light fitting electrical equipment piece">
+          <td class="item">LED Tube Light</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="led bulb light fitting electrical equipment piece">
+          <td class="item">LED Bulb</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="ceiling fan light fitting electrical equipment piece">
+          <td class="item">Ceiling Fan</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Accessories</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="junction box accessories electrical equipment piece">
+          <td class="item">Junction Box</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="gang box accessories electrical equipment piece">
+          <td class="item">Gang Box</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="insulation tape accessories electrical equipment piece">
+          <td class="item">Insulation Tape</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c3">
+  <div class="cat-head">
+    <h2>Formwork &amp; Scaffolding</h2>
+    <p>Reusable material that moves between buildings more than anything else</p>
+    <span class="cat-count">11 items</span>
+  </div>
+  <div class="type">
+    <h3>Shuttering</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="shuttering ply 12mm shuttering formwork &amp; scaffolding piece">
+          <td class="item">Shuttering Ply 12mm</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="shuttering ply 18mm shuttering formwork &amp; scaffolding piece">
+          <td class="item">Shuttering Ply 18mm</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="steel shuttering plate shuttering formwork &amp; scaffolding piece">
+          <td class="item">Steel Shuttering Plate</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Support</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="ms prop support formwork &amp; scaffolding piece">
+          <td class="item">MS Prop</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="adjustable jack support formwork &amp; scaffolding piece">
+          <td class="item">Adjustable Jack</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="wooden batten support formwork &amp; scaffolding rft">
+          <td class="item">Wooden Batten</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Scaffolding</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="scaffolding pipe scaffolding formwork &amp; scaffolding rft">
+          <td class="item">Scaffolding Pipe</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="scaffolding clamp scaffolding formwork &amp; scaffolding piece">
+          <td class="item">Scaffolding Clamp</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="scaffolding plank scaffolding formwork &amp; scaffolding piece">
+          <td class="item">Scaffolding Plank</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Formwork Consumables</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="shuttering oil formwork consumables formwork &amp; scaffolding litre drum">
+          <td class="item">Shuttering Oil</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="conv"><code>1 Drum</code> = <code>200 Litre</code></span></td>
+        </tr>
+        <tr data-find="cover block formwork consumables formwork &amp; scaffolding piece">
+          <td class="item">Cover Block</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c4">
+  <div class="cat-head">
+    <h2>Finishing Materials</h2>
+    <p>Surfaces after the structure is done</p>
+    <span class="cat-count">10 items</span>
+  </div>
+  <div class="type">
+    <h3>Tiles</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="floor tiles tiles finishing materials sft box">
+          <td class="item">Floor Tiles</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Box</code> = <code>20 SFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="wall tiles tiles finishing materials sft box">
+          <td class="item">Wall Tiles</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Box</code> = <code>20 SFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="anti skid tiles tiles finishing materials sft box">
+          <td class="item">Anti Skid Tiles</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Box</code> = <code>20 SFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Stone</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="marble stone finishing materials sft">
+          <td class="item">Marble</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="granite stone finishing materials sft">
+          <td class="item">Granite</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="mosaic chips stone finishing materials kg">
+          <td class="item">Mosaic Chips</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Ceiling</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="gypsum board ceiling finishing materials sft">
+          <td class="item">Gypsum Board</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="false ceiling frame ceiling finishing materials rft">
+          <td class="item">False Ceiling Frame</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Adhesive</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="tile adhesive adhesive finishing materials bag">
+          <td class="item">Tile Adhesive</td>
+          <td><code class="uom">Bag</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="tile grout adhesive finishing materials kg">
+          <td class="item">Tile Grout</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c5">
+  <div class="cat-head">
+    <h2>Sanitary Ware</h2>
+    <p>Fixtures fitted into bathrooms and kitchens</p>
+    <span class="cat-count">9 items</span>
+  </div>
+  <div class="type">
+    <h3>Commode</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="long pan commode sanitary ware piece">
+          <td class="item">Long Pan</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="high commode commode sanitary ware piece">
+          <td class="item">High Commode</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="low commode commode sanitary ware piece">
+          <td class="item">Low Commode</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Basin</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="wash basin basin sanitary ware piece">
+          <td class="item">Wash Basin</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="basin pedestal basin sanitary ware piece">
+          <td class="item">Basin Pedestal</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Fittings</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="bib cock fittings sanitary ware piece">
+          <td class="item">Bib Cock</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="shower set fittings sanitary ware piece">
+          <td class="item">Shower Set</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="basin mixer fittings sanitary ware piece">
+          <td class="item">Basin Mixer</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="kitchen sink fittings sanitary ware piece">
+          <td class="item">Kitchen Sink</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c6">
+  <div class="cat-head">
+    <h2>Doors &amp; Windows</h2>
+    <p>Openings and what closes them</p>
+    <span class="cat-count">11 items</span>
+  </div>
+  <div class="type">
+    <h3>Door</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="wooden door shutter door doors &amp; windows piece">
+          <td class="item">Wooden Door Shutter</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="wooden door frame door doors &amp; windows piece">
+          <td class="item">Wooden Door Frame</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="steel door door doors &amp; windows piece">
+          <td class="item">Steel Door</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="flush door door doors &amp; windows piece">
+          <td class="item">Flush Door</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Window</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="thai aluminium window window doors &amp; windows sft">
+          <td class="item">Thai Aluminium Window</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="sliding window window doors &amp; windows sft">
+          <td class="item">Sliding Window</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Glass</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="5mm clear glass glass doors &amp; windows sft">
+          <td class="item">5mm Clear Glass</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="tinted glass glass doors &amp; windows sft">
+          <td class="item">Tinted Glass</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="mirror glass doors &amp; windows sft">
+          <td class="item">Mirror</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Grill</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="ms grill grill doors &amp; windows sft">
+          <td class="item">MS Grill</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="ms railing grill doors &amp; windows rft">
+          <td class="item">MS Railing</td>
+          <td><code class="uom">RFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c7">
+  <div class="cat-head">
+    <h2>Paints &amp; Chemicals</h2>
+    <p>Coatings, sealants and waterproofing</p>
+    <span class="cat-count">9 items</span>
+  </div>
+  <div class="type">
+    <h3>Paint</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="plastic paint paint paints &amp; chemicals litre drum">
+          <td class="item">Plastic Paint</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="conv"><code>1 Drum</code> = <code>20 Litre</code></span></td>
+        </tr>
+        <tr data-find="weather coat paint paints &amp; chemicals litre drum">
+          <td class="item">Weather Coat</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="conv"><code>1 Drum</code> = <code>20 Litre</code></span></td>
+        </tr>
+        <tr data-find="enamel paint paint paints &amp; chemicals litre drum">
+          <td class="item">Enamel Paint</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="conv"><code>1 Drum</code> = <code>20 Litre</code></span></td>
+        </tr>
+        <tr data-find="primer paint paints &amp; chemicals litre drum">
+          <td class="item">Primer</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="conv"><code>1 Drum</code> = <code>20 Litre</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Putty</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="wall putty putty paints &amp; chemicals kg bag">
+          <td class="item">Wall Putty</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Bag</code> = <code>40 KG</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Waterproofing</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="waterproofing chemical waterproofing paints &amp; chemicals kg bag">
+          <td class="item">Waterproofing Chemical</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Bag</code> = <code>25 KG</code></span></td>
+        </tr>
+        <tr data-find="bitumen waterproofing paints &amp; chemicals kg drum">
+          <td class="item">Bitumen</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Drum</code> = <code>180 KG</code></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Solvent</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="thinner solvent paints &amp; chemicals litre">
+          <td class="item">Thinner</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="turpentine solvent paints &amp; chemicals litre">
+          <td class="item">Turpentine</td>
+          <td><code class="uom">Litre</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c8">
+  <div class="cat-head">
+    <h2>Hardware &amp; Fasteners</h2>
+    <p>Small items bought by weight or by the piece</p>
+    <span class="cat-count">10 items</span>
+  </div>
+  <div class="type">
+    <h3>Fasteners</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="wire nail fasteners hardware &amp; fasteners kg">
+          <td class="item">Wire Nail</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="concrete nail fasteners hardware &amp; fasteners kg">
+          <td class="item">Concrete Nail</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="screw fasteners hardware &amp; fasteners piece box">
+          <td class="item">Screw</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="conv"><code>1 Box</code> = <code>100 Piece</code></span></td>
+        </tr>
+        <tr data-find="anchor bolt fasteners hardware &amp; fasteners piece">
+          <td class="item">Anchor Bolt</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Binding</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="binding wire binding hardware &amp; fasteners kg coil">
+          <td class="item">Binding Wire</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="conv"><code>1 Coil</code> = <code>25 KG</code></span></td>
+        </tr>
+        <tr data-find="gi wire binding hardware &amp; fasteners kg">
+          <td class="item">GI Wire</td>
+          <td><code class="uom">KG</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Door Hardware</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="hinge door hardware hardware &amp; fasteners piece">
+          <td class="item">Hinge</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="door lock door hardware hardware &amp; fasteners piece">
+          <td class="item">Door Lock</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="door handle door hardware hardware &amp; fasteners piece">
+          <td class="item">Door Handle</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="tower bolt door hardware hardware &amp; fasteners piece">
+          <td class="item">Tower Bolt</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c9">
+  <div class="cat-head">
+    <h2>Tools &amp; Equipment</h2>
+    <p>Site machinery and hand tools</p>
+    <span class="cat-count">10 items</span>
+  </div>
+  <div class="type">
+    <h3>Machine</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="concrete vibrator machine tools &amp; equipment piece">
+          <td class="item">Concrete Vibrator</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="concrete mixer machine machine tools &amp; equipment piece">
+          <td class="item">Concrete Mixer Machine</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="rod cutting machine machine tools &amp; equipment piece">
+          <td class="item">Rod Cutting Machine</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="rod bending machine machine tools &amp; equipment piece">
+          <td class="item">Rod Bending Machine</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="water pump machine tools &amp; equipment piece">
+          <td class="item">Water Pump</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Hand Tool</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="trowel hand tool tools &amp; equipment piece">
+          <td class="item">Trowel</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="spade hand tool tools &amp; equipment piece">
+          <td class="item">Spade</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="head pan hand tool tools &amp; equipment piece">
+          <td class="item">Head Pan</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="measuring tape hand tool tools &amp; equipment piece">
+          <td class="item">Measuring Tape</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="spirit level hand tool tools &amp; equipment piece">
+          <td class="item">Spirit Level</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c10">
+  <div class="cat-head">
+    <h2>Safety &amp; Site Supplies</h2>
+    <p>What keeps the site legal and the workers whole</p>
+    <span class="cat-count">10 items</span>
+  </div>
+  <div class="type">
+    <h3>Personal Protection</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="safety helmet personal protection safety &amp; site supplies piece">
+          <td class="item">Safety Helmet</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="safety belt personal protection safety &amp; site supplies piece">
+          <td class="item">Safety Belt</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="hand gloves personal protection safety &amp; site supplies pair">
+          <td class="item">Hand Gloves</td>
+          <td><code class="uom">Pair</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="safety shoe personal protection safety &amp; site supplies pair">
+          <td class="item">Safety Shoe</td>
+          <td><code class="uom">Pair</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="safety goggles personal protection safety &amp; site supplies piece">
+          <td class="item">Safety Goggles</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Site Protection</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="safety net site protection safety &amp; site supplies sft">
+          <td class="item">Safety Net</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="barricade tape site protection safety &amp; site supplies roll">
+          <td class="item">Barricade Tape</td>
+          <td><code class="uom">Roll</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="warning signage site protection safety &amp; site supplies piece">
+          <td class="item">Warning Signage</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Site Consumables</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="polythene sheet site consumables safety &amp; site supplies sft roll">
+          <td class="item">Polythene Sheet</td>
+          <td><code class="uom">SFT</code></td>
+          <td class="alts"><span class="conv"><code>1 Roll</code> = <code>1000 SFT</code> <span class="tag warn">adjustable</span></span></td>
+        </tr>
+        <tr data-find="jute bag site consumables safety &amp; site supplies piece">
+          <td class="item">Jute Bag</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section class="cat" id="c11">
+  <div class="cat-head">
+    <h2>Fire Fighting</h2>
+    <p>Fitted late, but ordered early</p>
+    <span class="cat-count">6 items</span>
+  </div>
+  <div class="type">
+    <h3>Extinguisher</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="abc fire extinguisher extinguisher fire fighting piece">
+          <td class="item">ABC Fire Extinguisher</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="co2 fire extinguisher extinguisher fire fighting piece">
+          <td class="item">CO2 Fire Extinguisher</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="type">
+    <h3>Fire System</h3>
+    <table>
+      <thead><tr><th scope="col">Item</th><th scope="col">Base unit</th><th scope="col">Also entered as</th></tr></thead>
+      <tbody>
+        <tr data-find="hose reel fire system fire fighting piece">
+          <td class="item">Hose Reel</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="sprinkler head fire system fire fighting piece">
+          <td class="item">Sprinkler Head</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="smoke detector fire system fire fighting piece">
+          <td class="item">Smoke Detector</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+        <tr data-find="fire alarm panel fire system fire fighting piece">
+          <td class="item">Fire Alarm Panel</td>
+          <td><code class="uom">Piece</code></td>
+          <td class="alts"><span class="none">-</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</main>
+<p class="empty" id="empty" hidden>Nothing matches that. Clear the box to see the whole catalogue again.</p>
+<footer><p>Soft Engine Ltd. &nbsp;&middot;&nbsp; BizHub&#8209;360 Project Inventory &nbsp;&middot;&nbsp; This sheet is generated from the software&rsquo;s own catalogue, so it always matches what the Auto Item screen offers.</p></footer>
+
+<script>
+(function () {
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var rows = [].slice.call(document.querySelectorAll('tr[data-find]'));
+  var types = [].slice.call(document.querySelectorAll('.type'));
+  var cats = [].slice.call(document.querySelectorAll('.cat'));
+  var total = rows.length;
+
+  document.getElementById('printBtn').addEventListener('click', function () {
+    window.print();
+  });
+
+  function say(shown) {
+    count.textContent = shown === total
+      ? total + ' items'
+      : shown + ' of ' + total + ' items';
+  }
+
+  function filter() {
+    var term = q.value.trim().toLowerCase();
+    var shown = 0;
+
+    rows.forEach(function (row) {
+      var hit = !term || row.getAttribute('data-find').indexOf(term) > -1;
+      row.hidden = !hit;
+      if (hit) { shown++; }
+    });
+
+    // A type or a category with nothing left in it is noise, so it goes too.
+    types.forEach(function (t) {
+      t.hidden = !t.querySelector('tr[data-find]:not([hidden])');
+    });
+    cats.forEach(function (c) {
+      c.hidden = !c.querySelector('.type:not([hidden])');
+    });
+
+    empty.hidden = shown > 0;
+    say(shown);
+  }
+
+  q.addEventListener('input', filter);
+  say(total);
+})();
+</script>
+</body>
+</html>
